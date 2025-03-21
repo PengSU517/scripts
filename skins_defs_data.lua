@@ -2,7 +2,9 @@
 
 TheInventory:ClearSkinsDataset()
 
+TheInventory:AddRestrictedBuildFromLua( "abigail_ancient", "abigail_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_creepy", "abigail_creepy", false )
+TheInventory:AddRestrictedBuildFromLua( "abigail_ancient", "abigail_flower_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_creepy", "abigail_flower_creepy", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_formal", "abigail_flower_formal", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_funeral", "abigail_flower_funeral", false )
@@ -12,6 +14,7 @@ TheInventory:AddRestrictedBuildFromLua( "abigail_ice", "abigail_flower_ice", fal
 TheInventory:AddRestrictedBuildFromLua( "abigail_lunar", "abigail_flower_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_lureplant", "abigail_flower_lureplant", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_magma", "abigail_flower_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "abigail_masquerade", "abigail_flower_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_nature", "abigail_flower_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_rose", "abigail_flower_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_shadow", "abigail_flower_shadow", false )
@@ -26,6 +29,7 @@ TheInventory:AddRestrictedBuildFromLua( "abigail_ice", "abigail_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_lunar", "abigail_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_lureplant", "abigail_lureplant", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_magma", "abigail_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "abigail_masquerade", "abigail_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_nature", "abigail_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_rose", "abigail_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_shadow", "abigail_shadow", false )
@@ -33,11 +37,17 @@ TheInventory:AddRestrictedBuildFromLua( "abigail_survivor", "abigail_survivor", 
 TheInventory:AddRestrictedBuildFromLua( "abigail_victorian", "abigail_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "abigail_yule", "abigail_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "alterguardianhat_lastprism", "alterguardianhat_lastprism", false )
+TheInventory:AddRestrictedBuildFromLua( "amulet_blue_relic", "amulet_blue_relic", false )
+TheInventory:AddRestrictedBuildFromLua( "amulet_green_relic", "amulet_green_relic", false )
+TheInventory:AddRestrictedBuildFromLua( "amulet_orange_relic", "amulet_orange_relic", false )
+TheInventory:AddRestrictedBuildFromLua( "amulet_purple_relic", "amulet_purple_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "amulet_red_heart", "amulet_red_heart", false )
 TheInventory:AddRestrictedBuildFromLua( "amulet_red_occulteye", "amulet_red_occulteye", false )
+TheInventory:AddRestrictedBuildFromLua( "amulet_red_relic", "amulet_red_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "amulet_red_rose", "amulet_red_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "amulet_yellow_an", "amulet_yellow_an", false )
 TheInventory:AddRestrictedBuildFromLua( "amulet_yellow_ornate", "amulet_yellow_ornate", false )
+TheInventory:AddRestrictedBuildFromLua( "amulet_yellow_relic", "amulet_yellow_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "anchor_nautical", "anchor_nautical", false )
 TheInventory:AddRestrictedBuildFromLua( "anchor_nautical", "anchor_nautical_item", false )
 TheInventory:AddRestrictedBuildFromLua( "armor_bramble_ancient", "armor_bramble_ancient", false )
@@ -59,7 +69,10 @@ TheInventory:AddRestrictedBuildFromLua( "armor_ruins_tusk", "armor_ruins_tusk", 
 TheInventory:AddRestrictedBuildFromLua( "armor_sanity_curve", "armor_sanity_curve", false )
 TheInventory:AddRestrictedBuildFromLua( "armor_sanity_sharp", "armor_sanity_sharp", false )
 TheInventory:AddRestrictedBuildFromLua( "armor_sanity_wizard", "armor_sanity_wizard", false )
+TheInventory:AddRestrictedBuildFromLua( "armor_skeleton_relic", "armor_skeleton_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "armor_skeleton_shadowscalemail", "armor_skeleton_shadowscalemail", false )
+TheInventory:AddRestrictedBuildFromLua( "armor_trunkvest_summer_quilted", "armor_trunkvest_summer_quilted", false )
+TheInventory:AddRestrictedBuildFromLua( "armor_trunkvest_winter_quilted", "armor_trunkvest_winter_quilted", false )
 TheInventory:AddRestrictedBuildFromLua( "armor_wood_fangedcollar", "armor_wood_fangedcollar", false )
 TheInventory:AddRestrictedBuildFromLua( "armor_wood_haramaki", "armor_wood_haramaki", false )
 TheInventory:AddRestrictedBuildFromLua( "armor_wood_lamellar", "armor_wood_lamellar", false )
@@ -84,13 +97,17 @@ TheInventory:AddRestrictedBuildFromLua( "backpack_camping_orange_carrot", "backp
 TheInventory:AddRestrictedBuildFromLua( "backpack_camping_red_koalefant", "backpack_camping_red_koalefant", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_carrat", "backpack_carrat", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_catcoon", "backpack_catcoon", false )
+TheInventory:AddRestrictedBuildFromLua( "backpack_catcoon", "backpack_catcoonp", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_chester", "backpack_chester", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_crab", "backpack_crab", false )
+TheInventory:AddRestrictedBuildFromLua( "backpack_crab", "backpack_crab_resurrected", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_deerclops", "backpack_deerclops", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_dragonfly_fire", "backpack_dragonfly_fire", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_glommer", "backpack_glommer", false )
+TheInventory:AddRestrictedBuildFromLua( "backpack_heart", "backpack_heart", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_hound", "backpack_hound", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_koalefant", "backpack_koalefant", false )
+TheInventory:AddRestrictedBuildFromLua( "backpack_labrat", "backpack_labrat", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_mandrake", "backpack_mandrake", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_mushy", "backpack_mushy", false )
 TheInventory:AddRestrictedBuildFromLua( "backpack_poop", "backpack_poop", false )
@@ -100,12 +117,14 @@ TheInventory:AddRestrictedBuildFromLua( "backpack_spider", "backpack_spider", fa
 TheInventory:AddRestrictedBuildFromLua( "backpack_splumonkey", "backpack_splumonkey", false )
 TheInventory:AddRestrictedBuildFromLua( "batbat_fantasy", "batbat_fantasy", false )
 TheInventory:AddRestrictedBuildFromLua( "batbat_scythe", "batbat_scythe", false )
+TheInventory:AddRestrictedBuildFromLua( "beargerfursack_rose", "beargerfursack_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "beargervest_rose", "beargervest_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "beargervest_yule", "beargervest_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_catcoon", "bedroll_furry_catcoon", false )
 TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_potato", "bedroll_furry_potato", false )
 TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_quilt_blue_frost", "bedroll_furry_quilt_blue_frost", false )
 TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_quilt_green_hunters", "bedroll_furry_quilt_green_hunters", false )
+TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_quilt_grey", "bedroll_furry_quilt_grey", false )
 TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_quilt_orange_honey", "bedroll_furry_quilt_orange_honey", false )
 TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_quilt_red_redbird", "bedroll_furry_quilt_red_redbird", false )
 TheInventory:AddRestrictedBuildFromLua( "bedroll_furry_quilt_white_ivory", "bedroll_furry_quilt_white_ivory", false )
@@ -251,6 +270,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_overalls_navy_ocean", "body_overal
 TheInventory:AddRestrictedBuildFromLua( "body_overalls_tan_grass", "body_overalls_tan_grass", false )
 TheInventory:AddRestrictedBuildFromLua( "body_pj_blue_agean", "body_pj_blue_agean", false )
 TheInventory:AddRestrictedBuildFromLua( "body_pj_green_hunters", "body_pj_green_hunters", false )
+TheInventory:AddRestrictedBuildFromLua( "body_pj_grey", "body_pj_grey", false )
 TheInventory:AddRestrictedBuildFromLua( "body_pj_orange_honey", "body_pj_orange_honey", false )
 TheInventory:AddRestrictedBuildFromLua( "body_pj_purple_mauve", "body_pj_purple_mauve", false )
 TheInventory:AddRestrictedBuildFromLua( "body_pj_red_redbird", "body_pj_red_redbird", false )
@@ -263,6 +283,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_polo_pink_hibiscus", "body_polo_pi
 TheInventory:AddRestrictedBuildFromLua( "body_polo_red_higgsbury", "body_polo_red_higgsbury", false )
 TheInventory:AddRestrictedBuildFromLua( "body_polo_white_marble", "body_polo_white_marble", false )
 TheInventory:AddRestrictedBuildFromLua( "body_polo_yellow_goldenrod", "body_polo_yellow_goldenrod", false )
+TheInventory:AddRestrictedBuildFromLua( "body_redjacket", "body_redjacket", false )
 TheInventory:AddRestrictedBuildFromLua( "body_silk_eveningrobe_blue_frost", "body_silk_eveningrobe_blue_frost", false )
 TheInventory:AddRestrictedBuildFromLua( "body_silk_eveningrobe_pink_ewecus", "body_silk_eveningrobe_pink_ewecus", false )
 TheInventory:AddRestrictedBuildFromLua( "body_silk_eveningrobe_red_rump", "body_silk_eveningrobe_red_rump", false )
@@ -321,6 +342,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_ugly_treeguard", "body_ugly_treegu
 TheInventory:AddRestrictedBuildFromLua( "body_ugly_winterhat", "body_ugly_winterhat", false )
 TheInventory:AddRestrictedBuildFromLua( "body_ugly_winterhat_black_davys", "body_ugly_winterhat_black_davys", false )
 TheInventory:AddRestrictedBuildFromLua( "body_ugly_winterhat_pink_hibiscus", "body_ugly_winterhat_pink_hibiscus", false )
+TheInventory:AddRestrictedBuildFromLua( "body_walter_ancient", "body_walter_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "body_walter_bee", "body_walter_bee", false )
 TheInventory:AddRestrictedBuildFromLua( "body_walter_bee", "body_walter_beep", false )
 TheInventory:AddRestrictedBuildFromLua( "body_walter_detective", "body_walter_detective", false )
@@ -359,6 +381,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_warly_pirate", "body_warly_pirate"
 TheInventory:AddRestrictedBuildFromLua( "body_warly_rose", "body_warly_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "body_warly_shadow", "body_warly_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "body_warly_victorian", "body_warly_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "body_warly_yule", "body_warly_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wathgrithr_ancient", "body_wathgrithr_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wathgrithr_cook", "body_wathgrithr_cook", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wathgrithr_deerclops", "body_wathgrithr_deerclops", false )
@@ -415,6 +438,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_webber_gladiator", "body_webber_gl
 TheInventory:AddRestrictedBuildFromLua( "body_webber_ice", "body_webber_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "body_webber_lunar", "body_webber_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "body_webber_magma", "body_webber_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "body_webber_masquerade", "body_webber_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "body_webber_nature", "body_webber_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "body_webber_pirate", "body_webber_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "body_webber_punk", "body_webber_punk", false )
@@ -427,6 +451,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_webber_survivor", "body_webber_sur
 TheInventory:AddRestrictedBuildFromLua( "body_webber_victorian", "body_webber_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "body_webber_wrestler", "body_webber_wrestler", false )
 TheInventory:AddRestrictedBuildFromLua( "body_webber_yule", "body_webber_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "body_wendy_ancient", "body_wendy_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_cook", "body_wendy_cook", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_creepy", "body_wendy_creepy", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_formal", "body_wendy_formal", false )
@@ -438,6 +463,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_wendy_lunar", "body_wendy_lunar", 
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_lureplant", "body_wendy_lureplant", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_lureplant", "body_wendy_lureplantp", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_magma", "body_wendy_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "body_wendy_masquerade", "body_wendy_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_nature", "body_wendy_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_rose", "body_wendy_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wendy_rose", "body_wendy_rosep", false )
@@ -479,6 +505,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_lightninggoat", "body
 TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_lightninggoat", "body_wickerbottom_lightninggoatp", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_lunar", "body_wickerbottom_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_magma", "body_wickerbottom_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_masquerade", "body_wickerbottom_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_nature", "body_wickerbottom_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_ornate", "body_wickerbottom_ornate", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wickerbottom_rose", "body_wickerbottom_rose", false )
@@ -547,6 +574,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_winona_grassgecko", "body_winona_g
 TheInventory:AddRestrictedBuildFromLua( "body_winona_ice", "body_winona_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "body_winona_lunar", "body_winona_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "body_winona_magma", "body_winona_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "body_winona_masquerade", "body_winona_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "body_winona_nature", "body_winona_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "body_winona_pirate", "body_winona_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "body_winona_rose", "body_winona_rose", false )
@@ -580,6 +608,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_wolfgang_walrus", "body_wolfgang_w
 TheInventory:AddRestrictedBuildFromLua( "body_wolfgang_walrus", "body_wolfgang_walrusp", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wolfgang_wolfman", "body_wolfgang_wolfman", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wolfgang_wrestler", "body_wolfgang_wrestler", false )
+TheInventory:AddRestrictedBuildFromLua( "body_wolfgang_yule", "body_wolfgang_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "body_woodie_ancient", "body_woodie_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "body_woodie_cook", "body_woodie_cook", false )
 TheInventory:AddRestrictedBuildFromLua( "body_woodie_formal", "body_woodie_formal", false )
@@ -616,6 +645,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_wormwood_saladmander", "body_wormw
 TheInventory:AddRestrictedBuildFromLua( "body_wormwood_shadow", "body_wormwood_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wormwood_victorian", "body_wormwood_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wormwood_yule", "body_wormwood_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "body_wortox_ancient", "body_wortox_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wortox_dragon", "body_wortox_dragon", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wortox_formal", "body_wortox_formal", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wortox_ice", "body_wortox_ice", false )
@@ -630,6 +660,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_wortox_rose", "body_wortox_rose", 
 TheInventory:AddRestrictedBuildFromLua( "body_wortox_shadow", "body_wortox_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wortox_survivor", "body_wortox_survivor", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wortox_victorian", "body_wortox_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "body_wortox_yule", "body_wortox_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wurt_ancient", "body_wurt_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wurt_cave", "body_wurt_cave", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wurt_formal", "body_wurt_formal", false )
@@ -651,6 +682,7 @@ TheInventory:AddRestrictedBuildFromLua( "body_wx78_gladiator", "body_wx78_gladia
 TheInventory:AddRestrictedBuildFromLua( "body_wx78_ice", "body_wx78_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wx78_lunar", "body_wx78_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wx78_magma", "body_wx78_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "body_wx78_masquerade", "body_wx78_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wx78_nature", "body_wx78_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wx78_retro", "body_wx78_retro", false )
 TheInventory:AddRestrictedBuildFromLua( "body_wx78_rhinorook", "body_wx78_rhinorook", false )
@@ -698,6 +730,7 @@ TheInventory:AddRestrictedBuildFromLua( "cane_harlequin", "cane_harlequin", fals
 TheInventory:AddRestrictedBuildFromLua( "cane_rose", "cane_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "cane_sharp", "cane_sharp", false )
 TheInventory:AddRestrictedBuildFromLua( "cane_victorian", "cane_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "catcoonhat_clown", "catcoonhat_clown", false )
 TheInventory:AddRestrictedBuildFromLua( "catcoonhat_trapper_rooster", "catcoonhat_trapper_rooster", false )
 TheInventory:AddRestrictedBuildFromLua( "catcoonhat_trapperup_rooster", "catcoonhat_trapperup_rooster", false )
 TheInventory:AddRestrictedBuildFromLua( "cave_entrance_open_fantasy", "cave_entrance_fantasy", false )
@@ -792,6 +825,14 @@ TheInventory:AddRestrictedBuildFromLua( "dragonling_winter", "dragonling_winter"
 TheInventory:AddRestrictedBuildFromLua( "dragonling_winter", "dragonling_winter_builder", false )
 TheInventory:AddRestrictedBuildFromLua( "dragonling_wyvern", "dragonling_wyvern", false )
 TheInventory:AddRestrictedBuildFromLua( "dragonling_wyvern", "dragonling_wyvern_builder", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_fantasy", "dug_gravestone_fantasy", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_fantasy2", "dug_gravestone_fantasy2", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_fantasy3", "dug_gravestone_fantasy3", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_fantasy4", "dug_gravestone_fantasy4", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_gothic", "dug_gravestone_gothic", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_gothic2", "dug_gravestone_gothic2", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_gothic3", "dug_gravestone_gothic3", false )
+TheInventory:AddRestrictedBuildFromLua( "gravestone_gothic4", "dug_gravestone_gothic4", false )
 TheInventory:AddRestrictedBuildFromLua( "earmuffshat_beeguard", "earmuffshat_beeguard", false )
 TheInventory:AddRestrictedBuildFromLua( "earmuffshat_deerclops", "earmuffshat_deerclops", false )
 TheInventory:AddRestrictedBuildFromLua( "emoji_abigail", "emoji_abigail", false )
@@ -966,16 +1007,19 @@ TheInventory:AddRestrictedBuildFromLua( "feet_webber_gladiator", "feet_webber_gl
 TheInventory:AddRestrictedBuildFromLua( "feet_webber_ice", "feet_webber_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_webber_lunar", "feet_webber_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_webber_magma", "feet_webber_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "feet_webber_masquerade", "feet_webber_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_webber_nature", "feet_webber_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_webber_pirate", "feet_webber_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_webber_punk", "feet_webber_punk", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_webber_victorian", "feet_webber_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "feet_wendy_ancient", "feet_wendy_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_creepy", "feet_wendy_creepy", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_gladiator", "feet_wendy_gladiator", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_handmedown", "feet_wendy_handmedown", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_ice", "feet_wendy_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_lunar", "feet_wendy_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_magma", "feet_wendy_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "feet_wendy_masquerade", "feet_wendy_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_nature", "feet_wendy_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_victorian", "feet_wendy_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wendy_yule", "feet_wendy_yule", false )
@@ -989,6 +1033,7 @@ TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_gladiator", "feet_wic
 TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_ice1", "feet_wickerbottom_ice1", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_lunar", "feet_wickerbottom_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_magma", "feet_wickerbottom_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_masquerade", "feet_wickerbottom_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_nature", "feet_wickerbottom_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_ornate", "feet_wickerbottom_ornate", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wickerbottom_victorian", "feet_wickerbottom_victorian", false )
@@ -1018,6 +1063,7 @@ TheInventory:AddRestrictedBuildFromLua( "feet_wolfgang_gladiator", "feet_wolfgan
 TheInventory:AddRestrictedBuildFromLua( "feet_wolfgang_ice", "feet_wolfgang_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wolfgang_nature", "feet_wolfgang_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wolfgang_pirate", "feet_wolfgang_pirate", false )
+TheInventory:AddRestrictedBuildFromLua( "feet_wolfgang_yule", "feet_wolfgang_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_woodie_gladiator", "feet_woodie_gladiator", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_woodie_hippie", "feet_woodie_hippie", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_woodie_hockey", "feet_woodie_hockey", false )
@@ -1031,6 +1077,7 @@ TheInventory:AddRestrictedBuildFromLua( "feet_wx78_gladiator", "feet_wx78_gladia
 TheInventory:AddRestrictedBuildFromLua( "feet_wx78_ice", "feet_wx78_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wx78_lunar", "feet_wx78_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wx78_magma", "feet_wx78_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "feet_wx78_masquerade", "feet_wx78_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wx78_nature", "feet_wx78_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wx78_wip", "feet_wx78_wip", false )
 TheInventory:AddRestrictedBuildFromLua( "feet_wx78_wrestler", "feet_wx78_wrestler", false )
@@ -1076,6 +1123,7 @@ TheInventory:AddRestrictedBuildFromLua( "fence_gate_victorianblack", "fencegate_
 TheInventory:AddRestrictedBuildFromLua( "fence_gate_victorianbrass", "fencegate_victorianbrass_item", false )
 TheInventory:AddRestrictedBuildFromLua( "fence_gate_victorianbronze", "fencegate_victorianbronze_item", false )
 TheInventory:AddRestrictedBuildFromLua( "firepit_fanged", "firepit_fanged", false )
+TheInventory:AddRestrictedBuildFromLua( "firepit_fanged", "firepit_fangedp", false )
 TheInventory:AddRestrictedBuildFromLua( "firepit_firebird", "firepit_firebird", false )
 TheInventory:AddRestrictedBuildFromLua( "firepit_hole", "firepit_hole", false )
 TheInventory:AddRestrictedBuildFromLua( "firepit_hole", "firepit_hole_alt", false )
@@ -1166,6 +1214,7 @@ TheInventory:AddRestrictedBuildFromLua( "hand_shortgloves_navy_midnight", "hand_
 TheInventory:AddRestrictedBuildFromLua( "hand_shortgloves_purple_violet", "hand_shortgloves_purple_violet", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_shortgloves_red_higgsbury", "hand_shortgloves_red_higgsbury", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_shortgloves_white_smoke", "hand_shortgloves_white_smoke", false )
+TheInventory:AddRestrictedBuildFromLua( "hand_walter_ancient", "hand_walter_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_walter_ice", "hand_walter_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_walter_nature", "hand_walter_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_wanda_formal", "hand_wanda_formal", false )
@@ -1208,6 +1257,7 @@ TheInventory:AddRestrictedBuildFromLua( "hand_webber_pirate", "hand_webber_pirat
 TheInventory:AddRestrictedBuildFromLua( "hand_webber_punk", "hand_webber_punk", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_webber_victorian", "hand_webber_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_webber_wrestler", "hand_webber_wrestler", false )
+TheInventory:AddRestrictedBuildFromLua( "hand_wendy_ancient", "hand_wendy_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_wendy_gladiator", "hand_wendy_gladiator", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_wendy_handmedown", "hand_wendy_handmedown", false )
 TheInventory:AddRestrictedBuildFromLua( "hand_wendy_ice", "hand_wendy_ice", false )
@@ -1334,6 +1384,7 @@ TheInventory:AddRestrictedBuildFromLua( "heatrock_fantasy", "heatrock_fantasy", 
 TheInventory:AddRestrictedBuildFromLua( "heatrock_fire", "heatrock_fire", false )
 TheInventory:AddRestrictedBuildFromLua( "hivehat_an", "hivehat_an", false )
 TheInventory:AddRestrictedBuildFromLua( "hivehat_cawnival", "hivehat_cawnival", false )
+TheInventory:AddRestrictedBuildFromLua( "hivehat_joker", "hivehat_joker", false )
 TheInventory:AddRestrictedBuildFromLua( "hutch_fantasy", "hutch_fantasy", false )
 TheInventory:AddRestrictedBuildFromLua( "hutch_fantasy", "hutch_fishbowl_fantasy", false )
 TheInventory:AddRestrictedBuildFromLua( "icebox_coffin", "icebox_coffin", false )
@@ -1399,6 +1450,7 @@ TheInventory:AddRestrictedBuildFromLua( "legs_pinstripe_pants_purple_violet", "l
 TheInventory:AddRestrictedBuildFromLua( "legs_pinstripe_pants_red_garnet", "legs_pinstripe_pants_red_garnet", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_pj_blue_agean", "legs_pj_blue_agean", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_pj_green_hunters", "legs_pj_green_hunters", false )
+TheInventory:AddRestrictedBuildFromLua( "legs_pj_grey", "legs_pj_grey", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_pj_orange_honey", "legs_pj_orange_honey", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_pj_purple_mauve", "legs_pj_purple_mauve", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_pj_red_redbird", "legs_pj_red_redbird", false )
@@ -1438,6 +1490,7 @@ TheInventory:AddRestrictedBuildFromLua( "legs_tweed_knickerbocker_brown_chocolat
 TheInventory:AddRestrictedBuildFromLua( "legs_tweed_knickerbocker_green_hunters", "legs_tweed_knickerbocker_green_hunters", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_tweed_knickerbocker_grey_steel", "legs_tweed_knickerbocker_grey_steel", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_tweed_knickerbocker_tan_grass", "legs_tweed_knickerbocker_tan_grass", false )
+TheInventory:AddRestrictedBuildFromLua( "legs_walter_ancient", "legs_walter_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_walter_detective", "legs_walter_detective", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_walter_formal", "legs_walter_formal", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_walter_ice", "legs_walter_ice", false )
@@ -1463,6 +1516,7 @@ TheInventory:AddRestrictedBuildFromLua( "legs_warly_pirate", "legs_warly_pirate"
 TheInventory:AddRestrictedBuildFromLua( "legs_warly_rose", "legs_warly_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_warly_shadow", "legs_warly_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_warly_victorian", "legs_warly_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "legs_warly_yule", "legs_warly_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wathgrithr_gladiator", "legs_wathgrithr_gladiator", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wathgrithr_lunar", "legs_wathgrithr_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wathgrithr_magma", "legs_wathgrithr_magma", false )
@@ -1515,6 +1569,7 @@ TheInventory:AddRestrictedBuildFromLua( "legs_wolfgang_magma", "legs_wolfgang_ma
 TheInventory:AddRestrictedBuildFromLua( "legs_wolfgang_strongman", "legs_wolfgang_strongman", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wolfgang_victorian", "legs_wolfgang_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wolfgang_wolfman", "legs_wolfgang_wolfman", false )
+TheInventory:AddRestrictedBuildFromLua( "legs_wolfgang_yule", "legs_wolfgang_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_woodie_gladiator", "legs_woodie_gladiator", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_woodie_hippie", "legs_woodie_hippie", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_woodie_hockey", "legs_woodie_hockey", false )
@@ -1536,6 +1591,7 @@ TheInventory:AddRestrictedBuildFromLua( "legs_wormwood_rose", "legs_wormwood_ros
 TheInventory:AddRestrictedBuildFromLua( "legs_wormwood_shadow", "legs_wormwood_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wormwood_victorian", "legs_wormwood_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wormwood_yule", "legs_wormwood_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "legs_wortox_ancient", "legs_wortox_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wortox_dragon", "legs_wortox_dragon", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wortox_formal", "legs_wortox_formal", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wortox_ice", "legs_wortox_ice", false )
@@ -1548,6 +1604,7 @@ TheInventory:AddRestrictedBuildFromLua( "legs_wortox_rose", "legs_wortox_rose", 
 TheInventory:AddRestrictedBuildFromLua( "legs_wortox_shadow", "legs_wortox_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wortox_survivor", "legs_wortox_survivor", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wortox_victorian", "legs_wortox_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "legs_wortox_yule", "legs_wortox_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wurt_ancient", "legs_wurt_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wurt_cave", "legs_wurt_cave", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wurt_formal", "legs_wurt_formal", false )
@@ -1561,6 +1618,7 @@ TheInventory:AddRestrictedBuildFromLua( "legs_wurt_yule", "legs_wurt_yule", fals
 TheInventory:AddRestrictedBuildFromLua( "legs_wx78_gladiator", "legs_wx78_gladiator", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wx78_ice", "legs_wx78_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wx78_lunar", "legs_wx78_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "legs_wx78_masquerade", "legs_wx78_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wx78_retro", "legs_wx78_retro", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wx78_victorian", "legs_wx78_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "legs_wx78_yule", "legs_wx78_yule", false )
@@ -1614,6 +1672,13 @@ TheInventory:AddRestrictedBuildFromLua( "loading_merm", "loading_merm", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_newhorizons", "loading_newhorizons", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_pig_elite", "loading_pig_elite", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_pigking", "loading_pigking", true )
+TheInventory:AddRestrictedBuildFromLua( "loading_piglio1", "loading_piglio1", true )
+TheInventory:AddRestrictedBuildFromLua( "loading_piglio2", "loading_piglio2", true )
+TheInventory:AddRestrictedBuildFromLua( "loading_piglio3", "loading_piglio3", true )
+TheInventory:AddRestrictedBuildFromLua( "loading_piglio4", "loading_piglio4", true )
+TheInventory:AddRestrictedBuildFromLua( "loading_piglio5", "loading_piglio5", true )
+TheInventory:AddRestrictedBuildFromLua( "loading_piglio6", "loading_piglio6", true )
+TheInventory:AddRestrictedBuildFromLua( "loading_piglio7", "loading_piglio7", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_pirates1", "loading_pirates1", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_rainingfrog", "loading_rainingfrog", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_roadmap", "loading_roadmap", true )
@@ -1684,6 +1749,10 @@ TheInventory:AddRestrictedBuildFromLua( "loading_wurt_trailer2", "loading_wurt_t
 TheInventory:AddRestrictedBuildFromLua( "loading_wx1", "loading_wx1", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_wx_magma", "loading_wx_magma", true )
 TheInventory:AddRestrictedBuildFromLua( "loading_wx_trailer", "loading_wx_trailer", true )
+TheInventory:AddRestrictedBuildFromLua( "lucy_broadaxe", "lucy_broadaxe", false )
+TheInventory:AddRestrictedBuildFromLua( "lucy_chained", "lucy_chained", false )
+TheInventory:AddRestrictedBuildFromLua( "lucy_picnic", "lucy_picnic", false )
+TheInventory:AddRestrictedBuildFromLua( "lucy_punk", "lucy_punk", false )
 TheInventory:AddRestrictedBuildFromLua( "lunarmoth_bright", "lunarmoth_bright", false )
 TheInventory:AddRestrictedBuildFromLua( "lunarmoth_bright", "lunarmoth_bright_builder", false )
 TheInventory:AddRestrictedBuildFromLua( "magician_chest_shadow", "magician_chest_shadow", false )
@@ -1710,6 +1779,7 @@ TheInventory:AddRestrictedBuildFromLua( "meatrack_ancient", "meatrack_ancient", 
 TheInventory:AddRestrictedBuildFromLua( "meatrack_butcher", "meatrack_butcher", false )
 TheInventory:AddRestrictedBuildFromLua( "meatrack_circus", "meatrack_circus", false )
 TheInventory:AddRestrictedBuildFromLua( "meatrack_victorian", "meatrack_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "mermhat_clown", "mermhat_clown", false )
 TheInventory:AddRestrictedBuildFromLua( "mermhouse_crafted_fantasy", "mermhouse_crafted_fantasy", false )
 TheInventory:AddRestrictedBuildFromLua( "mighty_gym_ancient", "mighty_gym_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "minerhat_bonnet", "minerhat_bonnet", false )
@@ -1739,6 +1809,7 @@ TheInventory:AddRestrictedBuildFromLua( "monkeyhatsmall_belt", "monkeyhatsmall_b
 TheInventory:AddRestrictedBuildFromLua( "moondial_an", "moondial_an", false )
 TheInventory:AddRestrictedBuildFromLua( "starstaff_crystal", "moonstaff_crystal", false )
 TheInventory:AddRestrictedBuildFromLua( "starstaff_portal", "moonstaff_portal", false )
+TheInventory:AddRestrictedBuildFromLua( "starstaff_relic", "moonstaff_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "multitool_axe_pickaxe_pickaxeaxe", "multitool_axe_pickaxe_pickaxeaxe", false )
 TheInventory:AddRestrictedBuildFromLua( "mushroom_farm_handmade", "mushroom_farm_handmade", false )
 TheInventory:AddRestrictedBuildFromLua( "mushroom_light2_an", "mushroom_light2_an", false )
@@ -1750,6 +1821,7 @@ TheInventory:AddRestrictedBuildFromLua( "mushroom_light_an", "mushroom_light_an"
 TheInventory:AddRestrictedBuildFromLua( "mushroom_light_festive", "mushroom_light_festive", false )
 TheInventory:AddRestrictedBuildFromLua( "mushroom_light_hallowed", "mushroom_light_hallowed", false )
 TheInventory:AddRestrictedBuildFromLua( "mushroom_light_tiffany", "mushroom_light_tiffany", false )
+TheInventory:AddRestrictedBuildFromLua( "mysterybox_balatro", "mysterybox_balatro", false )
 TheInventory:AddRestrictedBuildFromLua( "mysterybox_beards", "mysterybox_beards", false )
 TheInventory:AddRestrictedBuildFromLua( "mysterybox_beards2", "mysterybox_beards2", false )
 TheInventory:AddRestrictedBuildFromLua( "mysterybox_beards_silk", "mysterybox_beards_silk", false )
@@ -1767,6 +1839,7 @@ TheInventory:AddRestrictedBuildFromLua( "mysterybox_trickortreat_furniture", "my
 TheInventory:AddRestrictedBuildFromLua( "mysterybox_ugly_3", "mysterybox_ugly_3", false )
 TheInventory:AddRestrictedBuildFromLua( "mysterybox_victorian_4", "mysterybox_victorian_4", false )
 TheInventory:AddRestrictedBuildFromLua( "mysterybox_wormholes", "mysterybox_wormholes", false )
+TheInventory:AddRestrictedBuildFromLua( "nightmare_torch_relic", "nightmare_torch_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "nightsword_cotl", "nightsword_cotl", false )
 TheInventory:AddRestrictedBuildFromLua( "nightsword_curve", "nightsword_curve", false )
 TheInventory:AddRestrictedBuildFromLua( "nightsword_lightsbane", "nightsword_lightsbane", false )
@@ -1793,6 +1866,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_ancient1_items", "pack_ancient1_it
 TheInventory:AddRestrictedBuildFromLua( "pack_ancient2", "pack_ancient2", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_ancient2_combo", "pack_ancient2_combo", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_ancient2_items", "pack_ancient2_items", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_ancient3", "pack_ancient3", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_ancient_wolfgang", "pack_ancient_wolfgang", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_ancient_woodie", "pack_ancient_woodie", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_ancient_wormwood", "pack_ancient_wormwood", false )
@@ -1914,6 +1988,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_ice_wx78", "pack_ice_wx78", false 
 TheInventory:AddRestrictedBuildFromLua( "pack_kitchen_1", "pack_kitchen_1", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_lost_1", "pack_lost_1", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_lostandfound_items", "pack_lostandfound_items", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_lostandfound_items2", "pack_lostandfound_items2", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_lunar_2", "pack_lunar_2", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_lunar_all", "pack_lunar_all", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_lunar_walter", "pack_lunar_walter", false )
@@ -1945,6 +2020,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_magma_woodie", "pack_magma_woodie"
 TheInventory:AddRestrictedBuildFromLua( "pack_magma_wx78", "pack_magma_wx78", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_masquerade_1", "pack_masquerade_1", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_masquerade_2", "pack_masquerade_2", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_masquerade_3", "pack_masquerade_3", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_masquerade_wanda", "pack_masquerade_wanda", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_masquerade_warly", "pack_masquerade_warly", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_masquerade_wathgrithr", "pack_masquerade_wathgrithr", false )
@@ -1991,6 +2067,8 @@ TheInventory:AddRestrictedBuildFromLua( "pack_pirate_wolfgang", "pack_pirate_wol
 TheInventory:AddRestrictedBuildFromLua( "pack_pirate_woodie", "pack_pirate_woodie", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_pirate_wortox", "pack_pirate_wortox", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_pirate_wurt", "pack_pirate_wurt", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_relic", "pack_relic", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_reliclostandfound_combo", "pack_reliclostandfound_combo", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_retro_items", "pack_retro_items", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_rog_gift", "pack_rog_gift", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_rose_all", "pack_rose_all", false )
@@ -2006,6 +2084,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_starter_2020", "pack_starter_2020"
 TheInventory:AddRestrictedBuildFromLua( "pack_starter_2021", "pack_starter_2021", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_starter_2023", "pack_starter_2023", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_starter_2024", "pack_starter_2024", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_starter_2025", "pack_starter_2025", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_sw_gift", "pack_sw_gift", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_valkyrie_items", "pack_valkyrie_items", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_victorian_all", "pack_victorian_all", false )
@@ -2033,6 +2112,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_victorian_wortox", "pack_victorian
 TheInventory:AddRestrictedBuildFromLua( "pack_victorian_wurt", "pack_victorian_wurt", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_victorian_wx78", "pack_victorian_wx78", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wagstaffboat_items", "pack_wagstaffboat_items", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_walter_ancient", "pack_walter_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_walter_deluxe", "pack_walter_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_walter_detective", "pack_walter_detective", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_walter_formal", "pack_walter_formal", false )
@@ -2054,6 +2134,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_warly_lunar", "pack_warly_lunar", 
 TheInventory:AddRestrictedBuildFromLua( "pack_warly_rose", "pack_warly_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_warly_shadow", "pack_warly_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_warly_victorian", "pack_warly_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_warly_yule", "pack_warly_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wathgrithr_ancient", "pack_wathgrithr_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wathgrithr_deluxe", "pack_wathgrithr_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wathgrithr_deluxe2", "pack_wathgrithr_deluxe2", false )
@@ -2079,14 +2160,18 @@ TheInventory:AddRestrictedBuildFromLua( "pack_wearables_item", "pack_wearables_i
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_boy", "pack_webber_boy", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_deluxe", "pack_webber_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_formal", "pack_webber_formal", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_webber_masquerade", "pack_webber_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_pirate", "pack_webber_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_rose", "pack_webber_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_shadow", "pack_webber_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_survivor", "pack_webber_survivor", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_webber_yule", "pack_webber_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wendwaltwort_combo", "pack_wendwaltwort_combo", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wendy_ancient", "pack_wendy_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wendy_deluxe", "pack_wendy_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wendy_formal", "pack_wendy_formal", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wendy_handmedown", "pack_wendy_handmedown", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wendy_masquerade", "pack_wendy_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wendy_rose", "pack_wendy_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wendy_shadow", "pack_wendy_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wendy_survivor", "pack_wendy_survivor", false )
@@ -2100,6 +2185,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_wes_shadow", "pack_wes_shadow", fa
 TheInventory:AddRestrictedBuildFromLua( "pack_wes_survivor", "pack_wes_survivor", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wickerbottom_deluxe", "pack_wickerbottom_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wickerbottom_formal", "pack_wickerbottom_formal", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wickerbottom_masquerade", "pack_wickerbottom_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wickerbottom_ornate", "pack_wickerbottom_ornate", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wickerbottom_rose", "pack_wickerbottom_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wickerbottom_shadow", "pack_wickerbottom_shadow", false )
@@ -2124,6 +2210,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_winona_ancient", "pack_winona_anci
 TheInventory:AddRestrictedBuildFromLua( "pack_winona_deluxe", "pack_winona_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_winona_factory", "pack_winona_factory", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_winona_formal", "pack_winona_formal", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_winona_masquerade", "pack_winona_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_winona_rose", "pack_winona_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_winona_shadow", "pack_winona_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_winona_survivor", "pack_winona_survivor", false )
@@ -2135,6 +2222,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_wolfgang_rose", "pack_wolfgang_ros
 TheInventory:AddRestrictedBuildFromLua( "pack_wolfgang_shadow", "pack_wolfgang_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wolfgang_strongman", "pack_wolfgang_strongman", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wolfgang_survivor", "pack_wolfgang_survivor", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wolfgang_yule", "pack_wolfgang_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_woodie_deluxe", "pack_woodie_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_woodie_formal", "pack_woodie_formal", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_woodie_hockey", "pack_woodie_hockey", false )
@@ -2152,12 +2240,14 @@ TheInventory:AddRestrictedBuildFromLua( "pack_wormwood_formal", "pack_wormwood_f
 TheInventory:AddRestrictedBuildFromLua( "pack_wormwood_mushroom", "pack_wormwood_mushroom", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wormwood_rose", "pack_wormwood_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wormwood_shadow", "pack_wormwood_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wortox_ancient", "pack_wortox_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wortox_deluxe", "pack_wortox_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wortox_formal", "pack_wortox_formal", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wortox_minotaur", "pack_wortox_minotaur", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wortox_original", "pack_wortox_original", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wortox_rose", "pack_wortox_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wortox_shadow", "pack_wortox_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wortox_yule", "pack_wortox_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wrestler_promo1", "pack_wrestler_promo1", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wrestler_promo2", "pack_wrestler_promo2", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wrestler_wathgrithr", "pack_wrestler_wathgrithr", false )
@@ -2175,6 +2265,7 @@ TheInventory:AddRestrictedBuildFromLua( "pack_wurt_rose", "pack_wurt_rose", fals
 TheInventory:AddRestrictedBuildFromLua( "pack_wurt_shadow", "pack_wurt_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wx78_deluxe", "pack_wx78_deluxe", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wx78_formal", "pack_wx78_formal", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_wx78_masquerade", "pack_wx78_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wx78_retro", "pack_wx78_retro", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wx78_rose", "pack_wx78_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_wx78_shadow", "pack_wx78_shadow", false )
@@ -2186,9 +2277,11 @@ TheInventory:AddRestrictedBuildFromLua( "pack_yotc_survivalist", "pack_yotc_surv
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_all", "pack_yule_all", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_all2", "pack_yule_all2", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_all3", "pack_yule_all3", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_yule_all4", "pack_yule_all4", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_bundle", "pack_yule_bundle", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_bundle2", "pack_yule_bundle2", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_bundle3", "pack_yule_bundle3", false )
+TheInventory:AddRestrictedBuildFromLua( "pack_yule_bundle4", "pack_yule_bundle4", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_items", "pack_yule_items", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_wanda", "pack_yule_wanda", false )
 TheInventory:AddRestrictedBuildFromLua( "pack_yule_wathgrithr", "pack_yule_wathgrithr", false )
@@ -2236,6 +2329,7 @@ TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_amuletyellowan", "pla
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_anchornautical", "playerportrait_bg_anchornautical", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_armorruinsan", "playerportrait_bg_armorruinsan", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_arrowsignpostcircus", "playerportrait_bg_arrowsignpostcircus", true )
+TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_beargerfursack_rose", "playerportrait_bg_beargerfursack_rose", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_beargervestrose", "playerportrait_bg_beargervestrose", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_beeboxcrystal", "playerportrait_bg_beeboxcrystal", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_beefalo", "playerportrait_bg_beefalo", true )
@@ -2339,6 +2433,7 @@ TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_telestaffcrystal", "p
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_tentan", "playerportrait_bg_tentan", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_tentcircus", "playerportrait_bg_tentcircus", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_thickforest", "playerportrait_bg_thickforest", true )
+TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_toothtrap_rose", "playerportrait_bg_toothtrap_rose", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_toothtraps", "playerportrait_bg_toothtraps", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_tophatcircus", "playerportrait_bg_tophatcircus", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_torchnautical", "playerportrait_bg_torchnautical", true )
@@ -2362,6 +2457,30 @@ TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_yule4", "playerportra
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_yule5", "playerportrait_bg_yule5", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_yule6", "playerportrait_bg_yule6", true )
 TheInventory:AddRestrictedBuildFromLua( "playerportrait_bg_yule7", "playerportrait_bg_yule7", true )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_porcelain", "portable_blender_porcelain", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_porcelain", "portable_blender_porcelain_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_rustic", "portable_blender_rustic", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_rustic", "portable_blender_rustic_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_silver", "portable_blender_silver", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_silver", "portable_blender_silver_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_survivor", "portable_blender_survivor", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_blender_survivor", "portable_blender_survivor_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_porcelain", "portable_cook_pot_porcelain", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_porcelain", "portable_cook_pot_porcelain_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_rustic", "portable_cook_pot_rustic", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_rustic", "portable_cook_pot_rustic_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_silver", "portable_cook_pot_silver", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_silver", "portable_cook_pot_silver_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_survivor", "portable_cook_pot_survivor", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_cook_pot_survivor", "portable_cook_pot_survivor_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_porcelain", "portable_spicer_porcelain", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_porcelain", "portable_spicer_porcelain_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_rustic", "portable_spicer_rustic", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_rustic", "portable_spicer_rustic_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_silver", "portable_spicer_silver", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_silver", "portable_spicer_silver_item", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_survivor", "portable_spicer_survivor", false )
+TheInventory:AddRestrictedBuildFromLua( "portable_spicer_survivor", "portable_spicer_survivor_item", false )
 TheInventory:AddRestrictedBuildFromLua( "pottedfern_cotl", "pottedfern_cotl", false )
 TheInventory:AddRestrictedBuildFromLua( "pottedfern_cotl2", "pottedfern_cotl2", false )
 TheInventory:AddRestrictedBuildFromLua( "pottedfern_cotl3", "pottedfern_cotl3", false )
@@ -2378,6 +2497,7 @@ TheInventory:AddRestrictedBuildFromLua( "profileflair_arrowsignpost_circus", "pr
 TheInventory:AddRestrictedBuildFromLua( "profileflair_babybeefalo", "profileflair_babybeefalo", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_bat_furled", "profileflair_bat_furled", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_bearger_roar", "profileflair_bearger_roar", true )
+TheInventory:AddRestrictedBuildFromLua( "profileflair_beargerfursack_rose", "profileflair_beargerfursack_rose", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_beargervest_rose", "profileflair_beargervest_rose", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_beebox_crystal", "profileflair_beebox_crystal", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_beefalo", "profileflair_beefalo", true )
@@ -2551,6 +2671,7 @@ TheInventory:AddRestrictedBuildFromLua( "profileflair_theforge_snapper", "profil
 TheInventory:AddRestrictedBuildFromLua( "profileflair_theforge_tails", "profileflair_theforge_tails", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_theforge_tailsguard", "profileflair_theforge_tailsguard", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_theforge_turtillus", "profileflair_theforge_turtillus", true )
+TheInventory:AddRestrictedBuildFromLua( "profileflair_toothtrap_rose", "profileflair_toothtrap_rose", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_tophat_circus", "profileflair_tophat_circus", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_torch_nautical", "profileflair_torch_nautical", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_treasurechest_monster", "profileflair_treasurechest_monster", true )
@@ -2601,6 +2722,18 @@ TheInventory:AddRestrictedBuildFromLua( "profileflair_yule_pumpkinpie", "profile
 TheInventory:AddRestrictedBuildFromLua( "profileflair_yule_puppington", "profileflair_yule_puppington", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_yule_roastturkey", "profileflair_yule_roastturkey", true )
 TheInventory:AddRestrictedBuildFromLua( "profileflair_yule_sugarcookie", "profileflair_yule_sugarcookie", true )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_baddog", "pupington_woby_baddog", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_baddog", "woby_big_baddog", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_baddog_lunar", "pupington_woby_baddog_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_baddog_lunar", "woby_big_baddog_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_baddog_shadow", "pupington_woby_baddog_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_baddog_shadow", "woby_big_baddog_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_ribbon", "pupington_woby_ribbon", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_ribbon", "woby_big_ribbon", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_ribbon_lunar", "pupington_woby_ribbon_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_ribbon_lunar", "woby_big_ribbon_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_ribbon_shadow", "pupington_woby_ribbon_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "pupington_woby_ribbon_shadow", "woby_big_ribbon_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "puppy_chow", "puppy_chow", false )
 TheInventory:AddRestrictedBuildFromLua( "puppy_chow", "puppy_chow_builder", false )
 TheInventory:AddRestrictedBuildFromLua( "puppy_tzu", "puppy_tzu", false )
@@ -2662,6 +2795,7 @@ TheInventory:AddRestrictedBuildFromLua( "researchlab_retro", "researchlab_retro"
 TheInventory:AddRestrictedBuildFromLua( "reskin_tool_bouquet", "reskin_tool_bouquet", false )
 TheInventory:AddRestrictedBuildFromLua( "reskin_tool_brush", "reskin_tool_brush", false )
 TheInventory:AddRestrictedBuildFromLua( "reskin_tool_toilet", "reskin_tool_toilet", false )
+TheInventory:AddRestrictedBuildFromLua( "reskin_tool_wand", "reskin_tool_wand", false )
 TheInventory:AddRestrictedBuildFromLua( "resurrectionstatue_barber", "resurrectionstatue_barber", false )
 TheInventory:AddRestrictedBuildFromLua( "resurrectionstone_fantasy", "resurrectionstone_fantasy", false )
 TheInventory:AddRestrictedBuildFromLua( "resurrectionstone_gothic", "resurrectionstone_gothic", false )
@@ -2703,7 +2837,30 @@ TheInventory:AddRestrictedBuildFromLua( "shovel_invisible", "shovel_invisible", 
 TheInventory:AddRestrictedBuildFromLua( "shovel_northern", "shovel_northern", false )
 TheInventory:AddRestrictedBuildFromLua( "shovel_victorian", "shovel_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "siestahut_cawnival", "siestahut_cawnival", false )
+TheInventory:AddRestrictedBuildFromLua( "sisturn_beachhouse", "sisturn_beachhouse", false )
+TheInventory:AddRestrictedBuildFromLua( "sisturn_nest", "sisturn_nest", false )
+TheInventory:AddRestrictedBuildFromLua( "skeletonhat_relic", "skeletonhat_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "skeletonhat_shadowhelmet", "skeletonhat_shadowhelmet", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_bandaged", "slingshot2_bandaged", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_nature", "slingshot2_nature", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_spiked", "slingshot2_spiked", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_straws", "slingshot2_straws", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_bandaged", "slingshot2ex_bandaged", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_nature", "slingshot2ex_nature", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_spiked", "slingshot2ex_spiked", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_straws", "slingshot2ex_straws", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_bandaged", "slingshot999ex_bandaged", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_nature", "slingshot999ex_nature", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_spiked", "slingshot999ex_spiked", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_straws", "slingshot999ex_straws", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_bandaged", "slingshot_bandaged", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_nature", "slingshot_nature", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_spiked", "slingshot_spiked", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_straws", "slingshot_straws", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_bandaged", "slingshotex_bandaged", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_nature", "slingshotex_nature", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_spiked", "slingshotex_spiked", false )
+TheInventory:AddRestrictedBuildFromLua( "slingshot_straws", "slingshotex_straws", false )
 TheInventory:AddRestrictedBuildFromLua( "spear_bee", "spear_bee", false )
 TheInventory:AddRestrictedBuildFromLua( "spear_forge_gungnir", "spear_forge_gungnir", false )
 TheInventory:AddRestrictedBuildFromLua( "spear_forge_lance", "spear_forge_lance", false )
@@ -2724,6 +2881,10 @@ TheInventory:AddRestrictedBuildFromLua( "spear_wathgrithr_lunar", "spear_wathgri
 TheInventory:AddRestrictedBuildFromLua( "spear_wathgrithr_northern", "spear_wathgrithr_northern", false )
 TheInventory:AddRestrictedBuildFromLua( "spear_wathgrithr_valkyrie", "spear_wathgrithr_valkyrie", false )
 TheInventory:AddRestrictedBuildFromLua( "spear_wathgrithr_wrestle", "spear_wathgrithr_wrestle", false )
+TheInventory:AddRestrictedBuildFromLua( "spicepack_porcelain", "spicepack_porcelain", false )
+TheInventory:AddRestrictedBuildFromLua( "spicepack_rustic", "spicepack_rustic", false )
+TheInventory:AddRestrictedBuildFromLua( "spicepack_silver", "spicepack_silver", false )
+TheInventory:AddRestrictedBuildFromLua( "spicepack_survivor", "spicepack_survivor", false )
 TheInventory:AddRestrictedBuildFromLua( "endtable_carpet", "stagehand_carpet", false )
 TheInventory:AddRestrictedBuildFromLua( "endtable_cawnival", "stagehand_cawnival", false )
 TheInventory:AddRestrictedBuildFromLua( "endtable_cawnival", "stagehand_cawnival_alt", false )
@@ -2731,6 +2892,7 @@ TheInventory:AddRestrictedBuildFromLua( "endtable_dragonfly", "stagehand_dragonf
 TheInventory:AddRestrictedBuildFromLua( "endtable_vintage", "stagehand_vintage", false )
 TheInventory:AddRestrictedBuildFromLua( "starstaff_crystal", "starstaff_crystal", false )
 TheInventory:AddRestrictedBuildFromLua( "starstaff_portal", "starstaff_portal", false )
+TheInventory:AddRestrictedBuildFromLua( "starstaff_relic", "starstaff_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "steeringwheel_nautical", "steeringwheel_nautical", false )
 TheInventory:AddRestrictedBuildFromLua( "steeringwheel_nautical", "steeringwheel_nautical_item", false )
 TheInventory:AddRestrictedBuildFromLua( "steeringwheel_wagstaff", "steeringwheel_wagstaff", false )
@@ -2787,8 +2949,10 @@ TheInventory:AddRestrictedBuildFromLua( "torch_spooky", "torch_spooky", false )
 TheInventory:AddRestrictedBuildFromLua( "torch_spooky", "torch_spookyp", false )
 TheInventory:AddRestrictedBuildFromLua( "tornado_crow", "tornado_crow", false )
 TheInventory:AddRestrictedBuildFromLua( "tornado_stick_crow", "tornado_stick_crow", false )
+TheInventory:AddRestrictedBuildFromLua( "townportal_relic", "townportal_relic", false )
 TheInventory:AddRestrictedBuildFromLua( "trap_basket", "trap_basket", false )
 TheInventory:AddRestrictedBuildFromLua( "trap_metal", "trap_metal", false )
+TheInventory:AddRestrictedBuildFromLua( "trap_teeth_rose", "trap_teeth_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "trap_teeth_tiger", "trap_teeth_tiger", false )
 TheInventory:AddRestrictedBuildFromLua( "treasurechest_ancient", "treasurechest_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "treasurechest_cake", "treasurechest_cake", false )
@@ -2854,6 +3018,8 @@ TheInventory:AddRestrictedBuildFromLua( "boat_grass_pirate", "walkingplank_grass
 TheInventory:AddRestrictedBuildFromLua( "boat_nautical", "walkingplank_nautical", false )
 TheInventory:AddRestrictedBuildFromLua( "boat_pirate_skin", "walkingplank_pirate_skin", false )
 TheInventory:AddRestrictedBuildFromLua( "boat_wagstaff", "walkingplank_wagstaff", false )
+TheInventory:AddRestrictedBuildFromLua( "wall_dreadstone_relic", "wall_dreadstone_relic", false )
+TheInventory:AddRestrictedBuildFromLua( "wall_dreadstone_relic", "wall_dreadstone_relicitem", false )
 TheInventory:AddRestrictedBuildFromLua( "wall_hay_corn", "wall_hay_corn", false )
 TheInventory:AddRestrictedBuildFromLua( "wall_hay_corn", "wall_hay_cornitem", false )
 TheInventory:AddRestrictedBuildFromLua( "wall_moonrock_victorian", "wall_moonrock_victorian", false )
@@ -2878,6 +3044,7 @@ TheInventory:AddRestrictedBuildFromLua( "wall_wood_ornate", "wall_wood_ornate", 
 TheInventory:AddRestrictedBuildFromLua( "wall_wood_ornate", "wall_wood_ornateitem", false )
 TheInventory:AddRestrictedBuildFromLua( "walrushat_blue", "walrushat_blue", false )
 TheInventory:AddRestrictedBuildFromLua( "walrushat_cawnival", "walrushat_cawnival", false )
+TheInventory:AddRestrictedBuildFromLua( "walter_ancient", "walter_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "walter_bee", "walter_bee", false )
 TheInventory:AddRestrictedBuildFromLua( "walter_bee_d", "walter_bee_d", false )
 TheInventory:AddRestrictedBuildFromLua( "walter_bee_d", "walter_bee_p", false )
@@ -2892,6 +3059,7 @@ TheInventory:AddRestrictedBuildFromLua( "walter_survivor", "walter_survivor", fa
 TheInventory:AddRestrictedBuildFromLua( "walter_ventriloquist", "walter_ventriloquist", false )
 TheInventory:AddRestrictedBuildFromLua( "walter_victorian", "walter_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "walter_yule", "walter_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "walterhat_ancient", "walterhat_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "walterhat_bee", "walterhat_bee", false )
 TheInventory:AddRestrictedBuildFromLua( "walterhat_bee", "walterhat_beep", false )
 TheInventory:AddRestrictedBuildFromLua( "walterhat_detective", "walterhat_detective", false )
@@ -2978,6 +3146,7 @@ TheInventory:AddRestrictedBuildFromLua( "warly_pirate", "warly_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "warly_rose", "warly_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "warly_shadow", "warly_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "warly_victorian", "warly_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "warly_yule", "warly_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "wateringcan_cactus", "wateringcan_cactus", false )
 TheInventory:AddRestrictedBuildFromLua( "wateringcan_rustic", "wateringcan_rustic", false )
 TheInventory:AddRestrictedBuildFromLua( "watermelonhat_banana", "watermelonhat_banana", false )
@@ -3049,6 +3218,7 @@ TheInventory:AddRestrictedBuildFromLua( "webber_beard_gladiator", "webber_beard_
 TheInventory:AddRestrictedBuildFromLua( "webber_beard_ice", "webber_beard_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_beard_lunar", "webber_beard_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_beard_magma", "webber_beard_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "webber_beard_masquerade", "webber_beard_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_beard_nature", "webber_beard_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_beard_pirate", "webber_beard_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_beard_punk", "webber_beard_punk", false )
@@ -3067,6 +3237,7 @@ TheInventory:AddRestrictedBuildFromLua( "webber_gladiator", "webber_gladiator", 
 TheInventory:AddRestrictedBuildFromLua( "webber_ice", "webber_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_lunar", "webber_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_magma", "webber_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "webber_masquerade", "webber_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_nature", "webber_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_pirate", "webber_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_punk", "webber_punk", false )
@@ -3079,6 +3250,7 @@ TheInventory:AddRestrictedBuildFromLua( "webber_survivor", "webber_survivorp", f
 TheInventory:AddRestrictedBuildFromLua( "webber_victorian", "webber_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_wrestler", "webber_wrestler", false )
 TheInventory:AddRestrictedBuildFromLua( "webber_yule", "webber_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "wendy_ancient", "wendy_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_combatant", "wendy_combatant", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_cook", "wendy_cook", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_creepy", "wendy_creepy", false )
@@ -3092,6 +3264,7 @@ TheInventory:AddRestrictedBuildFromLua( "wendy_lureplant", "wendy_lureplant", fa
 TheInventory:AddRestrictedBuildFromLua( "wendy_lureplant_d", "wendy_lureplant_d", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_lureplant_d", "wendy_lureplant_p", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_magma", "wendy_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "wendy_masquerade", "wendy_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_nature", "wendy_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_rose", "wendy_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "wendy_rose", "wendy_rosep", false )
@@ -3138,6 +3311,7 @@ TheInventory:AddRestrictedBuildFromLua( "wickerbottom_lightninggoat_d", "wickerb
 TheInventory:AddRestrictedBuildFromLua( "wickerbottom_lightninggoat_d", "wickerbottom_lightninggoat_p", false )
 TheInventory:AddRestrictedBuildFromLua( "wickerbottom_lunar", "wickerbottom_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "wickerbottom_magma", "wickerbottom_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "wickerbottom_masquerade", "wickerbottom_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "wickerbottom_nature", "wickerbottom_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "wickerbottom_ornate", "wickerbottom_ornate", false )
 TheInventory:AddRestrictedBuildFromLua( "wickerbottom_rose", "wickerbottom_rose", false )
@@ -3233,6 +3407,7 @@ TheInventory:AddRestrictedBuildFromLua( "winona_grassgecko_d", "winona_grassgeck
 TheInventory:AddRestrictedBuildFromLua( "winona_ice", "winona_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "winona_lunar", "winona_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "winona_magma", "winona_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "winona_masquerade", "winona_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "winona_nature", "winona_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "winona_pirate", "winona_pirate", false )
 TheInventory:AddRestrictedBuildFromLua( "winona_rose", "winona_rose", false )
@@ -3265,6 +3440,18 @@ TheInventory:AddRestrictedBuildFromLua( "winterhat_rooster", "winterhat_rooster"
 TheInventory:AddRestrictedBuildFromLua( "winterhat_rooster", "winterhat_rooster_alt", false )
 TheInventory:AddRestrictedBuildFromLua( "winterhat_stocking_cap_green_forest", "winterhat_stocking_cap_green_forest", false )
 TheInventory:AddRestrictedBuildFromLua( "winterometer_circus", "winterometer_circus", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_baddog", "woby_big_baddog", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_baddog", "pupington_woby_baddog", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_baddog_lunar", "woby_big_baddog_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_baddog_lunar", "pupington_woby_baddog_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_baddog_shadow", "woby_big_baddog_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_baddog_shadow", "pupington_woby_baddog_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_ribbon", "woby_big_ribbon", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_ribbon", "pupington_woby_ribbon", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_ribbon_lunar", "woby_big_ribbon_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_ribbon_lunar", "pupington_woby_ribbon_lunar", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_ribbon_shadow", "woby_big_ribbon_shadow", false )
+TheInventory:AddRestrictedBuildFromLua( "woby_big_ribbon_shadow", "pupington_woby_ribbon_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "wolfgang_mighty_ancient", "wolfgang_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "wolfgang_ancient", "wolfgang_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "wolfgang_skinny_ancient", "wolfgang_ancient", false )
@@ -3337,6 +3524,9 @@ TheInventory:AddRestrictedBuildFromLua( "wolfgang_skinny_wolfman", "wolfgang_wol
 TheInventory:AddRestrictedBuildFromLua( "wolfgang_mighty_wrestler", "wolfgang_wrestler", false )
 TheInventory:AddRestrictedBuildFromLua( "wolfgang_wrestler", "wolfgang_wrestler", false )
 TheInventory:AddRestrictedBuildFromLua( "wolfgang_skinny_wrestler", "wolfgang_wrestler", false )
+TheInventory:AddRestrictedBuildFromLua( "wolfgang_mighty_yule", "wolfgang_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "wolfgang_yule", "wolfgang_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "wolfgang_skinny_yule", "wolfgang_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "wood_chair_fantasy", "wood_chair_fantasy", false )
 TheInventory:AddRestrictedBuildFromLua( "wood_chair_hallowed", "wood_chair_hallowed", false )
 TheInventory:AddRestrictedBuildFromLua( "wood_chair_handmade", "wood_chair_handmade", false )
@@ -3455,6 +3645,8 @@ TheInventory:AddRestrictedBuildFromLua( "wormwood_yule", "wormwood_yule", false 
 TheInventory:AddRestrictedBuildFromLua( "wormwood_yule_stage2", "wormwood_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "wormwood_yule_stage3", "wormwood_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "wormwood_yule_stage4", "wormwood_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "ghost_wortox_ancient", "wortox_ancient", false )
+TheInventory:AddRestrictedBuildFromLua( "wortox_ancient", "wortox_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "ghost_wortox_dragon", "wortox_dragon", false )
 TheInventory:AddRestrictedBuildFromLua( "wortox_dragon", "wortox_dragon", false )
 TheInventory:AddRestrictedBuildFromLua( "ghost_wortox_formal", "wortox_formal", false )
@@ -3487,6 +3679,8 @@ TheInventory:AddRestrictedBuildFromLua( "ghost_wortox_survivor", "wortox_survivo
 TheInventory:AddRestrictedBuildFromLua( "wortox_survivor", "wortox_survivor", false )
 TheInventory:AddRestrictedBuildFromLua( "ghost_wortox_victorian", "wortox_victorian", false )
 TheInventory:AddRestrictedBuildFromLua( "wortox_victorian", "wortox_victorian", false )
+TheInventory:AddRestrictedBuildFromLua( "ghost_wortox_yule", "wortox_yule", false )
+TheInventory:AddRestrictedBuildFromLua( "wortox_yule", "wortox_yule", false )
 TheInventory:AddRestrictedBuildFromLua( "ghost_wurt_ancient", "wurt_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "wurt_ancient", "wurt_ancient", false )
 TheInventory:AddRestrictedBuildFromLua( "wurt_ancient_powerup", "wurt_ancient", false )
@@ -3543,6 +3737,7 @@ TheInventory:AddRestrictedBuildFromLua( "wx78_gladiator", "wx78_gladiator", fals
 TheInventory:AddRestrictedBuildFromLua( "wx78_ice", "wx78_ice", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_lunar", "wx78_lunar", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_magma", "wx78_magma", false )
+TheInventory:AddRestrictedBuildFromLua( "wx78_masquerade", "wx78_masquerade", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_nature", "wx78_nature", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_retro", "wx78_retro", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_rhinorook", "wx78_rhinorook", false )
@@ -3550,6 +3745,12 @@ TheInventory:AddRestrictedBuildFromLua( "wx78_rhinorook_d", "wx78_rhinorook_d", 
 TheInventory:AddRestrictedBuildFromLua( "wx78_rhinorook_d", "wx78_rhinorook_p", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_rose", "wx78_rose", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_rose", "wx78_rosep", false )
+TheInventory:AddRestrictedBuildFromLua( "wx78_scanner_fancy", "wx78_scanner_fancy", false )
+TheInventory:AddRestrictedBuildFromLua( "wx78_scanner_fancy", "wx78_scanner_fancy_item", false )
+TheInventory:AddRestrictedBuildFromLua( "wx78_scanner_junky", "wx78_scanner_junky", false )
+TheInventory:AddRestrictedBuildFromLua( "wx78_scanner_junky", "wx78_scanner_junky_item", false )
+TheInventory:AddRestrictedBuildFromLua( "wx78_scanner_fancy", "wx78_scanner_succeeded_fancy", false )
+TheInventory:AddRestrictedBuildFromLua( "wx78_scanner_junky", "wx78_scanner_succeeded_junky", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_shadow", "wx78_shadow", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_shadow", "wx78_shadowp", false )
 TheInventory:AddRestrictedBuildFromLua( "wx78_survivor", "wx78_survivor", false )
@@ -3693,6 +3894,16 @@ TheInventory:AddSkinSetInput( "emote_carol", 31, "hand_wendy_yule" )
 TheInventory:AddSkinSetInput( "emote_carol", 31, "feet_wendy_yule" )
 TheInventory:AddSkinSetInput( "emote_carol", 32, "webber_yule" )
 TheInventory:AddSkinSetInput( "emote_carol", 32, "body_webber_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 33, "wortox_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 33, "body_wortox_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 33, "legs_wortox_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 34, "warly_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 34, "body_warly_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 34, "legs_warly_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 35, "wolfgang_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 35, "body_wolfgang_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 35, "legs_wolfgang_yule" )
+TheInventory:AddSkinSetInput( "emote_carol", 35, "feet_wolfgang_yule" )
 TheInventory:AddSkinSetInput( "emote_fistshake", 0, "wilson_gladiator" )
 TheInventory:AddSkinSetInput( "emote_fistshake", 0, "body_wilson_gladiator" )
 TheInventory:AddSkinSetInput( "emote_fistshake", 0, "hand_wilson_gladiator" )
@@ -3755,6 +3966,9 @@ TheInventory:AddSkinSetInput( "emote_sleepy", 0, "bedroll_furry_quilt_blue_frost
 TheInventory:AddSkinSetInput( "emote_sleepy", 1, "body_pj_red_redbird" )
 TheInventory:AddSkinSetInput( "emote_sleepy", 1, "legs_pj_red_redbird" )
 TheInventory:AddSkinSetInput( "emote_sleepy", 1, "bedroll_furry_quilt_red_redbird" )
+TheInventory:AddSkinSetInput( "emote_sleepy", 2, "body_pj_grey" )
+TheInventory:AddSkinSetInput( "emote_sleepy", 2, "legs_pj_grey" )
+TheInventory:AddSkinSetInput( "emote_sleepy", 2, "bedroll_furry_quilt_grey" )
 TheInventory:AddSkinSetInput( "emote_yawn", 0, "body_pj_purple_mauve" )
 TheInventory:AddSkinSetInput( "emote_yawn", 0, "legs_pj_purple_mauve" )
 TheInventory:AddSkinSetInput( "emote_yawn", 0, "bedroll_furry_quilt_white_ivory" )
@@ -3765,6 +3979,7 @@ TheInventory:AddSkinSetInput( "emote_yawn", 2, "body_pj_orange_honey" )
 TheInventory:AddSkinSetInput( "emote_yawn", 2, "legs_pj_orange_honey" )
 TheInventory:AddSkinSetInput( "emote_yawn", 2, "bedroll_furry_quilt_orange_honey" )
 
+TheInventory:AddSkinLinkInput( "abigail_flower_ancient", "abigail_ancient" )
 TheInventory:AddSkinLinkInput( "abigail_flower_creepy", "abigail_creepy" )
 TheInventory:AddSkinLinkInput( "abigail_flower_formal", "abigail_formal" )
 TheInventory:AddSkinLinkInput( "abigail_flower_funeral", "abigail_funeral" )
@@ -3774,6 +3989,7 @@ TheInventory:AddSkinLinkInput( "abigail_flower_ice", "abigail_ice" )
 TheInventory:AddSkinLinkInput( "abigail_flower_lunar", "abigail_lunar" )
 TheInventory:AddSkinLinkInput( "abigail_flower_lureplant", "abigail_lureplant" )
 TheInventory:AddSkinLinkInput( "abigail_flower_magma", "abigail_magma" )
+TheInventory:AddSkinLinkInput( "abigail_flower_masquerade", "abigail_masquerade" )
 TheInventory:AddSkinLinkInput( "abigail_flower_nature", "abigail_nature" )
 TheInventory:AddSkinLinkInput( "abigail_flower_rose", "abigail_rose" )
 TheInventory:AddSkinLinkInput( "abigail_flower_shadow", "abigail_shadow" )
@@ -3824,6 +4040,14 @@ TheInventory:AddSkinLinkInput( "dragonling_batp_builder", "dragonling_batp" )
 TheInventory:AddSkinLinkInput( "dragonling_mantis_builder", "dragonling_mantis" )
 TheInventory:AddSkinLinkInput( "dragonling_winter_builder", "dragonling_winter" )
 TheInventory:AddSkinLinkInput( "dragonling_wyvern_builder", "dragonling_wyvern" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_fantasy", "gravestone_fantasy" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_fantasy2", "gravestone_fantasy2" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_fantasy3", "gravestone_fantasy3" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_fantasy4", "gravestone_fantasy4" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_gothic", "gravestone_gothic" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_gothic2", "gravestone_gothic2" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_gothic3", "gravestone_gothic3" )
+TheInventory:AddSkinLinkInput( "dug_gravestone_gothic4", "gravestone_gothic4" )
 TheInventory:AddSkinLinkInput( "eyeplant_bulb_trap_plantera", "eyeplant_trap_plantera" )
 TheInventory:AddSkinLinkInput( "eyeturret_anitem", "eyeturret_an" )
 TheInventory:AddSkinLinkInput( "fence_ancient_item", "fence_ancient" )
@@ -3899,6 +4123,7 @@ TheInventory:AddSkinLinkInput( "minisign_picketwhite_drawn", "minisign_picketwhi
 TheInventory:AddSkinLinkInput( "minisign_picketwhite_item", "minisign_picketwhite" )
 TheInventory:AddSkinLinkInput( "moonstaff_crystal", "starstaff_crystal" )
 TheInventory:AddSkinLinkInput( "moonstaff_portal", "starstaff_portal" )
+TheInventory:AddSkinLinkInput( "moonstaff_relic", "starstaff_relic" )
 TheInventory:AddSkinLinkInput( "ocean_trawler_pirate_kit", "ocean_trawler_pirate" )
 TheInventory:AddSkinLinkInput( "orangestaff_ancient", "cane_ancient" )
 TheInventory:AddSkinLinkInput( "orangestaff_candycane", "cane_candycane" )
@@ -3912,10 +4137,26 @@ TheInventory:AddSkinLinkInput( "perdling_pollyrogers_builder", "perdling_pollyro
 TheInventory:AddSkinLinkInput( "perdling_puffin_builder", "perdling_puffin" )
 TheInventory:AddSkinLinkInput( "perdling_rooster_builder", "perdling_rooster" )
 TheInventory:AddSkinLinkInput( "perdling_winter_builder", "perdling_winter" )
+TheInventory:AddSkinLinkInput( "portable_blender_porcelain_item", "portable_blender_porcelain" )
+TheInventory:AddSkinLinkInput( "portable_blender_rustic_item", "portable_blender_rustic" )
+TheInventory:AddSkinLinkInput( "portable_blender_silver_item", "portable_blender_silver" )
+TheInventory:AddSkinLinkInput( "portable_blender_survivor_item", "portable_blender_survivor" )
+TheInventory:AddSkinLinkInput( "portable_cook_pot_porcelain_item", "portable_cook_pot_porcelain" )
+TheInventory:AddSkinLinkInput( "portable_cook_pot_rustic_item", "portable_cook_pot_rustic" )
+TheInventory:AddSkinLinkInput( "portable_cook_pot_silver_item", "portable_cook_pot_silver" )
+TheInventory:AddSkinLinkInput( "portable_cook_pot_survivor_item", "portable_cook_pot_survivor" )
+TheInventory:AddSkinLinkInput( "portable_spicer_porcelain_item", "portable_spicer_porcelain" )
+TheInventory:AddSkinLinkInput( "portable_spicer_rustic_item", "portable_spicer_rustic" )
+TheInventory:AddSkinLinkInput( "portable_spicer_silver_item", "portable_spicer_silver" )
+TheInventory:AddSkinLinkInput( "portable_spicer_survivor_item", "portable_spicer_survivor" )
 TheInventory:AddSkinLinkInput( "pottedfern_cotl2", "pottedfern_cotl" )
 TheInventory:AddSkinLinkInput( "pottedfern_cotl3", "pottedfern_cotl" )
 TheInventory:AddSkinLinkInput( "pottedfern_rose2", "pottedfern_rose" )
 TheInventory:AddSkinLinkInput( "pottedfern_rose3", "pottedfern_rose" )
+TheInventory:AddSkinLinkInput( "pupington_woby_baddog_lunar", "pupington_woby_baddog" )
+TheInventory:AddSkinLinkInput( "pupington_woby_baddog_shadow", "pupington_woby_baddog" )
+TheInventory:AddSkinLinkInput( "pupington_woby_ribbon_lunar", "pupington_woby_ribbon" )
+TheInventory:AddSkinLinkInput( "pupington_woby_ribbon_shadow", "pupington_woby_ribbon" )
 TheInventory:AddSkinLinkInput( "puppy_chow_builder", "puppy_chow" )
 TheInventory:AddSkinLinkInput( "puppy_tzu_builder", "puppy_tzu" )
 TheInventory:AddSkinLinkInput( "puppy_winter_builder", "puppy_winter" )
@@ -3940,6 +4181,22 @@ TheInventory:AddSkinLinkInput( "researchlab4_tophat_harlequin", "tophat_harlequi
 TheInventory:AddSkinLinkInput( "researchlab4_tophat_spiked", "tophat_spiked" )
 TheInventory:AddSkinLinkInput( "researchlab4_tophat_wizard", "tophat_wizard" )
 TheInventory:AddSkinLinkInput( "researchlab4_witch_pyre", "tophat_witch_pyre" )
+TheInventory:AddSkinLinkInput( "slingshot2_bandaged", "slingshot_bandaged" )
+TheInventory:AddSkinLinkInput( "slingshot2_nature", "slingshot_nature" )
+TheInventory:AddSkinLinkInput( "slingshot2_spiked", "slingshot_spiked" )
+TheInventory:AddSkinLinkInput( "slingshot2_straws", "slingshot_straws" )
+TheInventory:AddSkinLinkInput( "slingshot2ex_bandaged", "slingshot_bandaged" )
+TheInventory:AddSkinLinkInput( "slingshot2ex_nature", "slingshot_nature" )
+TheInventory:AddSkinLinkInput( "slingshot2ex_spiked", "slingshot_spiked" )
+TheInventory:AddSkinLinkInput( "slingshot2ex_straws", "slingshot_straws" )
+TheInventory:AddSkinLinkInput( "slingshot999ex_bandaged", "slingshot_bandaged" )
+TheInventory:AddSkinLinkInput( "slingshot999ex_nature", "slingshot_nature" )
+TheInventory:AddSkinLinkInput( "slingshot999ex_spiked", "slingshot_spiked" )
+TheInventory:AddSkinLinkInput( "slingshot999ex_straws", "slingshot_straws" )
+TheInventory:AddSkinLinkInput( "slingshotex_bandaged", "slingshot_bandaged" )
+TheInventory:AddSkinLinkInput( "slingshotex_nature", "slingshot_nature" )
+TheInventory:AddSkinLinkInput( "slingshotex_spiked", "slingshot_spiked" )
+TheInventory:AddSkinLinkInput( "slingshotex_straws", "slingshot_straws" )
 TheInventory:AddSkinLinkInput( "spear_wathgrithr_lightning_charged_lunar", "spear_wathgrithr_lunar" )
 TheInventory:AddSkinLinkInput( "spear_wathgrithr_lightning_charged_northern", "spear_wathgrithr_northern" )
 TheInventory:AddSkinLinkInput( "spear_wathgrithr_lightning_charged_valkyrie", "spear_wathgrithr_valkyrie" )
@@ -3977,6 +4234,7 @@ TheInventory:AddSkinLinkInput( "walkingplank_grass_pirate", "boat_grass_pirate" 
 TheInventory:AddSkinLinkInput( "walkingplank_nautical", "boat_nautical" )
 TheInventory:AddSkinLinkInput( "walkingplank_pirate_skin", "boat_pirate_skin" )
 TheInventory:AddSkinLinkInput( "walkingplank_wagstaff", "boat_wagstaff" )
+TheInventory:AddSkinLinkInput( "wall_dreadstone_relicitem", "wall_dreadstone_relic" )
 TheInventory:AddSkinLinkInput( "wall_hay_cornitem", "wall_hay_corn" )
 TheInventory:AddSkinLinkInput( "wall_moonrock_victorianitem", "wall_moonrock_victorian" )
 TheInventory:AddSkinLinkInput( "wall_ruins_thulecite_alt_item", "wall_ruins_thulecite_alt" )
@@ -3999,6 +4257,16 @@ TheInventory:AddSkinLinkInput( "winonabattery_high_item_fancy", "winonabattery_h
 TheInventory:AddSkinLinkInput( "winonabattery_high_item_spike", "winonabattery_high_spike" )
 TheInventory:AddSkinLinkInput( "winonabattery_low_item_fancy", "winonabattery_low_fancy" )
 TheInventory:AddSkinLinkInput( "winonabattery_low_item_spike", "winonabattery_low_spike" )
+TheInventory:AddSkinLinkInput( "woby_big_baddog", "pupington_woby_baddog" )
+TheInventory:AddSkinLinkInput( "woby_big_baddog_lunar", "pupington_woby_baddog" )
+TheInventory:AddSkinLinkInput( "woby_big_baddog_shadow", "pupington_woby_baddog" )
+TheInventory:AddSkinLinkInput( "woby_big_ribbon", "pupington_woby_ribbon" )
+TheInventory:AddSkinLinkInput( "woby_big_ribbon_lunar", "pupington_woby_ribbon" )
+TheInventory:AddSkinLinkInput( "woby_big_ribbon_shadow", "pupington_woby_ribbon" )
+TheInventory:AddSkinLinkInput( "wx78_scanner_fancy_item", "wx78_scanner_fancy" )
+TheInventory:AddSkinLinkInput( "wx78_scanner_junky_item", "wx78_scanner_junky" )
+TheInventory:AddSkinLinkInput( "wx78_scanner_succeeded_fancy", "wx78_scanner_fancy" )
+TheInventory:AddSkinLinkInput( "wx78_scanner_succeeded_junky", "wx78_scanner_junky" )
 
 TheInventory:AddEmoji( "emoji_abigail", "abigail" , "󰀜" )
 TheInventory:AddEmoji( "emoji_alchemyengine", "alchemy" , "󰀝" )
@@ -4086,6 +4354,7 @@ TheInventory:AddSkinDLCInput( "pack_starter_2020", 1272440, 2001395 )
 TheInventory:AddSkinDLCInput( "pack_starter_2021", 1710240, 2001708 )
 TheInventory:AddSkinDLCInput( "pack_starter_2023", 2241030, 2001898 )
 TheInventory:AddSkinDLCInput( "pack_starter_2024", 2711510, 2002099 )
+TheInventory:AddSkinDLCInput( "pack_starter_2025", 3373370, 2002349 )
 TheInventory:AddSkinDLCInput( "pack_sw_gift", 393010, 2000041 )
 TheInventory:AddSkinDLCInput( "pack_victorian_all", 840760, 0 )
 TheInventory:AddSkinDLCInput( "pack_victorian_all2", 1558300, 0 )
@@ -4101,6 +4370,7 @@ TheInventory:AddSkinDLCInput( "pack_yotc_bundle", 1230830, 0 )
 TheInventory:AddSkinDLCInput( "pack_yule_all", 1205500, 0 )
 TheInventory:AddSkinDLCInput( "pack_yule_all2", 1836630, 0 )
 TheInventory:AddSkinDLCInput( "pack_yule_all3", 2769680, 0 )
+TheInventory:AddSkinDLCInput( "pack_yule_all4", 3373360, 0 )
 TheInventory:AddSkinDLCInput( "pack_yule_items", 1205501, 0 )
 
 TheInventory:AddCookBookKey( "asparagussoup" )
@@ -4236,13 +4506,16 @@ TheInventory:AddPlantRegistryKey( "spoiled_fish_small" )
 TheInventory:AddPlantRegistryKey( "spoiled_food" )
 TheInventory:AddPlantRegistryKey( "treegrowthsolution" )
 
+TheInventory:AddSkillTreeKey( "walter" )
 TheInventory:AddSkillTreeKey( "wathgrithr" )
+TheInventory:AddSkillTreeKey( "wendy" )
 TheInventory:AddSkillTreeKey( "willow" )
 TheInventory:AddSkillTreeKey( "wilson" )
 TheInventory:AddSkillTreeKey( "winona" )
 TheInventory:AddSkillTreeKey( "wolfgang" )
 TheInventory:AddSkillTreeKey( "woodie" )
 TheInventory:AddSkillTreeKey( "wormwood" )
+TheInventory:AddSkillTreeKey( "wortox" )
 TheInventory:AddSkillTreeKey( "wurt" )
 
 TheInventory:AddGenericKVKey( "celestialchampion_killed" )
@@ -4253,7 +4526,7 @@ TheInventory:AddGenericKVKey( "wathgrithr_container_unlocked" )
 TheInventory:AddGenericKVKey( "wathgrithr_horn_played" )
 
 if TheInventory.AddScrapbook0Key == nil then
-    TheInventory:ValidateWithSignature( "0bf2b67a74fc9b49d9e98b42c2b3c936c43725a1f4ffa7f8f313dd00ff91256f4b66ed9bc856d17ff099f1a4fa043734a5942bd0bad7348dd0c03a3cc08fb36de0deae69b60374a02d79a0de3a0a7d82451bfe7b86a8b29447adc082d941821c035aa83a5db2e7ed9755d019e5fbce6f80821511e4fbca3943d191c6f68d1bb66053c927826548aee943a5c3a46d8e1bb58808a1934528f04cc08404631282304560aa06ced16b1242c468a8d3e980d307164a2738f061e50e2b54e5f8c55e77c6e5facb5b559ba16a1fa49a02cdd6efda82d9805c92c870ced0d78df869eee63b3fbbcb60925c48e8aff8734297e3417c774238c93189eb0911b586bfd8b6d8195c0476852ae1074c7d92bae6cc8b04a98784a29a2790bf7a7e1c359ad993d90eda0eab41bee124dd3df01f4b6068bed11702bccbd8a2c16b94acd65e82e12176e195766be5ffa01fd90b8951a9bb21b4e84421fcb801291a88188ae76f234bd1dba29b11f893c77e8e3463dd199f2facaca0845c507bf9221c2b84fe7454daf2cd3085f7d14960cf30c26787bb1cc74c324b8c611ae4e17895b934311fcd3217bf10d857f9c108e2e0663013741051eeecf513ac7f770756589967f266a04439aacc6b1d9fd5c6523e10dbe3745a31f2b9c1dfaab651a78daf8774599b6ef44da4d74cdb648a79414ba874e081f5fdcb17054ce6945046cf8c80130ab0200d" )
+    TheInventory:ValidateWithSignature( "008d04099084c84aceaa25216dd4971366d3e86096199f94f1de9d587737567a8877e98c67da1fe1412d234224baa2a3be68ec2fc6b423ddcb9a786a9d540bd151e685034acdab87ccc3979b6282f4e25cabade991a03007fe8e2e707e09f3fd8bf85aa04eb5547e6b1dfab3a246aecd59d1a4361ad20c1f75226ba079c82bc4b597d826d5d1180a03d8d45ccd130b2a694c48b205e5531af936d8a19972b92398f178077b186e65f6b54bb12636693359575e4f18bd49b4900629e9c016b14a8436352fa40effee442e5c51793277dd34d00ae15fe6a94570f980310d2083545810cd7a488aa1418c7213e9cddda681283b35494e94aeea2a97465ebbbedac9ce199713673658d935d0ab8ba6a89e2d286f90ad77665c050ed89e2bd13dd08134ff60e92b09b15af82688abe197751ec4387098cf72589e08320d854d5cd87da0c74d1d361e27f67264f5ed066f5c7b60d91f164ba1f9c6b67220ae1fd705bec9b7c5fe960b7f921e76702c98b018c19919d56552e418537e91412a1fa400dc6e22300b818c9eec4c4e4e632af787e19866c96698042496a1ebb1063c8a02154511b73e81601123e02a33d32536a1473c397a601dd4b25c596260190200787c35f593ab3be56be72d6c9bc07ba9c2741a5bd4c9a87c50d53f30c3bcf2d40ae13dae4d7587764a4f4738958c8eed81e8af4cc682d1a4de35d14ebc1b7a2ad71d" )
 else -- Temporary protection guard for platforms missing the engine change 1.
 
 TheInventory:AddScrapbook5Key( "679F8765" ) -- abigail
@@ -4331,6 +4604,7 @@ TheInventory:AddScrapbook14Key( "303BFDCE" ) -- axe
 TheInventory:AddScrapbook10Key( "9DB0528A" ) -- babybeefalo
 TheInventory:AddScrapbook0Key( "15220700" ) -- backpack
 TheInventory:AddScrapbook1Key( "C7480071" ) -- baconeggs
+TheInventory:AddScrapbook5Key( "7DE9A05" ) -- balatro_machine
 TheInventory:AddScrapbook15Key( "E2F01FEF" ) -- balloon
 TheInventory:AddScrapbook12Key( "47CB680C" ) -- balloonhat
 TheInventory:AddScrapbook7Key( "6D5B1817" ) -- balloonparty
@@ -4341,6 +4615,7 @@ TheInventory:AddScrapbook13Key( "6523FDAD" ) -- bananabush
 TheInventory:AddScrapbook11Key( "FBF9C9BB" ) -- bananajuice
 TheInventory:AddScrapbook12Key( "F0E390C" ) -- bananapop
 TheInventory:AddScrapbook10Key( "EFA57CEA" ) -- bandage
+TheInventory:AddScrapbook10Key( "6826E2AA" ) -- bandage_butterflywings
 TheInventory:AddScrapbook6Key( "749FBCB6" ) -- barnacle
 TheInventory:AddScrapbook0Key( "C0DD0770" ) -- barnacle_cooked
 TheInventory:AddScrapbook12Key( "E493131C" ) -- barnaclepita
@@ -4529,6 +4804,7 @@ TheInventory:AddScrapbook14Key( "ABA820E" ) -- chesspiece_bishop
 TheInventory:AddScrapbook2Key( "8FB26EC2" ) -- chesspiece_butterfly
 TheInventory:AddScrapbook8Key( "9F49CAD8" ) -- chesspiece_crabking
 TheInventory:AddScrapbook1Key( "C574BF61" ) -- chesspiece_daywalker
+TheInventory:AddScrapbook1Key( "571C1911" ) -- chesspiece_daywalker2
 TheInventory:AddScrapbook10Key( "B15EFCCA" ) -- chesspiece_deerclops
 TheInventory:AddScrapbook9Key( "D68C21E9" ) -- chesspiece_deerclops_mutated
 TheInventory:AddScrapbook15Key( "3460A4CF" ) -- chesspiece_dragonfly
@@ -4551,6 +4827,7 @@ TheInventory:AddScrapbook11Key( "442F5A5B" ) -- chesspiece_stalker
 TheInventory:AddScrapbook12Key( "658E389C" ) -- chesspiece_toadstool
 TheInventory:AddScrapbook5Key( "888E1F45" ) -- chesspiece_twinsofterror
 TheInventory:AddScrapbook15Key( "419D794F" ) -- chesspiece_warg_mutated
+TheInventory:AddScrapbook1Key( "9E817411" ) -- chesspiece_wormboss
 TheInventory:AddScrapbook14Key( "C853619E" ) -- chest_mimic_revealed
 TheInventory:AddScrapbook14Key( "C0F71E6E" ) -- chester
 TheInventory:AddScrapbook4Key( "1CBA00E4" ) -- chester_eyebone
@@ -4606,6 +4883,7 @@ TheInventory:AddScrapbook0Key( "97072780" ) -- daywalker2
 TheInventory:AddScrapbook7Key( "47AD0A77" ) -- daywalker_pillar
 TheInventory:AddScrapbook4Key( "34DEC024" ) -- dead_sea_bones
 TheInventory:AddScrapbook9Key( "823876F9" ) -- deciduoustree_tall
+TheInventory:AddScrapbook1Key( "96386B31" ) -- deck_of_cards
 TheInventory:AddScrapbook15Key( "431B8F5F" ) -- decor_centerpiece
 TheInventory:AddScrapbook2Key( "ADC07472" ) -- decor_flowervase
 TheInventory:AddScrapbook2Key( "610C98F2" ) -- decor_lamp
@@ -4676,6 +4954,7 @@ TheInventory:AddScrapbook6Key( "F597D306" ) -- eggplant
 TheInventory:AddScrapbook0Key( "ECB2FD20" ) -- eggplant_cooked
 TheInventory:AddScrapbook6Key( "BA36B956" ) -- eggplant_oversized
 TheInventory:AddScrapbook9Key( "D5A44029" ) -- eggplant_seeds
+TheInventory:AddScrapbook1Key( "1EA1BFE1" ) -- elixir_container
 TheInventory:AddScrapbook15Key( "94CE050F" ) -- emberlight
 TheInventory:AddScrapbook3Key( "9EA1C793" ) -- endtable
 TheInventory:AddScrapbook2Key( "C93D7D72" ) -- evergreen_sparse_tall
@@ -4784,9 +5063,13 @@ TheInventory:AddScrapbook14Key( "2A5570FE" ) -- gelblob_storage_kit
 TheInventory:AddScrapbook0Key( "BEAAA710" ) -- gestalt_guard
 TheInventory:AddScrapbook15Key( "71FADCAF" ) -- ghost
 TheInventory:AddScrapbook10Key( "C238ACA" ) -- ghostflower
+TheInventory:AddScrapbook1Key( "149C1171" ) -- ghostflowerhat
 TheInventory:AddScrapbook12Key( "406B700C" ) -- ghostlyelixir_attack
 TheInventory:AddScrapbook13Key( "149929BD" ) -- ghostlyelixir_fastregen
+TheInventory:AddScrapbook2Key( "F4D420F2" ) -- ghostlyelixir_lunar
 TheInventory:AddScrapbook4Key( "A6F91074" ) -- ghostlyelixir_retaliation
+TheInventory:AddScrapbook9Key( "1F957659" ) -- ghostlyelixir_revive
+TheInventory:AddScrapbook4Key( "2DFA85C4" ) -- ghostlyelixir_shadow
 TheInventory:AddScrapbook13Key( "A2AC1A6D" ) -- ghostlyelixir_shield
 TheInventory:AddScrapbook8Key( "B883DCB8" ) -- ghostlyelixir_slowregen
 TheInventory:AddScrapbook3Key( "E33E1BA3" ) -- ghostlyelixir_speed
@@ -4816,7 +5099,9 @@ TheInventory:AddScrapbook6Key( "3C5A2B16" ) -- grass
 TheInventory:AddScrapbook13Key( "39311B4D" ) -- grass_umbrella
 TheInventory:AddScrapbook7Key( "7F096467" ) -- grassgator
 TheInventory:AddScrapbook11Key( "34B21ADB" ) -- grassgekko
+TheInventory:AddScrapbook0Key( "F3CBA90" ) -- graveguard_ghost
 TheInventory:AddScrapbook0Key( "6BBB82E0" ) -- gravestone
+TheInventory:AddScrapbook12Key( "4640EA6C" ) -- graveurn
 TheInventory:AddScrapbook9Key( "3C5D2BD9" ) -- gravy
 TheInventory:AddScrapbook6Key( "706870B6" ) -- green_cap
 TheInventory:AddScrapbook0Key( "540F5370" ) -- green_cap_cooked
@@ -5275,6 +5560,7 @@ TheInventory:AddScrapbook2Key( "34FB4F82" ) -- pitchfork
 TheInventory:AddScrapbook6Key( "9CAF68F6" ) -- plantmeat
 TheInventory:AddScrapbook0Key( "AAE6CB30" ) -- plantmeat_cooked
 TheInventory:AddScrapbook3Key( "6C92CBD3" ) -- plantregistryhat
+TheInventory:AddScrapbook1Key( "3530C901" ) -- playing_card
 TheInventory:AddScrapbook1Key( "560982A1" ) -- pocket_scale
 TheInventory:AddScrapbook7Key( "CA70877" ) -- pocketwatch_dismantler
 TheInventory:AddScrapbook14Key( "DE6B0AEE" ) -- pocketwatch_heal
@@ -5301,6 +5587,7 @@ TheInventory:AddScrapbook3Key( "7CF455A3" ) -- portableblender
 TheInventory:AddScrapbook15Key( "921ED58F" ) -- portableblender_item
 TheInventory:AddScrapbook2Key( "B73E6832" ) -- portablecookpot
 TheInventory:AddScrapbook0Key( "75F595C0" ) -- portablecookpot_item
+TheInventory:AddScrapbook8Key( "521BB8A8" ) -- portablefirepit_item
 TheInventory:AddScrapbook15Key( "5A83D87F" ) -- portablespicer
 TheInventory:AddScrapbook3Key( "DED565B3" ) -- portablespicer_item
 TheInventory:AddScrapbook2Key( "CFCDFB2" ) -- portabletent
@@ -5462,6 +5749,7 @@ TheInventory:AddScrapbook4Key( "AB6F1334" ) -- shadowthrall_horns
 TheInventory:AddScrapbook11Key( "8D1E2B" ) -- shadowthrall_mouth
 TheInventory:AddScrapbook3Key( "B00DBC83" ) -- shadowthrall_parasite
 TheInventory:AddScrapbook12Key( "8D20800C" ) -- shadowthrall_wings
+TheInventory:AddScrapbook10Key( "AD2ACFDA" ) -- shallow_grave
 TheInventory:AddScrapbook5Key( "9A297765" ) -- shark
 TheInventory:AddScrapbook7Key( "8B812F77" ) -- sharkboi
 TheInventory:AddScrapbook3Key( "50F25763" ) -- sharkboi_icespike
@@ -5470,6 +5758,7 @@ TheInventory:AddScrapbook4Key( "7ADBAA54" ) -- shieldofterror
 TheInventory:AddScrapbook3Key( "F4EB0943" ) -- shovel
 TheInventory:AddScrapbook1Key( "25E4D451" ) -- shovel_lunarplant
 TheInventory:AddScrapbook12Key( "75E956EC" ) -- shroom_skin
+TheInventory:AddScrapbook10Key( "6F9884BA" ) -- shroombait
 TheInventory:AddScrapbook8Key( "9E2155E8" ) -- shroomcake
 TheInventory:AddScrapbook6Key( "C78D9876" ) -- siestahut
 TheInventory:AddScrapbook5Key( "1AB03CB5" ) -- silk
@@ -5483,13 +5772,36 @@ TheInventory:AddScrapbook14Key( "7A94E5EE" ) -- skeletonhat
 TheInventory:AddScrapbook12Key( "EE6DDF4C" ) -- sketch
 TheInventory:AddScrapbook9Key( "9C951B79" ) -- sleepbomb
 TheInventory:AddScrapbook3Key( "6D045A63" ) -- slingshot
+TheInventory:AddScrapbook13Key( "7FC5E9FD" ) -- slingshot_band_mimic
+TheInventory:AddScrapbook13Key( "E68B0ABD" ) -- slingshot_band_pigskin
+TheInventory:AddScrapbook0Key( "57834A0" ) -- slingshot_band_tentacle
+TheInventory:AddScrapbook2Key( "12E16D52" ) -- slingshot_frame_bone
+TheInventory:AddScrapbook2Key( "F695E5D2" ) -- slingshot_frame_gems
+TheInventory:AddScrapbook1Key( "ED66FFF1" ) -- slingshot_frame_wagpunk
+TheInventory:AddScrapbook2Key( "A2E32F02" ) -- slingshot_frame_wagpunk_0
+TheInventory:AddScrapbook3Key( "AC6938C3" ) -- slingshot_handle_jelly
+TheInventory:AddScrapbook0Key( "6207A9F0" ) -- slingshot_handle_silk
+TheInventory:AddScrapbook4Key( "D8FFF384" ) -- slingshot_handle_sticky
+TheInventory:AddScrapbook11Key( "26EC562B" ) -- slingshot_handle_voidcloth
+TheInventory:AddScrapbook3Key( "DA2DE873" ) -- slingshotammo_container
+TheInventory:AddScrapbook9Key( "296695F9" ) -- slingshotammo_dreadstone
 TheInventory:AddScrapbook5Key( "75FB97E5" ) -- slingshotammo_freeze
+TheInventory:AddScrapbook13Key( "9FC0B03D" ) -- slingshotammo_gelblob
 TheInventory:AddScrapbook14Key( "4DACBA6E" ) -- slingshotammo_gold
+TheInventory:AddScrapbook11Key( "DDAD876B" ) -- slingshotammo_gunpowder
+TheInventory:AddScrapbook13Key( "1CD95FCD" ) -- slingshotammo_honey
+TheInventory:AddScrapbook14Key( "1DBC014E" ) -- slingshotammo_horrorfuel
+TheInventory:AddScrapbook8Key( "9D64F468" ) -- slingshotammo_lunarplanthusk
 TheInventory:AddScrapbook11Key( "E9D0594B" ) -- slingshotammo_marble
+TheInventory:AddScrapbook13Key( "8715E1AD" ) -- slingshotammo_moonglass
 TheInventory:AddScrapbook14Key( "F06D11EE" ) -- slingshotammo_poop
+TheInventory:AddScrapbook5Key( "B0EE8785" ) -- slingshotammo_purebrilliance
 TheInventory:AddScrapbook3Key( "4D6EB073" ) -- slingshotammo_rock
+TheInventory:AddScrapbook0Key( "4D421540" ) -- slingshotammo_scrapfeather
 TheInventory:AddScrapbook15Key( "7A8755AF" ) -- slingshotammo_slow
+TheInventory:AddScrapbook0Key( "5669ED00" ) -- slingshotammo_stinger
 TheInventory:AddScrapbook3Key( "89527383" ) -- slingshotammo_thulecite
+TheInventory:AddScrapbook7Key( "D79D4EF7" ) -- slingshotmodkit
 TheInventory:AddScrapbook7Key( "8A9E6CC7" ) -- slurper
 TheInventory:AddScrapbook5Key( "B242F9D5" ) -- slurper_pelt
 TheInventory:AddScrapbook7Key( "8C9DAC77" ) -- slurtle
@@ -5501,6 +5813,8 @@ TheInventory:AddScrapbook0Key( "6F90E420" ) -- smallbird
 TheInventory:AddScrapbook8Key( "7C7403C8" ) -- smallghost
 TheInventory:AddScrapbook2Key( "6D529A32" ) -- smallmeat
 TheInventory:AddScrapbook13Key( "A91DCC2D" ) -- smallmeat_dried
+TheInventory:AddScrapbook0Key( "407F35F0" ) -- snowball_item
+TheInventory:AddScrapbook7Key( "690D977" ) -- snowman
 TheInventory:AddScrapbook5Key( "B8F66EF5" ) -- snurtle
 TheInventory:AddScrapbook12Key( "41A2ECBC" ) -- soil_amender
 TheInventory:AddScrapbook13Key( "1771AB4D" ) -- soil_amender_fermented
@@ -5611,6 +5925,7 @@ TheInventory:AddScrapbook2Key( "DF8F9282" ) -- terrariumchest
 TheInventory:AddScrapbook1Key( "7FB0EF81" ) -- terrorbeak
 TheInventory:AddScrapbook1Key( "21BF03B1" ) -- thulecite
 TheInventory:AddScrapbook3Key( "C6739A73" ) -- thulecite_pieces
+TheInventory:AddScrapbook10Key( "9E8BCF5A" ) -- thulecitebugnet
 TheInventory:AddScrapbook3Key( "8CF9D7E3" ) -- thurible
 TheInventory:AddScrapbook2Key( "90DDB862" ) -- tillweed
 TheInventory:AddScrapbook11Key( "202DEFCB" ) -- tillweedsalve
@@ -5804,6 +6119,7 @@ TheInventory:AddScrapbook8Key( "9972AE98" ) -- weed_firenettle
 TheInventory:AddScrapbook9Key( "47D267B9" ) -- weed_forgetmelots
 TheInventory:AddScrapbook10Key( "C33233A" ) -- weed_ivy
 TheInventory:AddScrapbook4Key( "E6BE9014" ) -- weed_tillweed
+TheInventory:AddScrapbook4Key( "CBD67D14" ) -- wendy_resurrectiongrave
 TheInventory:AddScrapbook0Key( "C04C6950" ) -- wereitem_beaver
 TheInventory:AddScrapbook14Key( "18795A6E" ) -- wereitem_goose
 TheInventory:AddScrapbook4Key( "B0039474" ) -- wereitem_moose
@@ -5839,6 +6155,7 @@ TheInventory:AddScrapbook4Key( "179CC4B4" ) -- winter_ornament_boss_celestialcha
 TheInventory:AddScrapbook8Key( "84FE4F88" ) -- winter_ornament_boss_crabking
 TheInventory:AddScrapbook14Key( "B4E8029E" ) -- winter_ornament_boss_crabkingpearl
 TheInventory:AddScrapbook1Key( "D19166B1" ) -- winter_ornament_boss_daywalker
+TheInventory:AddScrapbook1Key( "F97945C1" ) -- winter_ornament_boss_daywalker2
 TheInventory:AddScrapbook10Key( "BD7BA41A" ) -- winter_ornament_boss_deerclops
 TheInventory:AddScrapbook15Key( "407D4C1F" ) -- winter_ornament_boss_dragonfly
 TheInventory:AddScrapbook6Key( "4B2C7576" ) -- winter_ornament_boss_eyeofterror1
@@ -5856,9 +6173,11 @@ TheInventory:AddScrapbook12Key( "A997BC5C" ) -- winter_ornament_boss_mutatedwarg
 TheInventory:AddScrapbook9Key( "AB841389" ) -- winter_ornament_boss_noeyeblue
 TheInventory:AddScrapbook2Key( "646ADA22" ) -- winter_ornament_boss_noeyered
 TheInventory:AddScrapbook5Key( "F50A08A5" ) -- winter_ornament_boss_pearl
+TheInventory:AddScrapbook8Key( "93C09E38" ) -- winter_ornament_boss_sharkboi
 TheInventory:AddScrapbook12Key( "71AADFEC" ) -- winter_ornament_boss_toadstool
 TheInventory:AddScrapbook8Key( "F5801E68" ) -- winter_ornament_boss_toadstool_misery
 TheInventory:AddScrapbook4Key( "B007CB24" ) -- winter_ornament_boss_wagstaff
+TheInventory:AddScrapbook1Key( "8435F8C1" ) -- winter_ornament_boss_wormboss
 TheInventory:AddScrapbook9Key( "B3B14D39" ) -- winter_ornament_fancy1
 TheInventory:AddScrapbook10Key( "B3B14D3A" ) -- winter_ornament_fancy2
 TheInventory:AddScrapbook11Key( "B3B14D3B" ) -- winter_ornament_fancy3
@@ -5902,6 +6221,7 @@ TheInventory:AddScrapbook6Key( "7F9756D6" ) -- wobster_moonglass_land
 TheInventory:AddScrapbook13Key( "A033C64D" ) -- wobster_sheller_dead
 TheInventory:AddScrapbook9Key( "66F89619" ) -- wobster_sheller_dead_cooked
 TheInventory:AddScrapbook4Key( "127F1174" ) -- wobster_sheller_land
+TheInventory:AddScrapbook10Key( "8A47C1EA" ) -- woby_treat
 TheInventory:AddScrapbook1Key( "5A131A91" ) -- wobybig
 TheInventory:AddScrapbook8Key( "28C0CF8" ) -- wolfgang_whistle
 TheInventory:AddScrapbook3Key( "EAC18573" ) -- wood_chair
@@ -5915,7 +6235,10 @@ TheInventory:AddScrapbook3Key( "93186CB3" ) -- wormhole
 TheInventory:AddScrapbook3Key( "95CB0B43" ) -- wormlight
 TheInventory:AddScrapbook2Key( "4E3893E2" ) -- wormlight_lesser
 TheInventory:AddScrapbook15Key( "DDBAA98F" ) -- wormlight_plant
+TheInventory:AddScrapbook5Key( "83D99355" ) -- wortox_nabbag
+TheInventory:AddScrapbook1Key( "55B9E7C1" ) -- wortox_reviver
 TheInventory:AddScrapbook15Key( "EF0C40F" ) -- wortox_soul
+TheInventory:AddScrapbook12Key( "4B5BFAEC" ) -- wortox_souljar
 TheInventory:AddScrapbook11Key( "DB7D35EB" ) -- wurt_swampitem_lunar
 TheInventory:AddScrapbook11Key( "68FAF0B" ) -- wurt_swampitem_shadow
 TheInventory:AddScrapbook5Key( "F93860E5" ) -- wx78_moduleremover
@@ -8112,9 +8435,119 @@ TheInventory:AddScrapbook12Key( "4374C56C" ) -- yellowstaff
 --TheInventory:AddItemIDPairing(2269, "mushroom_light_hallowed")
 --TheInventory:AddItemIDPairing(2270, "wall_hay_corn")
 --TheInventory:AddItemIDPairing(2271, "record_hallowednights")
+--TheInventory:AddItemIDPairing(2272, "armor_trunkvest_winter_quilted")
+--TheInventory:AddItemIDPairing(2273, "beargerfursack_rose")
+--TheInventory:AddItemIDPairing(2274, "bedroll_furry_quilt_grey")
+--TheInventory:AddItemIDPairing(2275, "body_pj_grey")
+--TheInventory:AddItemIDPairing(2276, "body_warly_yule")
+--TheInventory:AddItemIDPairing(2277, "body_wolfgang_yule")
+--TheInventory:AddItemIDPairing(2278, "body_wortox_yule")
+--TheInventory:AddItemIDPairing(2279, "feet_wolfgang_yule")
+--TheInventory:AddItemIDPairing(2280, "legs_pj_grey")
+--TheInventory:AddItemIDPairing(2281, "legs_warly_yule")
+--TheInventory:AddItemIDPairing(2282, "legs_wolfgang_yule")
+--TheInventory:AddItemIDPairing(2283, "legs_wortox_yule")
+--TheInventory:AddItemIDPairing(2284, "loading_piglio1")
+--TheInventory:AddItemIDPairing(2285, "loading_piglio2")
+--TheInventory:AddItemIDPairing(2286, "loading_piglio3")
+--TheInventory:AddItemIDPairing(2287, "loading_piglio4")
+--TheInventory:AddItemIDPairing(2288, "playerportrait_bg_beargerfursack_rose")
+--TheInventory:AddItemIDPairing(2289, "profileflair_beargerfursack_rose")
+--TheInventory:AddItemIDPairing(2290, "warly_yule")
+--TheInventory:AddItemIDPairing(2291, "wolfgang_yule")
+--TheInventory:AddItemIDPairing(2292, "wortox_yule")
+--TheInventory:AddItemIDPairing(2293, "backpack_catcoonp")
+--TheInventory:AddItemIDPairing(2294, "firepit_fangedp")
+--TheInventory:AddItemIDPairing(2295, "abigail_masquerade")
+--TheInventory:AddItemIDPairing(2296, "armor_trunkvest_summer_quilted")
+--TheInventory:AddItemIDPairing(2297, "body_webber_masquerade")
+--TheInventory:AddItemIDPairing(2298, "body_wendy_masquerade")
+--TheInventory:AddItemIDPairing(2299, "body_wickerbottom_masquerade")
+--TheInventory:AddItemIDPairing(2300, "body_winona_masquerade")
+--TheInventory:AddItemIDPairing(2301, "body_wx78_masquerade")
+--TheInventory:AddItemIDPairing(2302, "feet_webber_masquerade")
+--TheInventory:AddItemIDPairing(2303, "feet_wendy_masquerade")
+--TheInventory:AddItemIDPairing(2304, "feet_wickerbottom_masquerade")
+--TheInventory:AddItemIDPairing(2305, "feet_wx78_masquerade")
+--TheInventory:AddItemIDPairing(2306, "legs_wx78_masquerade")
+--TheInventory:AddItemIDPairing(2307, "playerportrait_bg_toothtrap_rose")
+--TheInventory:AddItemIDPairing(2308, "profileflair_toothtrap_rose")
+--TheInventory:AddItemIDPairing(2309, "trap_teeth_rose")
+--TheInventory:AddItemIDPairing(2310, "webber_beard_masquerade")
+--TheInventory:AddItemIDPairing(2311, "webber_masquerade")
+--TheInventory:AddItemIDPairing(2312, "wendy_masquerade")
+--TheInventory:AddItemIDPairing(2313, "wickerbottom_masquerade")
+--TheInventory:AddItemIDPairing(2314, "winona_masquerade")
+--TheInventory:AddItemIDPairing(2315, "wx78_masquerade")
+--TheInventory:AddItemIDPairing(2316, "body_redjacket")
+--TheInventory:AddItemIDPairing(2317, "backpack_heart")
+--TheInventory:AddItemIDPairing(2318, "reskin_tool_wand")
+--TheInventory:AddItemIDPairing(2319, "abigail_ancient")
+--TheInventory:AddItemIDPairing(2320, "amulet_blue_relic")
+--TheInventory:AddItemIDPairing(2321, "amulet_green_relic")
+--TheInventory:AddItemIDPairing(2322, "amulet_orange_relic")
+--TheInventory:AddItemIDPairing(2323, "amulet_purple_relic")
+--TheInventory:AddItemIDPairing(2324, "amulet_red_relic")
+--TheInventory:AddItemIDPairing(2325, "amulet_yellow_relic")
+--TheInventory:AddItemIDPairing(2326, "armor_skeleton_relic")
+--TheInventory:AddItemIDPairing(2327, "backpack_crab_resurrected")
+--TheInventory:AddItemIDPairing(2328, "body_walter_ancient")
+--TheInventory:AddItemIDPairing(2329, "body_wendy_ancient")
+--TheInventory:AddItemIDPairing(2330, "body_wortox_ancient")
+--TheInventory:AddItemIDPairing(2331, "feet_wendy_ancient")
+--TheInventory:AddItemIDPairing(2332, "hand_walter_ancient")
+--TheInventory:AddItemIDPairing(2333, "hand_wendy_ancient")
+--TheInventory:AddItemIDPairing(2334, "legs_walter_ancient")
+--TheInventory:AddItemIDPairing(2335, "legs_wortox_ancient")
+--TheInventory:AddItemIDPairing(2336, "loading_piglio5")
+--TheInventory:AddItemIDPairing(2337, "loading_piglio6")
+--TheInventory:AddItemIDPairing(2338, "loading_piglio7")
+--TheInventory:AddItemIDPairing(2339, "lucy_broadaxe")
+--TheInventory:AddItemIDPairing(2340, "lucy_chained")
+--TheInventory:AddItemIDPairing(2341, "lucy_picnic")
+--TheInventory:AddItemIDPairing(2342, "lucy_punk")
+--TheInventory:AddItemIDPairing(2343, "nightmare_torch_relic")
+--TheInventory:AddItemIDPairing(2344, "portable_blender_porcelain")
+--TheInventory:AddItemIDPairing(2345, "portable_blender_rustic")
+--TheInventory:AddItemIDPairing(2346, "portable_blender_silver")
+--TheInventory:AddItemIDPairing(2347, "portable_blender_survivor")
+--TheInventory:AddItemIDPairing(2348, "portable_cook_pot_porcelain")
+--TheInventory:AddItemIDPairing(2349, "portable_cook_pot_rustic")
+--TheInventory:AddItemIDPairing(2350, "portable_cook_pot_silver")
+--TheInventory:AddItemIDPairing(2351, "portable_cook_pot_survivor")
+--TheInventory:AddItemIDPairing(2352, "portable_spicer_porcelain")
+--TheInventory:AddItemIDPairing(2353, "portable_spicer_rustic")
+--TheInventory:AddItemIDPairing(2354, "portable_spicer_silver")
+--TheInventory:AddItemIDPairing(2355, "portable_spicer_survivor")
+--TheInventory:AddItemIDPairing(2356, "pupington_woby_baddog")
+--TheInventory:AddItemIDPairing(2357, "pupington_woby_ribbon")
+--TheInventory:AddItemIDPairing(2358, "sisturn_beachhouse")
+--TheInventory:AddItemIDPairing(2359, "sisturn_nest")
+--TheInventory:AddItemIDPairing(2360, "skeletonhat_relic")
+--TheInventory:AddItemIDPairing(2361, "slingshot_bandaged")
+--TheInventory:AddItemIDPairing(2362, "slingshot_nature")
+--TheInventory:AddItemIDPairing(2363, "slingshot_spiked")
+--TheInventory:AddItemIDPairing(2364, "slingshot_straws")
+--TheInventory:AddItemIDPairing(2365, "spicepack_porcelain")
+--TheInventory:AddItemIDPairing(2366, "spicepack_rustic")
+--TheInventory:AddItemIDPairing(2367, "spicepack_silver")
+--TheInventory:AddItemIDPairing(2368, "spicepack_survivor")
+--TheInventory:AddItemIDPairing(2369, "starstaff_relic")
+--TheInventory:AddItemIDPairing(2370, "townportal_relic")
+--TheInventory:AddItemIDPairing(2371, "wall_dreadstone_relic")
+--TheInventory:AddItemIDPairing(2372, "walter_ancient")
+--TheInventory:AddItemIDPairing(2373, "walterhat_ancient")
+--TheInventory:AddItemIDPairing(2374, "wendy_ancient")
+--TheInventory:AddItemIDPairing(2375, "wortox_ancient")
+--TheInventory:AddItemIDPairing(2376, "wx78_scanner_fancy")
+--TheInventory:AddItemIDPairing(2377, "wx78_scanner_junky")
+--TheInventory:AddItemIDPairing(2378, "catcoonhat_clown")
+--TheInventory:AddItemIDPairing(2379, "mermhat_clown")
+--TheInventory:AddItemIDPairing(2380, "backpack_labrat")
+--TheInventory:AddItemIDPairing(2381, "hivehat_joker")
 
 if TheInventory.AddFreeItemForEveryone == nil then
-    TheInventory:ValidateWithSignature( "5ac39aeae15cb9b03a3c608bf2a784e2198788a557e32d85f8b353b952e6dbb8cbca90a274bcce80d1ca5d4ed641f08dfd917d08ec7f1d14fb141b81ebc256be47c1e1e40df15eea41ef582c937c0532a88c617a1306bb41e18ed1dbf59884c64f3a811469129ec057148341402a597413889377eaf8c3d82f5ae386dae0b9998de9c2c7caa1a5936d8825936d7fb74487a9559e5517ec55cd6e754a363359b7ac0bf6d3f5cce24afb6ff42efbfb268497473920d7170247d8f2b53324733b24efc6b71d84694ee23e0a005e484e822d3cc7675c22de205f3e9a4403d3e842db30f5dc8838cb09f377f48fc6eef7a8c1c224b7831fa0f47261076c690d64f5651b4cab635a8b855107d83204bcc29b06120cd891a8d7b5067bdd50fd61dbea0d79caf0f216d8afc3000fbb3bba27699d60ef17e809a693d0304833dbff597efc97d25412729159ab83c32ab691c272120034caf972d0d96aeaeb52765a765214789f9ca89210c0409978560104fef8a06244d67af3c1afa4b15e716f81f70adeb30e3228127b8e78a20f3e1afd4c8247935b2b7a954c3804112cfce1259a3830c298034ccf05ff7424ea902b1b148f2e0d52478d07434c44db3c4ee3213cbaa501da2e45d251e10c4dd69cb0dfaaf2f4682eb175edd1fe557dc78974839123f87bd587709b7b9efbbe94bdf97eb6cbb1627c8ff56a661755adfe5304bfeab015" )
+    TheInventory:ValidateWithSignature( "44591607b6b5e5bedf3b883be15f6bb921c382ae66f92f4ae13f4fb57444f05102712900fe48fa9365ec7eb7b2a36bcccb46e105a5636b71c1b66b1fa677eb2a06e0d762b6a61dba3235ac23fe8aa55055762d714943e456cd8dcfd76b553f29bbd48785a3741c651c79710cd55d94efd7acceaeafa10025aab3f03e6968bde710c1f74a43a8f657be422dcaa1f5641242ca065d09545b0dece9c2682cd48adf340fd46841ec1e0b4048f188b65356a033dea5008d61bd77e39a4e24813bb6501f5fca58db9c7dc55d437117c9b15aa9ca6c300326995b633d828f3c792b62c71a6f96b21e1fb70d1314a0c322de755b2665f691f70f9273ef441cbeadb99c1757a48adcbb6e8b9e9547f1ab837fa698fe3b41f7d0bd5bb7bdd191de7b8e6a5b8c4d32f818aee004b522fefac8cdc80c7afc6ce36de7f6305cbeb7e74c835b8a14bd8cd0bb279ffa05452a061d5cd38a551bb0a1c612f2600280433e916dec91907423053b57977dad0a8bb36cd1a6fb01ed7ea668f4f5fa23bd03b6535096463d8842b84687575a3eac05a3948ddb87a69370aa911607b99c08fb15c5280dd2ec2d3201ff4758af170dba893b969838e33054efdf912f4454db4e6f4345d95121754d6168bec6f21d70e87307fd6e53025b8859b790bb2628a77abe30fd7ee9313398cb6c2f719b07840c163b999adf1b7cc7d53854b2d06c1dbc80689a4555" )
 else -- Temporary protection guard for platforms missing the engine change 2.
 
 -- These are free items for everyone and are not networked.
@@ -8169,7 +8602,7 @@ TheInventory:AddFreeItemForEveryone("record_creepyforest") -- 148
 TheInventory:AddFreeItemForEveryone("record_drstyle") -- 148
 TheInventory:AddFreeItemForEveryone("record_efs") -- 148
 
-TheInventory:ValidateWithSignature( "95aee98c98f4dc15d5aa317db8aba90dcde226e0da7f00262197c226662950a15ad5e57cde9aa8a188b610e9956f8ef2bf258e127b258d0438dfba74585268bd2c8a20025ab8935f1c97b301b1c2a2f96ea9b48c5cd873412e653f5a98cab3ceeb525ec11496fd88ed0b4f923a4b177109876717629af8faa3cdb405ec0c8f0b4995ce94af45f1ce9e45d1bcba6853eeeaa2362e76a73b77260df236979a4b21555fe00e311bb7f73c1ee46119ceb91f09fad0f35e7c1c363bc0e8350e947d3263cbf7e3a4979569663bd6b976cbb165404a81ce81e93193f5cac92d493e8e9575132e5417c595a8c75932d22559b23f14624c75cca050e828f6056be0058f07053c922cd1da73eb63d7878cac5cef52c100c00d7cc1314cdbe2791a4e82e0937fbd16dee2b3a3df8669d3b843823246e54393ab5ddf15b6fd05b6280fc53a077f5a2c3f98052f7745c965204ea02d7294f3ecf02389a007db4a9193edc1c33370ff223536f9a86c74b60526e63ba43a322908c96c45650937c4b60757b7f677f7c3afff8c88826aa68f415fe8694eee4b90bfd6df2ad8e230e45f5f13253c975f8cb86a115b4e36806cae04e3232b0f520348002f6b8909d0bfc04cd4f0d753181db26667d835fcfbb244d1fd9cab34e0e9b592c71f63dacd3208fcee2065204ed8f0b639b4cd3c88343c9a5e30bcfadf65bec6d12247152ac265133c0b22da" )
+TheInventory:ValidateWithSignature( "a6541ebfb3bcc21f73604f4cf32ddb7ac5473a5bf857bc96b01c784e92a42126b1b8ce25e42a3a65e7451d7b7e2b4ec099b5fe227fb58c3a397f75a0b51fa340ad53ecace8df635a77fb29397fdd0bc7bd617e4a96f6c1c74d5b40fa6a9e4d72c2d0e1c0b81243a68b7adc7697a10fcc1758d001a5606e1438ab13fa60305b584cd7d98d15234405884f1471bef9393a8a9dd9e5c44146848da91d8536aa64f87da372152c401d4438821141eb9690a7ae6f1a3d7c835e1c0aaa2589480ebe80c07e4429ce061f2a63d284ee269a398dca32b9fc703ad1e977bebefc5b6d827a3647f91cc96055d4927d8febd9ba2bf0bc3944085b21bcfe0c57875e58420a7ebf98c5fe0447bf265fa450ea4d5884a7daa657797dd8eaa906920a5d0bdc3e1ec88963408fdd9a2ae6826b964ca0c82abd04fd5b34b37cae995e45ca4bda05519cbd61ad9e95a11947e35aa27c8556ee2ce61a59b23a606469899ea7f0a29f74d0d225c929d5f7460b463daeda8fe938a193e4dce62ca9c4da038a533df557883a24b0c5cb3fa0b1be16a139e320c1b5c96b8cc09bc79f88cc5695626a85c77270967c83c2e8895cbb0235787f0d553ce6bcc5586b7da8b71dded82d2cc501119a04c839a6aaabba43bb466f92b6017d380bb0793b537cf41bc53b03127b1429b7768ea6747183f41f30daa0ef64c039eff9efb2a4d051bb53452b8a23b6fdaa" )
 
 end -- Temporary protection guard for platforms missing the engine change 2.
 
@@ -8235,63 +8668,66 @@ TheSim:AddTextureToStreamingGroup( 23 ,"anim/dynamic/wolfgang_skinny_wolfman.zip
 TheSim:AddTextureToStreamingGroup( 24 ,"anim/dynamic/wolfgang_mighty_wrestler.zip:wolfgang_mighty_wrestler--atlas-0.tex" )
 TheSim:AddTextureToStreamingGroup( 24 ,"anim/dynamic/wolfgang_wrestler.zip:wolfgang_wrestler--atlas-0.tex" )
 TheSim:AddTextureToStreamingGroup( 24 ,"anim/dynamic/wolfgang_skinny_wrestler.zip:wolfgang_skinny_wrestler--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 25 ,"anim/dynamic/wormwood_ancient.zip:wormwood_ancient--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 25 ,"anim/dynamic/wormwood_ancient_stage2.zip:wormwood_ancient_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 25 ,"anim/dynamic/wormwood_ancient_stage3.zip:wormwood_ancient_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 25 ,"anim/dynamic/wormwood_ancient_stage4.zip:wormwood_ancient_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_cactus.zip:wormwood_cactus--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_cactus_stage2.zip:wormwood_cactus_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_cactus_stage3.zip:wormwood_cactus_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_cactus_stage4.zip:wormwood_cactus_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_formal.zip:wormwood_formal--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_formal_stage2.zip:wormwood_formal_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_formal_stage3.zip:wormwood_formal_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_formal_stage4.zip:wormwood_formal_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_ice.zip:wormwood_ice--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_ice_stage2.zip:wormwood_ice_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_ice_stage3.zip:wormwood_ice_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_ice_stage4.zip:wormwood_ice_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_lunar.zip:wormwood_lunar--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_lunar_stage2.zip:wormwood_lunar_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_lunar_stage3.zip:wormwood_lunar_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_lunar_stage4.zip:wormwood_lunar_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_mushroom.zip:wormwood_mushroom--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_mushroom_stage2.zip:wormwood_mushroom_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_mushroom_stage3.zip:wormwood_mushroom_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_mushroom_stage4.zip:wormwood_mushroom_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_nature.zip:wormwood_nature--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_nature_stage2.zip:wormwood_nature_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_nature_stage3.zip:wormwood_nature_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_nature_stage4.zip:wormwood_nature_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood.zip:wormwood--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood_stage_2.zip:wormwood_stage_2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood_stage_3.zip:wormwood_stage_3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood_stage_4.zip:wormwood_stage_4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood_pumpkin.zip:wormwood_pumpkin--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood_pumpkin_stage2.zip:wormwood_pumpkin_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood_pumpkin_stage3.zip:wormwood_pumpkin_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood_pumpkin_stage4.zip:wormwood_pumpkin_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_rose.zip:wormwood_rose--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_rose_stage2.zip:wormwood_rose_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_rose_stage3.zip:wormwood_rose_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_rose_stage4.zip:wormwood_rose_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_saladmander.zip:wormwood_saladmander--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_saladmander_stage2.zip:wormwood_saladmander_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_saladmander_stage3.zip:wormwood_saladmander_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_saladmander_stage4.zip:wormwood_saladmander_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander_d.zip:wormwood_saladmander_d--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander_d_stage2.zip:wormwood_saladmander_d_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander_d_stage3.zip:wormwood_saladmander_d_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander_d_stage4.zip:wormwood_saladmander_d_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 38 ,"anim/dynamic/wormwood_shadow.zip:wormwood_shadow--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 38 ,"anim/dynamic/wormwood_shadow_stage2.zip:wormwood_shadow_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 38 ,"anim/dynamic/wormwood_shadow_stage3.zip:wormwood_shadow_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 38 ,"anim/dynamic/wormwood_shadow_stage4.zip:wormwood_shadow_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_victorian.zip:wormwood_victorian--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_victorian_stage2.zip:wormwood_victorian_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_victorian_stage3.zip:wormwood_victorian_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_victorian_stage4.zip:wormwood_victorian_stage4--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_yule.zip:wormwood_yule--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_yule_stage2.zip:wormwood_yule_stage2--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_yule_stage3.zip:wormwood_yule_stage3--atlas-0.tex" )
-TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_yule_stage4.zip:wormwood_yule_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 25 ,"anim/dynamic/wolfgang_mighty_yule.zip:wolfgang_mighty_yule--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 25 ,"anim/dynamic/wolfgang_yule.zip:wolfgang_yule--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 25 ,"anim/dynamic/wolfgang_skinny_yule.zip:wolfgang_skinny_yule--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_ancient.zip:wormwood_ancient--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_ancient_stage2.zip:wormwood_ancient_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_ancient_stage3.zip:wormwood_ancient_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 26 ,"anim/dynamic/wormwood_ancient_stage4.zip:wormwood_ancient_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_cactus.zip:wormwood_cactus--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_cactus_stage2.zip:wormwood_cactus_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_cactus_stage3.zip:wormwood_cactus_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 27 ,"anim/dynamic/wormwood_cactus_stage4.zip:wormwood_cactus_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_formal.zip:wormwood_formal--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_formal_stage2.zip:wormwood_formal_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_formal_stage3.zip:wormwood_formal_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 28 ,"anim/dynamic/wormwood_formal_stage4.zip:wormwood_formal_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_ice.zip:wormwood_ice--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_ice_stage2.zip:wormwood_ice_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_ice_stage3.zip:wormwood_ice_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 29 ,"anim/dynamic/wormwood_ice_stage4.zip:wormwood_ice_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_lunar.zip:wormwood_lunar--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_lunar_stage2.zip:wormwood_lunar_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_lunar_stage3.zip:wormwood_lunar_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 30 ,"anim/dynamic/wormwood_lunar_stage4.zip:wormwood_lunar_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_mushroom.zip:wormwood_mushroom--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_mushroom_stage2.zip:wormwood_mushroom_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_mushroom_stage3.zip:wormwood_mushroom_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 31 ,"anim/dynamic/wormwood_mushroom_stage4.zip:wormwood_mushroom_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood_nature.zip:wormwood_nature--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood_nature_stage2.zip:wormwood_nature_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood_nature_stage3.zip:wormwood_nature_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 32 ,"anim/dynamic/wormwood_nature_stage4.zip:wormwood_nature_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood.zip:wormwood--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood_stage_2.zip:wormwood_stage_2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood_stage_3.zip:wormwood_stage_3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 33 ,"anim/dynamic/wormwood_stage_4.zip:wormwood_stage_4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_pumpkin.zip:wormwood_pumpkin--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_pumpkin_stage2.zip:wormwood_pumpkin_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_pumpkin_stage3.zip:wormwood_pumpkin_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 34 ,"anim/dynamic/wormwood_pumpkin_stage4.zip:wormwood_pumpkin_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_rose.zip:wormwood_rose--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_rose_stage2.zip:wormwood_rose_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_rose_stage3.zip:wormwood_rose_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 35 ,"anim/dynamic/wormwood_rose_stage4.zip:wormwood_rose_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander.zip:wormwood_saladmander--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander_stage2.zip:wormwood_saladmander_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander_stage3.zip:wormwood_saladmander_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 36 ,"anim/dynamic/wormwood_saladmander_stage4.zip:wormwood_saladmander_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 37 ,"anim/dynamic/wormwood_saladmander_d.zip:wormwood_saladmander_d--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 37 ,"anim/dynamic/wormwood_saladmander_d_stage2.zip:wormwood_saladmander_d_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 37 ,"anim/dynamic/wormwood_saladmander_d_stage3.zip:wormwood_saladmander_d_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 37 ,"anim/dynamic/wormwood_saladmander_d_stage4.zip:wormwood_saladmander_d_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_shadow.zip:wormwood_shadow--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_shadow_stage2.zip:wormwood_shadow_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_shadow_stage3.zip:wormwood_shadow_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 39 ,"anim/dynamic/wormwood_shadow_stage4.zip:wormwood_shadow_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_victorian.zip:wormwood_victorian--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_victorian_stage2.zip:wormwood_victorian_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_victorian_stage3.zip:wormwood_victorian_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 40 ,"anim/dynamic/wormwood_victorian_stage4.zip:wormwood_victorian_stage4--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 41 ,"anim/dynamic/wormwood_yule.zip:wormwood_yule--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 41 ,"anim/dynamic/wormwood_yule_stage2.zip:wormwood_yule_stage2--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 41 ,"anim/dynamic/wormwood_yule_stage3.zip:wormwood_yule_stage3--atlas-0.tex" )
+TheSim:AddTextureToStreamingGroup( 41 ,"anim/dynamic/wormwood_yule_stage4.zip:wormwood_yule_stage4--atlas-0.tex" )

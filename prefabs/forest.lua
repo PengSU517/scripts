@@ -499,7 +499,24 @@ local prefabs =
     "rabbitking_lucky",
 
     "itemmimic_revealed",
-    
+
+	-- Winter's Feast 2024
+    -- snowballmanager
+    "snowball_item",
+    "snowball_shatter_fx",
+
+    -- YOTS
+    "yots_worm_lantern_spawner",
+
+    -- Meta 5
+    "graveguard_ghost",
+
+    "shallow_grave",
+    "shallow_grave_player",
+
+    -- Playing Cards
+    "deck_of_cards", -- playingcardsmanager
+    "balatro_machine",
 }
 
 local FISH_DATA = require("prefabs/oceanfishdef")
@@ -599,6 +616,7 @@ local function master_postinit(inst)
     inst:AddComponent("retrofitforestmap_anr")
     inst:AddComponent("specialeventsetup")
     inst:AddComponent("townportalregistry")
+    inst:AddComponent("linkeditemmanager")
     inst:AddComponent("sandstorms")
     inst:AddComponent("worldmeteorshower")
     inst:AddComponent("mermkingmanager")
@@ -612,6 +630,7 @@ local function master_postinit(inst)
     if IsSpecialEventActive(SPECIAL_EVENTS.WINTERS_FEAST) then
         inst:AddComponent("gingerbreadhunter")
     end
+    inst:AddComponent("snowballmanager")
 
     inst:AddComponent("feasts")
 
@@ -645,6 +664,12 @@ local function master_postinit(inst)
     -- We don't want to auto-spawn mimics, but they might be brought up from the caves,
     -- so we might need to spawn them from existing mimics re-hiding.
     inst:AddComponent("shadowthrall_mimics")
+
+    -- Meta 5
+    inst:AddComponent("decoratedgrave_ghostmanager")
+
+    -- Playing Cards
+    inst:AddComponent("playingcardsmanager")
 end
 
 return MakeWorld("forest", prefabs, assets, common_postinit, master_postinit, {"forest"}, {

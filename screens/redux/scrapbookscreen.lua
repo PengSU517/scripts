@@ -39,6 +39,15 @@ local UIAnim = require "widgets/uianim"
 
 local dataset = require("screens/redux/scrapbookdata")
 
+--DO SOME FILTERING FOR PREFABS NOT PRESENT IN ALL VERSIONS
+--if rawget(_G, "TheSim") and not TheSim:HasPlayerSkeletons() then
+--if TheSim and not TheSim:HasPlayerSkeletons() then
+if rawget(_G, "TheSim") and not TheSim:HasPlayerSkeletons() then
+	dataset["skeleton"] = nil
+else
+	dataset["shallow_grave"] = nil
+end
+
 local PANEL_WIDTH = 1000
 local PANEL_HEIGHT = 530
 local SEARCH_BOX_HEIGHT = 40
@@ -1617,6 +1626,10 @@ function ScrapbookScreen:PopulateInfoPanel(entry)
 		if data.burnable then
 			makeentry("icon_burnable.tex", STRINGS.SCRAPBOOK.DATA_BURNABLE)
 		end
+
+		if data.snowmandecor then
+			makeentry("icon_snowmandeco.tex", STRINGS.SCRAPBOOK.DATA_SNOWMANDECO)
+		end		
 	end
 
 	---------------------------------------------
@@ -2455,6 +2468,17 @@ function ScrapbookScreen:SelectEntry(entry)
 		self.details = self.detailsroot:AddChild(self:PopulateInfoPanel(entry))
 		self:DoFocusHookups()
 		TheFrontEnd:GetSound():PlaySound("dontstarve/HUD/scrapbook_pageflip")
+	end
+end
+
+function ScrapbookScreen:DEBUG_REIMPORT_DATASET()
+	package.loaded["screens/redux/scrapbookdata"] = nil
+	dataset = require("screens/redux/scrapbookdata")
+
+	if TheSim and not TheSim:HasPlayerSkeletons() then
+		dataset["skeleton"] = nil
+	else	
+		dataset["shallow_grave"] = nil
 	end
 end
 

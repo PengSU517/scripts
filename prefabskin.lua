@@ -117,8 +117,35 @@ function basic_clear_fn(inst, def_build)
     end
 end
 
-backpack_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "swap_backpack" ) end
-backpack_clear_fn = function(inst) basic_clear_fn(inst, "swap_backpack" ) end
+backpack_init_fn = function(inst, build_name, fns)
+    basic_init_fn(inst, build_name, "swap_backpack")
+
+	if not TheWorld.ismastersim then
+		return
+	end
+
+	if inst.backpack_skin_fns and inst.backpack_skin_fns.uninitialize then
+		inst.backpack_skin_fns.uninitialize(inst)
+	end
+	inst.backpack_skin_fns = fns
+	if fns and fns.initialize then
+		fns.initialize(inst)
+	end
+	inst:OnBackpackSkinChanged(build_name)
+end
+backpack_clear_fn = function(inst)
+    basic_clear_fn(inst, "swap_backpack")
+	if inst.backpack_skin_fns then
+		if inst.backpack_skin_fns.uninitialize then
+			inst.backpack_skin_fns.uninitialize(inst)
+		end
+		inst.backpack_skin_fns = nil
+	end
+	inst:OnBackpackSkinChanged(nil)
+end
+
+spicepack_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "swap_chefpack" ) end
+spicepack_clear_fn = function(inst) basic_clear_fn(inst, "swap_chefpack" ) end
 
 krampus_sack_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "swap_krampus_sack" ) end
 krampus_sack_clear_fn = function(inst) basic_clear_fn(inst, "swap_krampus_sack" ) end
@@ -850,22 +877,200 @@ umbrella_clear_fn = function(inst) basic_clear_fn(inst, "umbrella" ) end
 oceanfishingrod_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "fishingrod_ocean" ) end
 oceanfishingrod_clear_fn = function(inst) basic_clear_fn(inst, "fishingrod_ocean" ) end
 
-amulet_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "amulets" ) end
-amulet_clear_fn = function(inst) basic_clear_fn(inst, "amulets" ) end
-
-yellowamulet_init_fn = function(inst, build_name)
-    basic_init_fn( inst, build_name, "amulets" )
-
+local generic_amulet_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "amulets")
     if not TheWorld.ismastersim then
         return
     end
-
     AddSkinSounds(inst)
 end
-yellowamulet_clear_fn = function(inst)
-    basic_clear_fn( inst, "amulets" )
+local generic_amulet_clear_fn = function(inst)
+    basic_clear_fn(inst, "amulets")
     RemoveSkinSounds(inst)
 end
+blueamulet_init_fn = generic_amulet_init_fn
+blueamulet_clear_fn = generic_amulet_clear_fn
+greenamulet_init_fn = generic_amulet_init_fn
+greenamulet_clear_fn = generic_amulet_clear_fn
+orangeamulet_init_fn = generic_amulet_init_fn
+orangeamulet_clear_fn = generic_amulet_clear_fn
+purpleamulet_init_fn = generic_amulet_init_fn
+purpleamulet_clear_fn = generic_amulet_clear_fn
+amulet_init_fn = generic_amulet_init_fn
+amulet_clear_fn = generic_amulet_clear_fn
+yellowamulet_init_fn = generic_amulet_init_fn
+yellowamulet_clear_fn = generic_amulet_clear_fn
+
+beargerfur_sack_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "beargerfur_sack")
+    if not TheWorld.ismastersim then
+        return
+    end
+    AddSkinSounds(inst)
+end
+beargerfur_sack_clear_fn = function(inst)
+    basic_clear_fn(inst, "beargerfur_sack")
+    RemoveSkinSounds(inst)
+end
+
+sisturn_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "sisturn")
+    if not TheWorld.ismastersim then
+        return
+    end
+    AddSkinSounds(inst)
+end
+sisturn_clear_fn = function(inst)
+    basic_clear_fn(inst, "sisturn")
+    RemoveSkinSounds(inst)
+end
+
+lucy_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "Lucy_axe")
+    if not TheWorld.ismastersim then
+        return
+    end
+    AddSkinSounds(inst)
+end
+lucy_clear_fn = function(inst)
+    basic_clear_fn(inst, "Lucy_axe")
+    RemoveSkinSounds(inst)
+end
+
+townportal_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "townportal")
+    if not TheWorld.ismastersim then
+        return
+    end
+    AddSkinSounds(inst)
+end
+townportal_clear_fn = function(inst)
+    basic_clear_fn(inst, "townportal")
+    RemoveSkinSounds(inst)
+end
+
+nightlight_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "nightmare_torch")
+    if not TheWorld.ismastersim then
+        return
+    end
+    AddSkinSounds(inst)
+end
+nightlight_clear_fn = function(inst)
+    basic_clear_fn(inst, "nightmare_torch")
+    RemoveSkinSounds(inst)
+end
+
+wx78_scanner_init_fn = function(inst, build_name)
+    inst.linked_skinname = build_name
+    basic_init_fn(inst, build_name, "wx_scanner")
+    if inst.components.inventoryitem then
+        inst.components.inventoryitem:ChangeImageName(build_name .. "_item")
+    end
+    if not TheWorld.ismastersim then
+        return
+    end
+    AddSkinSounds(inst)
+end
+wx78_scanner_clear_fn = function(inst)
+    inst.linked_skinname = nil
+    basic_clear_fn(inst, "wx_scanner")
+    RemoveSkinSounds(inst)
+end
+wx78_scanner_item_init_fn = wx78_scanner_init_fn
+wx78_scanner_item_clear_fn = wx78_scanner_clear_fn
+wx78_scanner_succeeded_init_fn = wx78_scanner_init_fn
+wx78_scanner_succeeded_clear_fn = wx78_scanner_clear_fn
+
+portableblender_init_fn = function(inst, build_name)
+    inst.linked_skinname = build_name
+    basic_init_fn(inst, build_name, "portable_blender")
+    if inst.components.inventoryitem then
+        inst.components.inventoryitem:ChangeImageName(build_name .. "_item")
+    end
+end
+portableblender_clear_fn = function(inst)
+    inst.linked_skinname = nil
+    basic_clear_fn(inst, "portable_blender")
+end
+portableblender_item_init_fn = portableblender_init_fn
+portableblender_item_clear_fn = portableblender_clear_fn
+
+portablecookpot_init_fn = function(inst, build_name)
+    inst.linked_skinname = build_name
+    basic_init_fn(inst, build_name, "portable_cook_pot")
+    if inst.components.inventoryitem then
+        inst.components.inventoryitem:ChangeImageName(build_name .. "_item")
+    end
+end
+portablecookpot_clear_fn = function(inst)
+    inst.linked_skinname = nil
+    basic_clear_fn(inst, "portable_cook_pot")
+end
+portablecookpot_item_init_fn = portablecookpot_init_fn
+portablecookpot_item_clear_fn = portablecookpot_clear_fn
+
+portablespicer_init_fn = function(inst, build_name)
+    inst.linked_skinname = build_name
+    basic_init_fn(inst, build_name, "portable_spicer")
+    if inst.components.inventoryitem then
+        inst.components.inventoryitem:ChangeImageName(build_name .. "_item")
+    end
+end
+portablespicer_clear_fn = function(inst)
+    inst.linked_skinname = nil
+    basic_clear_fn(inst, "portable_spicer")
+end
+portablespicer_item_init_fn = portablespicer_init_fn
+portablespicer_item_clear_fn = portablespicer_clear_fn
+
+slingshot_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "slingshot")
+	if not TheWorld.ismastersim then
+		return
+	end
+	inst:OnSlingshotSkinChanged(build_name)
+end
+slingshot_clear_fn = function(inst)
+    basic_clear_fn(inst, "slingshot")
+	inst:OnSlingshotSkinChanged(nil)
+end
+slingshotex_init_fn = slingshot_init_fn
+slingshot999ex_init_fn = slingshot_init_fn
+slingshot2_init_fn = slingshot_init_fn
+slingshot2ex_init_fn = slingshot_init_fn
+slingshotex_clear_fn = slingshot_clear_fn
+slingshot999ex_clear_fn = slingshot_clear_fn
+slingshot2_clear_fn = slingshot_clear_fn
+slingshot2ex_clear_fn = slingshot_clear_fn
+
+wobysmall_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "pupington_woby_build")
+    if not TheWorld.ismastersim then
+        return
+    end
+	inst:OnWobySkinChanged(build_name)
+end
+wobysmall_clear_fn = function(inst)
+    basic_clear_fn(inst, "pupington_woby_build")
+	inst:OnWobySkinChanged(nil)
+end
+wobybig_init_fn = function(inst, build_name)
+    basic_init_fn(inst, build_name, "woby_big_build")
+    if not TheWorld.ismastersim then
+        return
+    end
+	inst:OnWobySkinChanged(build_name)
+end
+wobybig_clear_fn = function(inst)
+    basic_clear_fn(inst, "woby_big_build")
+	inst:OnWobySkinChanged(nil)
+end
+
+trunkvest_summer_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "armor_trunkvest_summer") end
+trunkvest_summer_clear_fn = function(inst) basic_clear_fn(inst, "armor_trunkvest_summer") end
+trunkvest_winter_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "armor_trunkvest_winter") end
+trunkvest_winter_clear_fn = function(inst) basic_clear_fn(inst, "armor_trunkvest_winter") end
 
 book_brimstone_init_fn = function(inst, build_name) basic_init_fn(inst, build_name, "books") end
 book_brimstone_clear_fn = function(inst) basic_clear_fn(inst, "books") end
@@ -925,8 +1130,14 @@ monkey_mediumhat_clear_fn = function(inst) basic_clear_fn(inst, "hat_monkey_medi
 monkey_smallhat_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "hat_monkey_small" ) end
 monkey_smallhat_clear_fn = function(inst) basic_clear_fn(inst, "hat_monkey_small" ) end
 
-hivehat_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "hat_hive" ) end
-hivehat_clear_fn = function(inst) basic_clear_fn(inst, "hat_hive" ) end
+hivehat_init_fn = function(inst, build_name)
+    basic_init_fn( inst, build_name, "hat_hive" )
+    inst:AddOrRemoveTag("regaljoker", build_name == "hivehat_joker")
+end
+hivehat_clear_fn = function(inst)
+    basic_clear_fn(inst, "hat_hive" )
+    inst:RemoveTag("regaljoker")
+end
 
 tophat_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "hat_top" ) end
 tophat_clear_fn = function(inst) basic_clear_fn(inst, "hat_top" ) end
@@ -1163,6 +1374,8 @@ supertacklecontainer_clear_fn = function(inst) basic_clear_fn(inst, "supertackle
 mermhouse_crafted_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "mermhouse_crafted" ) end
 mermhouse_crafted_clear_fn = function(inst) basic_clear_fn(inst, "mermhouse_crafted" ) end
 
+mermhat_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "hat_merm" ) end
+mermhat_clear_fn = function(inst) basic_clear_fn(inst, "hat_merm" ) end
 
 resurrectionstone_init_fn = function(inst, build_name) basic_init_fn( inst, build_name, "resurrection_stone" ) end
 resurrectionstone_clear_fn = function(inst) basic_clear_fn(inst, "resurrection_stone" ) end
@@ -1272,11 +1485,23 @@ end
 --------------------------------------------------------------------------
 gravestone_init_fn = function(inst, build_name)
     basic_init_fn( inst, build_name, "gravestones" )
-    inst.AnimState:PlayAnimation("grave1")
+    if not TheWorld.ismastersim then
+        return
+    end
+    local number = tonumber(build_name:sub(-1)) or 1
+    inst.AnimState:PlayAnimation("grave" .. number)
 end
 gravestone_clear_fn = function(inst)
     basic_clear_fn(inst, "gravestones" )
-    inst.AnimState:PlayAnimation("grave" .. inst.random_stone_choice)
+    local number = inst.random_stone_choice or 1
+    inst.AnimState:PlayAnimation("grave" .. number)
+end
+dug_gravestone_init_fn = function(inst, build_name)
+    basic_init_fn( inst, build_name, "gravestones" )
+end
+dug_gravestone_clear_fn = function(inst)
+    basic_clear_fn(inst, "gravestones" )
+    inst.components.inventoryitem:ChangeImageName("dug_gravestone" .. (tostring(inst.random_stone_choice) == "1" and "" or inst.random_stone_choice))
 end
 
 --------------------------------------------------------------------------
@@ -1695,27 +1920,6 @@ function cookpot_init_fn(inst, build_name)
 end
 function cookpot_clear_fn(inst, build_name)
     inst.AnimState:SetBuild("cook_pot")
-end
-
-function portablecookpot_item_init_fn(inst, build_name)
-    inst.linked_skinname = string.gsub(build_name, "cookpot", "portablecookpot")
-    inst.AnimState:SetSkin(build_name, "portable_cook_pot") --same hack is used here by the deployable code in player controller
-    inst.components.inventoryitem:ChangeImageName(inst:GetSkinName())
-end
-function portablecookpot_item_clear_fn(inst, build_name)
-    inst.linked_skinname = nil
-    inst.AnimState:SetBuild("portable_cook_pot")
-end
-function portablecookpot_init_fn(inst, build_name)
-    if inst.components.placer == nil and not TheWorld.ismastersim then
-        return
-    end
-    inst.linked_skinname = string.gsub(build_name, "cookpot", "portablecookpot") .. "_item"
-    inst.AnimState:SetSkin(build_name, "portable_cook_pot")
-end
-function portablecookpot_clear_fn(inst, build_name)
-    inst.linked_skinname = nil
-    inst.AnimState:SetBuild("portable_cook_pot")
 end
 
 
@@ -2193,6 +2397,29 @@ function wall_stone_clear_fn(inst)
 end
 
 --------------------------------------------------------------------------
+--[[ wall_dreadstone skin functions ]]
+--------------------------------------------------------------------------
+function wall_dreadstone_item_init_fn(inst, build_name)
+    inst.linked_skinname = build_name --hack that relies on the build name to match the linked skinname
+    inst.AnimState:SetSkin(build_name, "wall_dreadstone") --same hack is used here by the deployable code in player controller
+    inst.components.inventoryitem:ChangeImageName(inst:GetSkinName())
+end
+function wall_dreadstone_item_clear_fn(inst)
+    inst.linked_skinname = nil
+    inst.AnimState:SetBuild("wall_dreadstone")
+    inst.components.inventoryitem:ChangeImageName()
+end
+function wall_dreadstone_init_fn(inst, build_name)
+    if inst.components.placer == nil and not TheWorld.ismastersim then
+        return
+    end
+    inst.AnimState:SetSkin(build_name, "wall_dreadstone")
+end
+function wall_dreadstone_clear_fn(inst)
+    inst.AnimState:SetBuild("wall_dreadstone")
+end
+
+--------------------------------------------------------------------------
 --[[ wall_hay skin functions ]]
 --------------------------------------------------------------------------
 function wall_hay_item_init_fn(inst, build_name)
@@ -2314,7 +2541,10 @@ end
 record_init_fn = function(inst, build_name, trackname)
     basic_init_fn(inst, build_name, "records")
 
-    inst.nameoverride = build_name
+    inst.record_displayname:set(build_name)
+    if inst.components.inspectable then
+        inst.components.inspectable:SetNameOverride(build_name)
+    end
 
     if not TheWorld.ismastersim then
         return
@@ -2328,9 +2558,15 @@ record_init_fn = function(inst, build_name, trackname)
     AddSkinSounds(inst)
 end
 record_clear_fn = function(inst)
-    basic_clear_fn(inst, "records")
+    basic_clear_fn(inst, inst.recorddata and inst.recorddata.build or "records")
 
-    inst.nameoverride = nil
+    inst.record_displayname:set(inst.recorddata and inst.recorddata.displayname or "")
+    if inst.components.inspectable then
+        inst.components.inspectable:SetNameOverride(inst.recorddata and inst.recorddata.displayname or nil)
+    end
+    if inst.components.inventoryitem then
+        inst.components.inventoryitem:ChangeImageName(inst.recorddata and inst.recorddata.imageicon or nil)
+    end
 
     inst.songToPlay_skin = nil
 
