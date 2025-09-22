@@ -98,16 +98,14 @@ local function OnWerenessDelta(parent, data)
     end
 end
 
+-- Keep NON_DANGER_TAGS in sync with dynamicmusic NON_DANGER_TAGS
+local NON_DANGER_TAGS = {"noepicmusic", "shadow", "shadowchesspiece", "smolder", "thorny", "nodangermusic"}
 local function OnAttacked(parent, data)
     parent.player_classified.attackedpulseevent:push()
     parent.player_classified.isattackedbydanger:set(
         data ~= nil and
         data.attacker ~= nil and
-        not (data.attacker:HasTag("shadow") or
-            data.attacker:HasTag("shadowchesspiece") or
-            data.attacker:HasTag("noepicmusic") or
-            data.attacker:HasTag("thorny") or
-            data.attacker:HasTag("smolder"))
+        not data.attacker:HasAnyTag(NON_DANGER_TAGS)
     )
     parent.player_classified.isattackredirected:set(data ~= nil and data.redirected ~= nil)
 end
@@ -285,6 +283,17 @@ local function OnIsTakingFireDamageLowDirty(inst)
     if inst._parent ~= nil then
         inst._parent:PushEvent("changefiredamage", { low = inst.istakingfiredamagelow:value() })
     end
+end
+
+local function OnLunarBurnFlagsDirty(inst)
+	if inst._parent then
+		local flags = inst.lunarburnflags:value()
+		if flags ~= 0 then
+			inst._parent:PushEvent("startlunarburn", flags)
+		else
+			inst._parent:PushEvent("stoplunarburn")
+		end
+	end
 end
 
 local function OnAttackedPulseEvent(inst)
@@ -668,6 +677,12 @@ local function OnIsCarefulWalkingDirty(inst)
     end
 end
 
+local function OnExternalVelocityVectorDirty(inst)
+    if inst._parent then
+        inst._parent.Physics:SetMotorVelExternal(inst.externalvelocityvectorx:value(), 0, inst.externalvelocityvectorz:value())
+    end
+end
+
 local function OnPlayerCameraShake(inst)
     if inst._parent ~= nil and inst._parent.HUD ~= nil then
         TheCamera:Shake(
@@ -739,6 +754,19 @@ local function OnOpenCraftingMenuEvent(inst)
             player.HUD:OpenCrafting()
         end
     end
+end
+
+local function OnIsCraftingEnabledDirty(inst)
+	if inst._parent and inst._parent.HUD then
+		if inst.iscraftingenabled:value() then
+			inst._parent.HUD.controls:ShowCrafting()
+		else
+			inst._parent.HUD.controls:HideCrafting()
+			if inst._parent.components.playercontroller then
+				inst._parent.components.playercontroller:CancelPlacement()
+			end
+		end
+	end
 end
 
 local function OnInkedEvent(inst)
@@ -962,6 +990,8 @@ local function OnWormholeTravelDirty(inst)
             TheFocalPoint.SoundEmitter:PlaySound("dontstarve/cave/tentapiller_hole_travel")
         elseif inst._parent.player_classified.wormholetravelevent:value() == WORMHOLETYPE.OCEANWHIRLPORTAL then
             TheFocalPoint.SoundEmitter:PlaySound("meta3/whirlpool/whirlpool_travel")
+        elseif inst._parent.player_classified.wormholetravelevent:value() == WORMHOLETYPE.VAULTLOBBYEXIT then
+            TheFocalPoint.SoundEmitter:PlaySound("dontstarve/cave/tentapiller_hole_travel") -- FIXME(JBK): rifts6 sounds
         end
     end
 end
@@ -1057,6 +1087,11 @@ fns.ShowActions = function(inst, show)
     inst.isactionsvisible:set(show)
 end
 
+fns.ShowCrafting = function(inst, show)
+	inst.iscraftingenabled:set(show)
+	OnIsCraftingEnabledDirty(inst)
+end
+
 fns.ShowHUD = function(inst, show)
     inst.ishudvisible:set(show)
     OnPlayerHUDDirty(inst)
@@ -1097,6 +1132,7 @@ local function RegisterNetListeners_local(inst)
     inst:ListenForEvent("healthdirty", OnHealthDirty)
     inst:ListenForEvent("istakingfiredamagedirty", OnIsTakingFireDamageDirty)
     inst:ListenForEvent("istakingfiredamagelowdirty", OnIsTakingFireDamageLowDirty)
+	inst:ListenForEvent("lunarburnflagsdirty", OnLunarBurnFlagsDirty)
     inst:ListenForEvent("combat.attackedpulse", OnAttackedPulseEvent)
     inst:ListenForEvent("hungerdirty", OnHungerDirty)
     inst:ListenForEvent("sanitydirty", OnSanityDirty)
@@ -1114,11 +1150,13 @@ local function RegisterNetListeners_local(inst)
     inst:ListenForEvent("moisturedirty", OnMoistureDirty)
     inst:ListenForEvent("techtreesdirty", OnTechTreesDirty)
     inst:ListenForEvent("recipesdirty", OnRecipesDirty)
+	inst:ListenForEvent("iscraftingenableddirty", OnIsCraftingEnabledDirty)
     inst:ListenForEvent("bufferedbuildsdirty", OnBufferedBuildsDirty)
     inst:ListenForEvent("isperformactionsuccessdirty", OnIsPerformActionSuccessDirty)
     inst:ListenForEvent("pausepredictionframesdirty", OnPausePredictionFramesDirty)
 	inst:ListenForEvent("isstrafingdirty", fns.OnIsStrafingDirty)
     inst:ListenForEvent("iscarefulwalkingdirty", OnIsCarefulWalkingDirty)
+    inst:ListenForEvent("externalvelocityvectordirty", OnExternalVelocityVectorDirty)
     inst:ListenForEvent("isghostmodedirty", OnGhostModeDirty)
     inst:ListenForEvent("actionmeterdirty", OnActionMeterDirty)
     inst:ListenForEvent("playerhuddirty", OnPlayerHUDDirty)
@@ -1198,6 +1236,7 @@ end
 function fns.OnInitialDirtyStates(inst)
     if not TheWorld.ismastersim then
         OnIsTakingFireDamageDirty(inst)
+		OnLunarBurnFlagsDirty(inst)
         OnTemperatureDirty(inst)
         OnTechTreesDirty(inst)
         if inst._parent ~= nil then
@@ -1223,6 +1262,7 @@ function fns.OnInitialDirtyStates(inst)
     fns.OnYotbSkinDirty(inst)
     OnMountHurtDirty(inst)
     OnGhostModeDirty(inst)
+	OnIsCraftingEnabledDirty(inst)
     OnPlayerHUDDirty(inst)
     OnPlayerCameraDirty(inst)
     fns.OnPlayerCameraExtraDistDirty(inst, true)
@@ -1255,6 +1295,7 @@ local function fn()
     inst.issleephealing = net_bool(inst.GUID, "health.healthsleep")
     inst.ishealthpulseup = net_bool(inst.GUID, "health.dodeltaovertime(up)", "healthdirty")
     inst.ishealthpulsedown = net_bool(inst.GUID, "health.dodeltaovertime(down)", "healthdirty")
+	inst.lunarburnflags = net_tinybyte(inst.GUID, "health.lunarburnflags", "lunarburnflagsdirty")
     inst.currenthealth:set(100)
     inst.maxhealth:set(100)
 
@@ -1443,6 +1484,8 @@ local function fn()
     inst.isfreebuildmode = net_bool(inst.GUID, "builder.freebuildmode", "recipesdirty")
     inst.current_prototyper = net_entity(inst.GUID, "builder.current_prototyper", "current_prototyper_dirty")
     inst.opencraftingmenuevent = net_event(inst.GUID, "builder.opencraftingmenu")
+	inst.iscraftingenabled = net_bool(inst.GUID, "builder.iscraftingenabled", "iscraftingenableddirty")
+	inst.iscraftingenabled:set(true)
     inst.recipes = {}
     inst.bufferedbuilds = {}
     for k, v in pairs(AllRecipes) do
@@ -1450,6 +1493,13 @@ local function fn()
             inst.recipes[k] = net_bool(inst.GUID, "builder.recipes["..k.."]", "recipesdirty")
             inst.bufferedbuilds[k] = net_bool(inst.GUID, "builder.buffered_builds["..k.."]", "bufferedbuildsdirty")
         end
+    end
+    inst.craftinglimit_recipe = {}
+    inst.craftinglimit_amount = {}
+    local craftinglimit_net_enum = GetIdealUnsignedNetVarForCount(CRAFTINGSTATION_LIMITED_RECIPES_COUNT)
+    for i = 1, CRAFTINGSTATION_LIMITED_RECIPES_COUNT do
+        inst.craftinglimit_recipe[i] = craftinglimit_net_enum(inst.GUID, "builder.craftinglimit_recipe[" .. i .. "]", "recipesdirty")
+        inst.craftinglimit_amount[i] = net_byte(inst.GUID, "builder.craftinglimit_amount[" .. i .. "]", "recipesdirty") -- 255 max.
     end
     inst.ingredientmod:set(INGREDIENT_MOD[1])
 
@@ -1510,6 +1560,8 @@ local function fn()
     inst.externalspeedmultiplier = net_float(inst.GUID, "locomotor.externalspeedmultiplier")
     inst.runspeed:set(TUNING.WILSON_RUN_SPEED)
     inst.externalspeedmultiplier:set(1)
+    inst.externalvelocityvectorx = net_float(inst.GUID, "locomotor.externalvelocityvectorx", "externalvelocityvectordirty")
+    inst.externalvelocityvectorz = net_float(inst.GUID, "locomotor.externalvelocityvectorz", "externalvelocityvectordirty")
 	inst.busyremoteoverridelocomote = net_bool(inst.GUID, "locomotor.busyremoteoverridelocomote")
 	inst.isstrafing = net_bool(inst.GUID, "locomotor.isstrafing", "isstrafingdirty")
 
@@ -1551,6 +1603,7 @@ local function fn()
     inst.SetUsedTouchStones = SetUsedTouchStones
     inst.SetGhostMode = fns.SetGhostMode
     inst.ShowActions = fns.ShowActions
+	inst.ShowCrafting = fns.ShowCrafting
     inst.ShowHUD = fns.ShowHUD
     inst.EnableMapControls = fns.EnableMapControls
     inst.SetOldagerRate = fns.SetOldagerRate

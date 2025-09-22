@@ -136,6 +136,9 @@ return {
             INUSE = "Looks like we had the same idea.",
             TOOFAR = "It's too far away!",
         },
+        DEPLOY = {
+            HERMITCRAB_RELOCATE = "It's empty, I shell try again later.",
+        },
         DIRECTCOURIER_MAP =
         {
             NOTARGET = "only_used_by_walter",
@@ -281,6 +284,7 @@ return {
         PICK =
         {
             NOTHING_INSIDE = "It's empty.",
+			STUCK = "It's stuck.",
         },
         PICKUP =
         {
@@ -316,6 +320,7 @@ return {
             NOWATERNEARBY = "only_used_by_waxwell_and_wicker",
             TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
             WAYTOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
+            BIRDSBLOCKED = "only_used_by_waxwell_and_wicker",
             NOFIRES =       "only_used_by_waxwell_and_wicker",
             NOSILVICULTURE = "only_used_by_waxwell_and_wicker",
             NOHORTICULTURE = "only_used_by_waxwell_and_wicker",
@@ -324,6 +329,8 @@ return {
             TOOMANYBEES = "only_used_by_waxwell_and_wicker",
             NOMOONINCAVES = "only_used_by_waxwell_and_wicker",
             ALREADYFULLMOON = "only_used_by_waxwell_and_wicker",
+            -- rifts5.1
+            DEADBIRDS = "only_used_by_waxwell_and_wicker",
         },
 		REMOTE_TELEPORT =
 		{
@@ -429,6 +436,8 @@ return {
             BEEF_BELL_HAS_BEEF_ALREADY = "I don't need a whole herd.",
 
 			NOT_MINE = "This belongs to someone else.",
+
+			CANNOT_FIX_DRONE = "It's too damaged to fix.",
         },
 		USEKLAUSSACKKEY =
         {
@@ -449,6 +458,8 @@ return {
         {
             DOESNTWORK = "I guess they don't support the arts here.",
             ALREADYACTIVE = "He must be busy with another contest somewhere.",
+            NORESPONSE = "He must have wandered off.",
+            RIGHTTHERE = "He's busy.",
         },
         YOTB_UNLOCKSKIN =
         {
@@ -478,6 +489,14 @@ return {
 		{
 			NOSLINGSHOT = "only_used_by_walter",
 		},
+		POUNCECAPTURE =
+		{
+			MISSED = "Drat, I missed.",
+		},
+        DIVEGRAB =
+        {
+            MISSED = "Drat, I missed.",
+        },
     },
 
 	ANNOUNCE_CANNOT_BUILD =
@@ -1142,7 +1161,7 @@ return {
 	ANNOUNCE_SNOWBALL_TOO_BIG = "It won't get any bigger than that.",
 	ANNOUNCE_SNOWBALL_NO_SNOW = "There's not enough snow on the ground.",
 
-    --rifts 5
+    -- Meta 5
     ANNOUNCE_WENDY_BABYSITTER_SET = "only_used_by_wendy", 
     ANNOUNCE_WENDY_BABYSITTER_STOP = "only_used_by_wendy",
 
@@ -1155,6 +1174,22 @@ return {
     ANNOUNCE_ELIXIR_PLAYER_SPEED = "I think I could lift a horse.",
 
     ANNOUNCE_ELIXIR_TOO_SUPER = "This one seems a little strong.",
+
+    -- Rift 5
+
+    ANNOUNCE_LUNARGUARDIAN_INCOMING = "It's back!",
+    ANNOUNCE_FLOATER_HELD = "I was busy drowning but something came up... me!",
+    ANNOUNCE_FLOATER_LETGO = "I hate being kept in susp-",
+
+    -- rifts5.1
+    ANNOUNCE_LUNARHAIL_BIRD_SOUNDS = "So that's the sound of a murder of crows.",
+    ANNOUNCE_LUNARHAIL_BIRD_CORPSES = "They're dropping like birds.",
+    ANNOUNCE_FLOAT_SWIM_TIRED = "I'm too tired.",
+    ANOUNCE_MUTATED_BIRD_ATTACK = "Birds!",
+
+    -- Rift 6
+    ANNOUNCE_WEAPON_TOOWEAK = "I need something stronger!",
+    ANNOUNCE_VAULT_TELEPORTER_DOES_NOTHING = "Maybe there's something wrong on the other side?",
 
 	BATTLECRY =
 	{
@@ -1739,6 +1774,8 @@ return {
 		TURF_FUNGUS="Yet another ground type.",
 		TURF_FUNGUS_MOON = "Yet another ground type.",
 		TURF_ARCHIVE = "Yet another ground type.",
+        TURF_VAULT = "Yet another ground type.",
+        TURF_VENT = "Yet another ground type.",
 		TURF_SINKHOLE="Yet another ground type.",
 		TURF_UNDERROCK="Yet another ground type.",
 		TURF_MUD="Yet another ground type.",
@@ -2087,6 +2124,8 @@ return {
         CHESSPIECE_SHARKBOI = "There's just some-fin about it.",
         CHESSPIECE_WORMBOSS = "It still shakes me up.",
         CHESSPIECE_YOTS = "I usually try to stay away from gold diggers.",
+        CHESSPIECE_WAGBOSS_ROBOT = "Great design, questionable execution.",
+        CHESSPIECE_WAGBOSS_LUNAR = "I'm over the moon.",
 
         CHESSJUNK1 = "A pile of broken chess pieces.",
         CHESSJUNK2 = "Another pile of broken chess pieces.",
@@ -3308,6 +3347,7 @@ return {
         WINTER_ORNAMENTBOSS = "This one is especially impressive.",
 		WINTER_ORNAMENTFORGE = "I should hang this one over a fire.",
 		WINTER_ORNAMENTGORGE = "For some reason it makes me hungry.",
+        WINTER_ORNAMENTPEARL = "Really fine work considering she has claws.",
 
         WINTER_FOOD1 = "The anatomy's not right, but I'll overlook it.", --gingerbread cookie
         WINTER_FOOD2 = "I'm going to eat forty. For science.", --sugar cookie
@@ -4404,6 +4444,13 @@ return {
             LINE_4 = "These markings look different from the ones in the rest of the ruins.",
             LINE_5 = "So much knowledge, if only I could read it!",
         },
+		VAULT_RUNE = "I can't read that.",
+		VAULT_STATUE =
+		{
+			LORE1 = "Looks like he met a dark end...",
+			LORE2 = "This really bugs me.",
+			LORE3 = "They make a pointed argument.",
+		},
 
         ARCHIVE_RESONATOR = {
             GENERIC = "Why use a map when you could use a mind-bogglingly complex piece of machinery?",
@@ -4792,6 +4839,7 @@ return {
 
         MOONSTORM_STATIC = "A new discovery, how electrifying!",
         MOONSTORM_STATIC_ITEM = "It makes my hair do crazy things.",
+        MOONSTORM_STATIC_ROAMER = "It seems lost in transmission.",
         MOONSTORM_SPARK = "I think I'll call it the \"Higgsbury Particle.\"",
 
         BIRD_MUTANT = "I think that used to be a crow.",
@@ -5105,6 +5153,7 @@ return {
 
         PLAYBILL_THE_DOLL = "\"Authored by C.W.\"",
         PLAYBILL_THE_VEIL = "\"Brought to you by the Heralds of Tenebrau.\"",
+        PLAYBILL_THE_VAULT = "Written by \"E.\"?",
         STATUEHARP_HEDGESPAWNER = "The flowers grew back, but the head didn't.",
         HEDGEHOUND = "It's an ambush!",
         HEDGEHOUND_BUSH = "It's a bush.",
@@ -5455,8 +5504,11 @@ return {
 
         FENCE_JUNK = "Tell me it's ugly, I won't take a fence.",
         JUNK_PILE = "A good junk pile rummage? I'll never refuse.",
-        JUNK_PILE_BIG = "I think it could fall over any moment.",
-
+        JUNK_PILE_BIG = {
+            BLUEPRINT = "There's something up there.",
+            GENERIC = "I think it could fall over any moment.",
+        },
+        
         ARMOR_LUNARPLANT_HUSK = "That'll put a thorn in your side.",
 
         -- Meta 4 / Ocean QoL
@@ -5658,6 +5710,140 @@ return {
         DECK_OF_CARDS = "Are we playing with a full deck?",
         PLAYING_CARD = "It's fifty-one short of a deck.",
         BALATRO_MACHINE = "I'm game for a game.",
+
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "Drat, empty.",
+			FILLED = "It's occupied.",
+		},
+		WAGBOSS_ROBOT_SECRET = "How intriguing!",
+        WAGBOSS_ROBOT = "Fascinating!",
+        WAGBOSS_ROBOT_POSSESSED = "Has anyone tried resetting it?",
+		WAGBOSS_ROBOT_LEG = "It withstood for a while!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "You look the same but different.",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "This must be the one he wants.",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "Haven't you broken enough science?!",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "They just drone on and on.",
+            INACTIVE = "We should take it for a whirl.",
+            DAMAGED = "I could repair it or harvest for parts.",
+            FRIENDLY = "Spin it to win it!",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "Like a bot out of hell.",
+            INACTIVE = "We should take it for a whirl.",
+            DAMAGED = "It's too damaged to fix but I can salvage the parts.",
+        },
+		WAGDRONE_PARTS = "Now I can put a positive spin on things.",
+		WAGDRONE_BEACON = "This will help keep things contained.",
+
+        WAGPUNK_WORKSTATION = "Let's get to work!",
+        WAGPUNK_LEVER = "It's a good time to switch things up.",
+        WAGPUNK_FLOOR_KIT = "What is this floor?",
+        WAGPUNK_CAGEWALL = "Wall or nothing!",
+
+		WAGSTAFF_ITEM_1 = "Strange, this glove is not a projection.",
+		WAGSTAFF_ITEM_2 = "This clipboard is... real.",
+
+        HERMITCRAB_RELOCATION_KIT = "The crab's new home will be pitcher perfect.",
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "If we trade, will we beef friends?",
+            GENERIC = "What a strange looking beefalo.",
+        },
+
+        GESTALT_GUARD_EVOLVED = "These ones have an explosive personality.",
+        FLOTATIONCUSHION = "Oh, buoyancy!",
+        LUNAR_SEED = "This formed part of its crown.",
+
+        -- rifts5.1
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE = "Keeping it under wraps for now.",
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE_KIT = "Big automatons really do come in small packages.",
+        WAGBOSS_ROBOT_CREATION_PARTS = "It comes in pieces!",
+        MOONSTORM_STATIC_CATCHER = "There's nothing inside.",
+        COOLANT = "It's bubbling with possibility!",
+
+        FENCE_ELECTRIC = {
+            LINKED = "Aw, it found a connection.",      --NOTE: the fence post is fully linked to two other posts
+            GENERIC = "It is not functional as a standalone unit.",           --NOTE: no links or electricity, just boring ol fence post
+        },
+        FENCE_ELECTRIC_ITEM = "It's not a tree, but it must be planted.",
+
+        MUTATEDBIRD = "I suppose it's a rare bird.",
+
+        BIRDCORPSE =
+        {
+            GENERIC  = "I call fowl.", --witnessing the corpse
+            BURNING  = "That's what I call a firebird.", --when its burning
+            REVIVING = "It's becoming a new species!", --when its mutating and being revived
+        },
+
+        BUZZARDCORPSE = {
+            GENERIC  = "I call fowl.", --witnessing the corpse
+            BURNING  = "That's what I call a firebird.", --when its burning
+            REVIVING = "It's becoming a new species!", --when its mutating and being revived
+        },
+
+        MUTATEDBUZZARD = {
+            GENERIC = "I admire its dead-ication.", -- Generic string
+            EATING_CORPSE = "Don't mind me, just carrion eating.", -- Eating from a fresh corpse (might be from the players kill or another creatures kill)
+        },
+
+        -- Rifts 6
+
+        SHADOWTHRALL_CENTIPEDE = {
+            HEAD = "Heads or heads?", --The head segment
+            BODY = "Dreadful!", --The body segment
+            FLIPPED = "Bottoms up!", --When it's flipped over (either head or body segment)
+        },
+
+        TREE_ROCK =
+		{
+			BURNING = "It looks a little hot under the collar.", --It's vines are burning, it will collapse
+			CHOPPED = "It lacks support.", --It's 'chopped', so the rock fell
+			GENERIC = "Looks vine to me.", --Rock is still on tree
+		},
+
+        -- NOTE: Unsure about HOT and COLD, just do GENERIC, GAS, MIASMA for now!
+        CAVE_VENT_ROCK =
+        {
+            GENERIC = "I'm not sure which way it vent.", -- Not ventilating anything
+            HOT     = "Things are really heating up.", -- Ventiliating hot air, making the area warm
+            GAS     = "That's exhausting.", -- Ventiliating Toadstools gas fumes and spores
+            MIASMA  = "What about miasma?", -- Ventiliating the shadow rift miasma
+        },
+        CAVE_FERN_WITHERED = "It's a withered fern.",
+        FLOWER_CAVE_WITHERED = "It's dim bulb.",
+
+		ABYSSPILLAR_MINION =
+		{
+			GENERIC = "I'm glad it's just a statue.", --off, looks like decor/statue
+			ACTIVATED = "How unoriginal!", --turned on and hopping over puzzle pillars
+		},
+		ABYSSPILLAR_TRIAL = "I've got some pull around here.",
+
+        VAULT_TELEPORTER =
+        {
+            GENERIC = "This piece really moves me.",
+            BROKEN = "It's broken.",
+            UNPOWERED = "It needs power.",
+        },
+		VAULT_TELEPORTER_UNDERCONSTRUCTION = "\"This Waymark is under development for a future update.\"",
+		VAULT_ORB = "I think this plays a roll.",
+        VAULT_LOBBY_EXIT = "An exit hole?",
+		VAULT_CHANDELIER_BROKEN = "Light's out.",
+
+		ANCIENT_HUSK = "Something bad happened here.",
+		MASK_ANCIENT_HANDMAIDHAT = "I wouldn't bug her.",
+		MASK_ANCIENT_ARCHITECTHAT = "I don't see the resemblance.",
+		MASK_ANCIENT_MASONHAT = "It looks heavier than the others.",
+
+        TREE_ROCK_SEED = "It's a seed.",
+        TREE_ROCK_SAPLING = "It had a rocky start.",
     },
 
     DESCRIBE_GENERIC = "It's a... thing.",

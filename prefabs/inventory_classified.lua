@@ -271,7 +271,7 @@ local function Has(inst, prefab, amount, checkallcontainers)
         if containers then
             for container_inst in pairs(containers) do
                 local container = container_inst.replica.container or container_inst.replica.inventory
-                if container and container ~= overflow and not container.excludefromcrafting then
+                if container and container ~= overflow and not container.excludefromcrafting and (container.IsReadOnlyContainer == nil or not container:IsReadOnlyContainer()) then
 					local containerhas, containercount = container:Has(prefab, amount, iscrafting)
                     count = count + containercount
                 end
@@ -311,6 +311,30 @@ local function HasItemWithTag(inst, tag, amount)
     end
 
     return count >= amount, count
+end
+
+local function FindItem(inst, fn)
+	if inst._itemspreview then
+		for k, v in pairs(inst._itemspreview) do
+			if fn(v) then
+				return v
+			end
+		end
+	else
+		for i, v in ipairs(inst._items) do
+			v = v:value()
+			if v and fn(v) then
+				return v
+			end
+		end
+	end
+
+	if inst._activeitem and fn(inst._activeitem) then
+		return inst._activeitem
+	end
+
+	local overflow = GetOverflowContainer(inst)
+	return overflow and overflow:FindItem(fn) or nil
 end
 
 --------------------------------------------------------------------------
@@ -891,7 +915,7 @@ local function ControllerUseItemOnSceneFromInvTile(inst, item)
             act = inst._parent.components.playercontroller:GetItemUseAction(item)
         end
 
-		if act ~= nil and act.action ~= ACTIONS.UNEQUIP and not TryNonNetworkedAction(inst, act, item) then
+		if act and act.action ~= ACTIONS.UNEQUIP and act.action ~= ACTIONS.DROP and not TryNonNetworkedAction(inst, act, item) then
             inst._parent.components.playercontroller:DoActionAutoEquip(act)
             inst._parent.components.playercontroller:RemoteControllerUseItemOnSceneFromInvTile(act, item)
         end
@@ -1332,7 +1356,7 @@ local function RemoveIngredients(inst, recipe, ingredientmod)
 		containers = {}
 		for k in pairs(container_insts) do
 			local container = k.replica.container or k.replica.inventory
-			if container and container.classifed and container.classifed ~= overflow and not container.excludefromcrafting then
+			if container and container.classifed and container.classifed ~= overflow and not container.excludefromcrafting and (container.IsReadOnlyContainer == nil or not container:IsReadOnlyContainer()) then
 				if container:IsBusy() then
 					return false
 				end
@@ -1376,6 +1400,7 @@ local function fn()
     --Network variables
     inst.visible = net_bool(inst.GUID, "inventory.visible", "visibledirty")
     inst.heavylifting = net_bool(inst.GUID, "inventory.heavylifting", "heavyliftingdirty")
+	inst.floaterheld = net_bool(inst.GUID, "inventory.floaterheld", "floaterhelddirty")
 
     inst._active = net_entity(inst.GUID, "inventory._active", "activedirty")
     inst._items = {}
@@ -1405,6 +1430,7 @@ local function fn()
         inst.IsFull = IsFull
         inst.Has = Has
         inst.HasItemWithTag = HasItemWithTag
+		inst.FindItem = FindItem
         inst.ReturnActiveItem = ReturnActiveItem
         inst.ReturnActiveItemToSlot = ReturnActiveItemToSlot
         inst.PutOneOfActiveItemInSlot = PutOneOfActiveItemInSlot

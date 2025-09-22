@@ -1,3 +1,13 @@
+ACTION_FILTER_PRIORITIES =
+{
+	paused = 999,
+	ghost = 99,
+	mounted = 20,
+	floaterheld = 15,
+	heavylifting = 10,
+	default = -99,
+}
+
 local PlayerActionPicker = Class(function(self, inst)
     self.inst = inst
     self.map = TheWorld.Map
@@ -365,7 +375,8 @@ function PlayerActionPicker:GetRightClickActions(position, target, spellbook)
 
     if target ~= nil and self.containers[target] then
         --check if we have container widget actions
-        actions = self:GetSceneActions(target, true)
+        local isreadonlycontainer = target.replica.container and target.replica.container:IsReadOnlyContainer()
+        actions = isreadonlycontainer and {} or self:GetSceneActions(target, true)
     elseif useitem ~= nil then
         --if we're specifically using an item, see if we can use it on the target entity
         if useitem:IsValid() then

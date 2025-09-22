@@ -126,6 +126,9 @@ return{
             INUSE = "Pardonnez-moi! I shouldn't backseat cook.",
             TOOFAR = "I'll need to get a little closer to cook with that.",
         },
+        DEPLOY = {
+            HERMITCRAB_RELOCATE = "It is not the time. I will try again later.",
+        },
         DIRECTCOURIER_MAP =
         {
 --fallback to speech_wilson.lua             NOTARGET = "only_used_by_walter",
@@ -271,6 +274,7 @@ return{
         PICK =
         {
             NOTHING_INSIDE = "Nothing. Oh well.",
+			STUCK = "Oh no! Stuck!",
         },
         PICKUP =
         {
@@ -306,6 +310,7 @@ return{
 --fallback to speech_wilson.lua             NOWATERNEARBY = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             WAYTOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
+--fallback to speech_wilson.lua             BIRDSBLOCKED = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOFIRES =       "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOSILVICULTURE = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOHORTICULTURE = "only_used_by_waxwell_and_wicker",
@@ -314,6 +319,8 @@ return{
 --fallback to speech_wilson.lua             TOOMANYBEES = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOMOONINCAVES = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             ALREADYFULLMOON = "only_used_by_waxwell_and_wicker",
+--fallback to speech_wilson.lua             -- rifts5.1
+--fallback to speech_wilson.lua             DEADBIRDS = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua         },
 		REMOTE_TELEPORT =
 		{
@@ -419,6 +426,8 @@ return{
             BEEF_BELL_HAS_BEEF_ALREADY = "I've already found my perfect cut of beef.",
 
 			NOT_MINE = "That is not mine.",
+
+			CANNOT_FIX_DRONE = "It is not salvageable.",
         },
 		USEKLAUSSACKKEY =
         {
@@ -439,6 +448,8 @@ return{
         {
             DOESNTWORK = "Nobody there? C'est la vie.",
             ALREADYACTIVE = "Perhaps there's another contest somewhere else.",
+            NORESPONSE = "He has gone for a walk, perhaps.",
+            RIGHTTHERE = "He is presently busy.",
         },
         YOTB_UNLOCKSKIN =
         {
@@ -468,6 +479,14 @@ return{
 		{
 --fallback to speech_wilson.lua 			NOSLINGSHOT = "only_used_by_walter",
 		},
+		POUNCECAPTURE =
+		{
+			MISSED = "Oh non! I missed.",
+		},
+        DIVEGRAB =
+        {
+            MISSED = "Oh non! I missed.",
+        },
     },
 
 	ANNOUNCE_CANNOT_BUILD =
@@ -1132,7 +1151,7 @@ return{
 	ANNOUNCE_SNOWBALL_TOO_BIG = "I'm afraid it won't get any bigger.",
 	ANNOUNCE_SNOWBALL_NO_SNOW = "There's not enough snow here!",
 
-    --rifts 5
+    -- Meta 5
     ANNOUNCE_WENDY_BABYSITTER_SET = "only_used_by_wendy", 
     ANNOUNCE_WENDY_BABYSITTER_STOP = "only_used_by_wendy",
 
@@ -1145,6 +1164,22 @@ return{
     ANNOUNCE_ELIXIR_PLAYER_SPEED = "I could lift a cow!",
 
     ANNOUNCE_ELIXIR_TOO_SUPER = "Trop fort!",
+
+    -- Rift 5
+
+    ANNOUNCE_LUNARGUARDIAN_INCOMING = "Déjà vu.",
+    ANNOUNCE_FLOATER_HELD = "I feel like a dumpling!",
+    ANNOUNCE_FLOATER_LETGO = "Was that wise?",
+
+    -- rifts5.1
+    ANNOUNCE_LUNARHAIL_BIRD_SOUNDS = "Sounds like a blender!",
+    ANNOUNCE_LUNARHAIL_BIRD_CORPSES = "It is raining poultry.",
+    ANNOUNCE_FLOAT_SWIM_TIRED = "I'm on my break!",
+    ANOUNCE_MUTATED_BIRD_ATTACK = "The birds are coming!",
+
+    -- Rift 6
+    ANNOUNCE_WEAPON_TOOWEAK = "I need something... beefier!",
+    ANNOUNCE_VAULT_TELEPORTER_DOES_NOTHING = "Perhaps something is lost in translation.",
 
 	BATTLECRY =
 	{
@@ -1729,6 +1764,8 @@ return{
 		TURF_FUNGUS="It's like an ingredient for the ground.",
 		TURF_FUNGUS_MOON = "It's like an ingredient for the ground.",
 		TURF_ARCHIVE = "It's like an ingredient for the ground.",
+        TURF_VAULT = "It's like an ingredient for the ground.",
+        TURF_VENT = "It's like an ingredient for the ground.",
 		TURF_SINKHOLE="It's like an ingredient for the ground.",
 		TURF_UNDERROCK="It's like an ingredient for the ground.",
 		TURF_MUD="It's like an ingredient for the ground.",
@@ -2077,6 +2114,8 @@ return{
         CHESSPIECE_SHARKBOI = "It seemed to think it was top of the food chain.",
         CHESSPIECE_WORMBOSS = "It sure had an appetite.",
         CHESSPIECE_YOTS = "I remember the chewing.",
+        CHESSPIECE_WAGBOSS_ROBOT = "The portable version.",
+        CHESSPIECE_WAGBOSS_LUNAR = "That was a bad combination.",
 
         CHESSJUNK1 = "Broken chess pieces?",
         CHESSJUNK2 = "More broken chess pieces?",
@@ -2559,7 +2598,7 @@ return{
         MONSTERMEAT = "Hmmm, nice marbling...",
         MONSTERMEAT_DRIED = "Could use... better judgment...",
         MOOSE = "I wish you were a bit less moose-y and a lot more goose-y!",
-        MOOSE_NESTING_GROUND = "Imagine how many omelets I could make with one of those eggs.",
+        MOOSE_NESTING_GROUND = "Imagine how many omelettes I could make with one of those eggs.",
         MOOSEEGG = "I think I'll leave this egg quite alone!",
         MOSSLING = "Looking for your momma? Apologies, but I hope you do not find her.",
         FEATHERFAN = "Why is it so big?",
@@ -3298,6 +3337,7 @@ return{
         WINTER_ORNAMENTBOSS = "We've earned a moment to celebrate.",
 		WINTER_ORNAMENTFORGE = "It's nice to be alive and safe.",
 		WINTER_ORNAMENTGORGE = "I feel like cooking something.",
+        WINTER_ORNAMENTPEARL = "Madame Pearl does lovely work.",
 
         WINTER_FOOD1 = "It has that \"homecooked\" charm.", --gingerbread cookie
         WINTER_FOOD2 = "Cooking is a way of expressing love.", --sugar cookie
@@ -4394,6 +4434,13 @@ return{
             LINE_4 = "So many secrets lost to time.",
             LINE_5 = "I'm afraid its meaning is lost on me.",
         },
+		VAULT_RUNE = "I have no idea.",
+		VAULT_STATUE =
+		{
+			LORE1 = "Oh my, he's rotting.",
+			LORE2 = "The end of the bugs?",
+			LORE3 = "I am relieved they are only statues.",
+		},
 
         ARCHIVE_RESONATOR = {
             GENERIC = "Let's see where this takes us, non?",
@@ -4782,6 +4829,7 @@ return{
 
         MOONSTORM_STATIC = "That seems to be a key ingredient for whatever he's working on.",
         MOONSTORM_STATIC_ITEM = "What will we be cooking up with this, I wonder?",
+        MOONSTORM_STATIC_ROAMER = "It is free-range.",
         MOONSTORM_SPARK = "It definitely has a kick to it.",
 
         BIRD_MUTANT = "That bird is looking a bit odd.",
@@ -5095,6 +5143,7 @@ return{
 
         PLAYBILL_THE_DOLL = "I wonder who will play the lead?",
         PLAYBILL_THE_VEIL = "Seems a little dark, no?",
+        PLAYBILL_THE_VAULT = "Intense.",
         STATUEHARP_HEDGESPAWNER = "That poor statue seems to have been left alone for a long time.",
         HEDGEHOUND = "Alors, some things in life are not as rosy as they seem.",
         HEDGEHOUND_BUSH = "Ah, la vie en rose.",
@@ -5445,8 +5494,11 @@ return{
 
         FENCE_JUNK = "It's constructed well enough, but it lacks presentation.",
         JUNK_PILE = "Perhaps there is something delicious hiding in its center?",
-        JUNK_PILE_BIG = "It could topple over any minute!",
-
+        JUNK_PILE_BIG = {
+            BLUEPRINT = "Oh, there's a cherry on top!",
+            GENERIC = "It could topple over any minute!",
+        },
+        
         ARMOR_LUNARPLANT_HUSK = "The little veg's own concoction.",
 
         -- Meta 4 / Ocean QoL
@@ -5648,6 +5700,139 @@ return{
         DECK_OF_CARDS = "Maman loved her cards.",
         PLAYING_CARD = "A lonely little card.",
         BALATRO_MACHINE = "What have I to lose?",
+
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "It is empty.",
+			FILLED = "Something inside!",
+		},
+		WAGBOSS_ROBOT_SECRET = "Some sort of centerpiece?",
+        WAGBOSS_ROBOT = "But can it cook a soufflé?",
+        WAGBOSS_ROBOT_POSSESSED = "Sorry! I'm sure you make great soufflés!",
+		WAGBOSS_ROBOT_LEG = "The legs are very tough!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "New and improved! C'est terrible!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "It is the most brilliant one I have ever seen!",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "C'est horrible!",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "They are running amok!",
+            INACTIVE = "Maybe it can mix batter?",
+            DAMAGED = "I can repair it or use the parts to repair another.",
+            FRIENDLY = "A portable chopper.",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "This is overwhelming!",
+            INACTIVE = "Maybe it can chop veggies?",
+            DAMAGED = "These leftovers can only be used to fix another!",
+        },
+		WAGDRONE_PARTS = "It looks like part of a cake mixer.",
+		WAGDRONE_BEACON = "So the petit blender will not spin out of control.",
+
+        WAGPUNK_WORKSTATION = "But does it blend?",
+        WAGPUNK_LEVER = "What appliance is this for?",
+        WAGPUNK_FLOOR_KIT = "We are expanding this location!",
+        WAGPUNK_CAGEWALL = "This will be a private party.",
+
+		WAGSTAFF_ITEM_1 = "The glove is... solid?",
+		WAGSTAFF_ITEM_2 = "Why can I touch this?",
+
+        HERMITCRAB_RELOCATION_KIT = "I hope Madame Pearl will like her new home.",
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "Bonjour, Monsieur Boeuf! What do you have?",
+            GENERIC = "Hmm. I wouldn't eat that one.",
+        },
+
+        GESTALT_GUARD_EVOLVED = "I assure you it wasn't personal.",
+        FLOTATIONCUSHION = "It will save me from the brine!",
+        LUNAR_SEED = "This is its essence.",
+
+        -- rifts5.1
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE = "The main course?",
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE_KIT = "Must be vacuum packed!",
+        WAGBOSS_ROBOT_CREATION_PARTS = "These must be the sides.",
+        MOONSTORM_STATIC_CATCHER = "There is nothing inside!",
+        COOLANT = "It is stewing and brewing!",
+
+        FENCE_ELECTRIC = {
+            LINKED = "How well does it fry?",      --NOTE: the fence post is fully linked to two other posts
+            GENERIC = "This appliance does not work on its own.",           --NOTE: no links or electricity, just boring ol fence post
+        },
+        FENCE_ELECTRIC_ITEM = "I must find a good spot for this.",
+
+        MUTATEDBIRD = "Taste like chicken?",
+
+        BIRDCORPSE =
+        {
+            GENERIC  = "It is about to turn.", --witnessing the corpse
+            BURNING  = "Mmm, that aroma!", --when its burning
+            REVIVING = "The meat is turning!", --when its mutating and being revived
+        },
+
+        BUZZARDCORPSE = {
+            GENERIC  = "It is about to turn.", --witnessing the corpse
+            BURNING  = "Mmm, that aroma!", --when its burning
+            REVIVING = "The meat is turning!", --when its mutating and being revived
+        },
+
+        MUTATEDBUZZARD = {
+            GENERIC = "It looks famished.", -- Generic string
+            EATING_CORPSE = "Bon appetit.", -- Eating from a fresh corpse (might be from the players kill or another creatures kill)
+        },
+
+        -- Rifts 6
+
+        SHADOWTHRALL_CENTIPEDE = {
+            HEAD = "Impressive jaws.", --The head segment
+            BODY = "That will not fit in any pot.", --The body segment
+            FLIPPED = "It has gone belly up.", --When it's flipped over (either head or body segment)
+        },
+
+        TREE_ROCK =
+		{
+			BURNING = "Smells like roasting vegetables.", --It's vines are burning, it will collapse
+			CHOPPED = "It is ready to harvest.", --It's 'chopped', so the rock fell
+			GENERIC = "Hm. Minerals and fiber.", --Rock is still on tree
+		},
+
+        -- NOTE: Unsure about HOT and COLD, just do GENERIC, GAS, MIASMA for now!
+        CAVE_VENT_ROCK =
+        {
+            GENERIC = "I do not wish to wait for what comes out!", -- Not ventilating anything
+            HOT     = "Steaming as a method of cooking preserves nutrients and flavor!", -- Ventiliating hot air, making the area warm
+            GAS     = "Reminds me of rotten eggs.", -- Ventiliating Toadstools gas fumes and spores
+            MIASMA  = "It smells of death and disease!", -- Ventiliating the shadow rift miasma
+        },
+        CAVE_FERN_WITHERED = "It did not survive this environment.",
+        FLOWER_CAVE_WITHERED = "The light grows dim.",
+
+		ABYSSPILLAR_MINION =
+		{
+			GENERIC = "What a menacing statue!", --off, looks like decor/statue
+			ACTIVATED = "Where are you going?!", --turned on and hopping over puzzle pillars
+		},
+		ABYSSPILLAR_TRIAL = "Is it safe?",
+
+        VAULT_TELEPORTER =
+        {
+            GENERIC = "Instant people delivery!",
+            BROKEN = "It is in need of repair.",
+            UNPOWERED = "There is no juice.",
+        },
+		VAULT_ORB = "Is it a part of something?",
+        VAULT_LOBBY_EXIT = "Oh dear, are we meant to jump?",
+		VAULT_CHANDELIER_BROKEN = "Lucky I was not standing under when it fell!",
+
+		ANCIENT_HUSK = "Terrible!",
+		MASK_ANCIENT_HANDMAIDHAT = "Ooh. Powerful.",
+		MASK_ANCIENT_ARCHITECTHAT = "A coincidence, I'm sure.",
+		MASK_ANCIENT_MASONHAT = "This belonged to a hard worker.",
+
+        TREE_ROCK_SEED = "First we plant, then we harvest.",
+        TREE_ROCK_SAPLING = "A fine young sapling.",
     },
 
     DESCRIBE_GENERIC = "It is what it is...",

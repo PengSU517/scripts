@@ -47,11 +47,12 @@ local function ChangeToItem(inst)
             inst.Physics:SetMass(1)
             inst.Physics:SetDamping(0) --might have been changed when falling
             inst.Physics:SetCollisionGroup(COLLISION.ITEMS)
-            inst.Physics:ClearCollisionMask()
         end
-        inst.Physics:CollidesWith(COLLISION.WORLD)
-        inst.Physics:CollidesWith(COLLISION.OBSTACLES)
-        inst.Physics:CollidesWith(COLLISION.SMALLOBSTACLES)
+		inst.Physics:SetCollisionMask(
+			COLLISION.WORLD,
+			COLLISION.OBSTACLES,
+			COLLISION.SMALLOBSTACLES
+		)
         SetPhysicsState(self, PHYSICS_STATE.ITEM)
     end
 end
@@ -89,13 +90,15 @@ end
 
 local function OnChangeToObstacle(inst, self)
     inst.Physics:SetMass(0)
-    inst.Physics:ClearCollisionMask()
-    inst.Physics:CollidesWith(COLLISION.ITEMS)
     if self.issmall then
         inst.Physics:SetCollisionGroup(COLLISION.SMALLOBSTACLES)
+		inst.Physics:SetCollisionMask(COLLISION.ITEMS)
     else
         inst.Physics:SetCollisionGroup(COLLISION.OBSTACLES)
-        inst.Physics:CollidesWith(COLLISION.GIANTS)
+		inst.Physics:SetCollisionMask(
+			COLLISION.ITEMS,
+			COLLISION.GIANTS
+		)
     end
     SetPhysicsState(self, PHYSICS_STATE.OBSTACLE)
     if not inst:IsValid() then
@@ -208,6 +211,17 @@ function HeavyObstaclePhysics:OnRemoveFromEntity()
 	self.inst:RemoveEventCallback("stoppushing", OnStopPushing)
 end
 
+function HeavyObstaclePhysics:OnEntityWake()
+    -- NOTES(JBK): If an object is floating even a little it will be stuck in the air so we will make it drop down.
+	if not (self.inst.components.inventoryitem and self.inst.components.inventoryitem:IsHeld() or self.deprecated_floating_exploit) then
+        local x, y, z = self.inst.Transform:GetWorldPosition()
+        if y > 0.01 then
+            self:ForceDropPhysics()
+            self.inst.Physics:SetVel(0, 0, 0) -- Let gravity deal with this.
+        end
+    end
+end
+
 function HeavyObstaclePhysics:SetRadius(radius)
     self.maxradius = radius
     self.currentradius = radius
@@ -278,6 +292,16 @@ end
 function HeavyObstaclePhysics:ForceDropPhysics()
 	ChangeToItem(self.inst)
 	ChangeToObstacle(self.inst)
+end
+
+function HeavyObstaclePhysics:OnSave()
+	return self.deprecated_floating_exploit and { deprecated_floating_exploit = true } or nil
+end
+
+function HeavyObstaclePhysics:OnLoad(data)
+	if data.deprecated_floating_exploit then
+		self.deprecated_floating_exploit = true
+	end
 end
 
 return HeavyObstaclePhysics

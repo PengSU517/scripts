@@ -28,8 +28,7 @@ local function fn()
     phys:SetFriction(0)
     phys:SetDamping(5)
     phys:SetCollisionGroup(COLLISION.FLYERS)
-    phys:ClearCollisionMask()
-    phys:CollidesWith(COLLISION.GROUND)
+	phys:SetCollisionMask(COLLISION.GROUND)
     phys:SetCapsule(0.5, 1)
 
 	inst:AddTag("brightmare")
@@ -47,6 +46,8 @@ local function fn()
     inst.AnimState:UsePointFiltering(true)
 
 	inst.AnimState:SetBloomEffectHandle("shaders/anim.ksh")
+
+    inst.scrapbook_inspectonseen = true
 
     inst.entity:SetPristine()
 

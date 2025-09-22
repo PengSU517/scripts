@@ -36,7 +36,7 @@ local KitcoonPuppet = require "widgets/kitcoonpuppet"
 local SHOW_DST_DEBUG_HOST_JOIN = BRANCH == "dev"
 local SHOW_QUICKJOIN = false
 
-local IS_BETA = BRANCH == "staging"-- or BRANCH == "dev"
+local IS_BETA = BRANCH == "staging" or BRANCH == "dev"
 local IS_DEV_BUILD = BRANCH == "dev"
 
 local function PlayBannerSound(inst, self, sound)
@@ -454,6 +454,20 @@ local function MakeMeta5Banner(self, banner_root, anim)
     end
 end
 
+local function MakeRift5Banner(self, banner_root, anim)
+	anim:GetAnimState():SetBuild("dst_menu_rift5")
+	anim:GetAnimState():SetBank("dst_menu_rift5")
+	anim:GetAnimState():PlayAnimation("loop", true)
+	anim:SetScale(.667)
+end
+
+local function MakeRift6Banner(self, banner_root, anim)
+	anim:GetAnimState():SetBuild("dst_menu_rift6")
+	anim:GetAnimState():SetBank("dst_menu_rift6")
+	anim:GetAnimState():PlayAnimation("loop", true)
+	anim:SetScale(.667)
+end
+
 local function MakeDefaultBanner(self, banner_root, anim)
 	local banner_height = 350
 	banner_root:SetPosition(0, RESOLUTION_Y / 2 - banner_height / 2 + 1 ) -- positioning for when we had the top banner art
@@ -509,7 +523,7 @@ function MakeBanner(self)
 		--
 		--REMINDER: Check MakeBannerFront as well!
 		--
-        MakeMeta5Banner(self, banner_root, anim)
+		MakeRift6Banner(self, banner_root, anim)
         
     elseif IsSpecialEventActive(SPECIAL_EVENTS.YOTS) then
         MakeYOTSBanner(self, banner_root, anim)        
@@ -526,12 +540,12 @@ function MakeBanner(self)
 	elseif IsSpecialEventActive(SPECIAL_EVENTS.HALLOWED_NIGHTS) then
         MakeHallowedNights2024Banner(self, banner_root, anim)
 	elseif IsSpecialEventActive(SPECIAL_EVENTS.CARNIVAL) then
-        MakeWurtWinonaQOLBanner(self, banner_root, anim)
+		MakeCawnivalBanner(self, banner_root, anim)
 	else
 		--*** !!! ***
 		--REMINDER: Check MakeBannerFront as well!
 		--
-        MakeMeta5Banner(self, banner_root, anim)
+		MakeRift6Banner(self, banner_root, anim)
         --MakeWurtWinonaQOLBanner(self, banner_root, anim)
         --MakeRiftsMetaQoLBanner(self, banner_root, anim)
 		--MakeMeta2Banner(self, banner_root, anim)
@@ -642,14 +656,15 @@ local function MakeBannerFront(self)
         return nil
 
     elseif IsSpecialEventActive(SPECIAL_EVENTS.CARNIVAL) then
-        local banner_front = Widget("banner_front")
+        --[[local banner_front = Widget("banner_front")
         banner_front:SetPosition(0, 0)
         banner_front:SetClickable(false)
         local anim = banner_front:AddChild(UIAnim())
 
         MakeWinonaWurtCarnivalBannerFront(self, banner_front, anim)
         
-        return banner_front
+        return banner_front]]
+		return nil
     else
         --[[local banner_front = Widget("banner_front")
         banner_front:SetPosition(0, 0)
@@ -679,6 +694,7 @@ local MultiplayerMainScreen = Class(Screen, function(self, prev_screen, profile,
     self.prev_screen = prev_screen
 	self:DoInit()
 	self.default_focus = self.menu
+    self.entitlements_checked = false
 
     TheGenericKV:ApplyOnlineProfileData() -- Applies the data after synchronization in login flow if applicable.
 end)
@@ -1359,8 +1375,49 @@ function MultiplayerMainScreen:FinishedFadeIn()
 	end
 end
 
+function MultiplayerMainScreen:HandleNewControlSchemePopup()
+    if TheInput:ControllerAttached() and not self.profile:SawControlSchemePopup() then
+        local function PopupClose()
+            self.profile:ShowedControlSchemePopup()
+            self.profile:Save()
+            TheFrontEnd:PopScreen()
+        end
+        local title, body
+        if IsXB1() then
+            title, body = STRINGS.UI.NEW_CONTROLSCHEME_POPUP.XB1_TITLE, STRINGS.UI.NEW_CONTROLSCHEME_POPUP.XB1_BODY
+        else
+            title, body = STRINGS.UI.NEW_CONTROLSCHEME_POPUP.TITLE, STRINGS.UI.NEW_CONTROLSCHEME_POPUP.BODY
+        end
+        TheFrontEnd:PushScreen(
+            PopupDialogScreen(
+                title,
+                body,
+                { 
+                    {
+                        text=STRINGS.UI.NEW_CONTROLSCHEME_POPUP.YES, 
+                        cb = function() 
+                                 self:Settings("CONTROLSCHEME")
+                                 PopupClose()
+                             end 
+                    },
+                    {
+                        text=STRINGS.UI.NEW_CONTROLSCHEME_POPUP.NO, 
+                        cb = function() 
+                                 PopupClose()
+                             end
+                    }  
+                }
+           )
+        )
+    end
+end
 
 function MultiplayerMainScreen:OnUpdate(dt)
+    self:HandleNewControlSchemePopup()
+
+    if not self.entitlements_checked then
+        self:CheckEntitlements()
+    end
 end
 
 function MultiplayerMainScreen:CheckNewUser(onnofn, no_button_text)
@@ -1397,6 +1454,66 @@ end
 
 function MultiplayerMainScreen:GetHelpText()
     return (self.motd_panel ~= nil and self.motd_panel.GetHelpText ~= nil and not self.motd_panel.focus) and self.motd_panel:GetHelpText() or ""
+end
+
+function MultiplayerMainScreen:CheckEntitlements()
+
+    -- get entitlements if they're ready
+    local ready, dlcs_owned = TheItems:GetOwnedEntitlements()
+
+    -- check if TheGenericKV is synced with online data
+    if not TheGenericKV.synced then
+        TheGenericKV:ApplyOnlineProfileData()
+    end
+
+    if ready and TheGenericKV.synced then
+        local dlcs_seen = {}
+        local dlcs_json = TheGenericKV:GetKV("dlcs_seen")
+        if dlcs_json then
+            local status, dlcs_decoded = pcall(function() return json.decode(dlcs_json) end)
+            if status and type(dlcs_decoded) == "table" then
+                dlcs_seen = dlcs_decoded
+            end
+        end
+
+        local to_present = {}
+        for id, owned_count in pairs(dlcs_owned) do
+            local seen_count = dlcs_seen[id] or 0
+            local should_present = seen_count < owned_count
+            
+            print(id, owned_count, seen_count, should_present)
+                
+            if should_present then
+                table.insert(to_present, {
+                    id = id,                     
+                    seen_count = seen_count,
+                    owned_count = owned_count,
+                })
+            end
+        end
+
+        for _, v in ipairs(to_present) do
+            local id, seen_count, owned_count = v.id, v.seen_count, v.owned_count
+            local pack_type = GetPurchasePackFromEntitlement(id)
+            if pack_type then
+                local display_items = GetPurchasePackDisplayItems(pack_type)
+                local options = {
+	                allow_cancel = false,
+	                box_build = GetBoxBuildForItem(pack_type),
+                }
+                local function UpdateSeen()
+                    dlcs_seen[id] = owned_count 
+                    TheGenericKV:SetKV("dlcs_seen", json.encode(dlcs_seen))
+                end
+                local box_popup = ItemBoxOpenerPopup(options, function(success_cb) success_cb(display_items) end, UpdateSeen)
+                TheFrontEnd:PushScreen(box_popup)
+            else
+                print("NO PACK TYPE FOR ENTITLEMENT: ", id)
+            end
+        end
+
+        self.entitlements_checked = true 
+    end
 end
 
 

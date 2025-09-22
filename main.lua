@@ -18,6 +18,14 @@ function IsPS4()
 	return PLATFORM == "PS4"
 end
 
+function IsPS5()
+	return PLATFORM == "PS5"
+end
+
+function IsPSN()
+	return (PLATFORM == "PS4") or (PLATFORM == "PS5")
+end
+
 function IsXB1()
 	return PLATFORM == "XBONE"
 end
@@ -40,6 +48,13 @@ end
 
 function IsSteamDeck()
 	return IS_STEAM_DECK
+end
+
+
+function ValidateLineNumber(num)
+	if TheSim then
+		TheSim:ValidateLineNumber(num)
+	end
 end
 
 --defines
@@ -386,6 +401,7 @@ local function ModSafeStartup()
     LoadPrefabFile("prefabs/global", async_batch_validation)
     LoadPrefabFile("prefabs/event_deps", async_batch_validation)
     LoadAchievements("achievements.lua")
+    LoadHapticEffects("haptics.lua")
     EventAchievements = require("eventachievements")()
     EventAchievements:LoadAchievementsForEvent(require("lavaarena_achievements"))
     EventAchievements:LoadAchievementsForEvent(require("quagmire_achievements"))

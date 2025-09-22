@@ -126,6 +126,9 @@ return{
             INUSE = "Ooo, make something tasty!",
             TOOFAR = "Let's scurry closer!",
         },
+        DEPLOY = {
+            HERMITCRAB_RELOCATE = "Oh no, it's dry! We'll try again later.",
+        },
         DIRECTCOURIER_MAP =
         {
 --fallback to speech_wilson.lua             NOTARGET = "only_used_by_walter",
@@ -271,6 +274,7 @@ return{
         PICK =
         {
             NOTHING_INSIDE = "We found nothing inside!",
+			STUCK = "Aw! It's stuck!",
         },
         PICKUP =
         {
@@ -306,6 +310,7 @@ return{
 --fallback to speech_wilson.lua             NOWATERNEARBY = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             WAYTOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
+--fallback to speech_wilson.lua             BIRDSBLOCKED = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOFIRES =       "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOSILVICULTURE = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOHORTICULTURE = "only_used_by_waxwell_and_wicker",
@@ -314,6 +319,8 @@ return{
 --fallback to speech_wilson.lua             TOOMANYBEES = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOMOONINCAVES = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             ALREADYFULLMOON = "only_used_by_waxwell_and_wicker",
+--fallback to speech_wilson.lua             -- rifts5.1
+--fallback to speech_wilson.lua             DEADBIRDS = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua         },
 		REMOTE_TELEPORT =
 		{
@@ -419,6 +426,8 @@ return{
             BEEF_BELL_HAS_BEEF_ALREADY = "We already have a beefalo of our own!",
 
 			NOT_MINE = "We aren't allowed to play with that.",
+
+			CANNOT_FIX_DRONE = "We can't fix it.",
         },
 		USEKLAUSSACKKEY =
         {
@@ -439,6 +448,8 @@ return{
         {
             DOESNTWORK = "Anybody there? Guess not...",
             ALREADYACTIVE = "Maybe there's another contest going on somewhere else?",
+            NORESPONSE = "We can't find him.",
+            RIGHTTHERE = "He's ignoring us.",
         },
         YOTB_UNLOCKSKIN =
         {
@@ -468,6 +479,14 @@ return{
 		{
 --fallback to speech_wilson.lua 			NOSLINGSHOT = "only_used_by_walter",
 		},
+		POUNCECAPTURE =
+		{
+			MISSED = "Aww, we missed!",
+		},
+        DIVEGRAB =
+        {
+            MISSED = "Aww, we missed!",
+        },
     },
 
 	ANNOUNCE_CANNOT_BUILD =
@@ -1132,7 +1151,7 @@ return{
 	ANNOUNCE_SNOWBALL_TOO_BIG = "We can't roll it any bigger!",
 	ANNOUNCE_SNOWBALL_NO_SNOW = "Where's more snow?",
 
-    --rifts 5
+    -- Meta 5
     ANNOUNCE_WENDY_BABYSITTER_SET = "only_used_by_wendy", 
     ANNOUNCE_WENDY_BABYSITTER_STOP = "only_used_by_wendy",
 
@@ -1145,6 +1164,22 @@ return{
     ANNOUNCE_ELIXIR_PLAYER_SPEED = "We can help carry heavy stuff!",
 
     ANNOUNCE_ELIXIR_TOO_SUPER = "That's too much for us.",
+
+    -- Rift 5
+
+    ANNOUNCE_LUNARGUARDIAN_INCOMING = "The giant ball is back.",
+    ANNOUNCE_FLOATER_HELD = "We float!",
+    ANNOUNCE_FLOATER_LETGO = "Weeee!",
+
+    -- rifts5.1
+    ANNOUNCE_LUNARHAIL_BIRD_SOUNDS = "Those birds don't sound happy.",
+    ANNOUNCE_LUNARHAIL_BIRD_CORPSES = "Maybe they're coming down for a rest.",
+    ANNOUNCE_FLOAT_SWIM_TIRED = "We're tired!",
+    ANOUNCE_MUTATED_BIRD_ATTACK = "Watch out for the birds!",
+
+    -- Rift 6
+    ANNOUNCE_WEAPON_TOOWEAK = "We need something stronger!",
+    ANNOUNCE_VAULT_TELEPORTER_DOES_NOTHING = "Hey, we're still here!",
 
 	BATTLECRY =
 	{
@@ -1729,6 +1764,8 @@ return{
 		TURF_FUNGUS="Some pretty average earth.",
 		TURF_FUNGUS_MOON = "Some pretty average earth.",
 		TURF_ARCHIVE = "Some very old stones.",
+        TURF_VAULT = "Some very old stones.",
+        TURF_VENT = "Some pretty average earth.",
 		TURF_SINKHOLE="Some pretty average earth.",
 		TURF_UNDERROCK="Some pretty average earth.",
 		TURF_MUD="Some pretty average earth.",
@@ -2077,6 +2114,8 @@ return{
         CHESSPIECE_SHARKBOI = "They weren't so bad after we got to know them.",
         CHESSPIECE_WORMBOSS = "That big worm had a big mouth.",
         CHESSPIECE_YOTS = "We can play with this worm!",
+        CHESSPIECE_WAGBOSS_ROBOT = "Can we keep it?",
+        CHESSPIECE_WAGBOSS_LUNAR = "Yes! Three-legged space spider!",
 
         CHESSJUNK1 = "A mess of chess.",
         CHESSJUNK2 = "A mess of chess.",
@@ -3298,6 +3337,7 @@ return{
         WINTER_ORNAMENTBOSS = "Wow, that one looks great!",
 		WINTER_ORNAMENTFORGE = "Not so scary when they're like this.",
 		WINTER_ORNAMENTGORGE = "Huh. It kinda looks...goaty!",
+        WINTER_ORNAMENTPEARL = "We like Ms. Pearl.",
 
         WINTER_FOOD1 = "I won't eat it. It's our friend now.", --gingerbread cookie
         WINTER_FOOD2 = "Icy icy icing!", --sugar cookie
@@ -4394,6 +4434,13 @@ return{
             LINE_4 = "It's very pretty.",
             LINE_5 = "We sure wish we knew what it says!",
         },
+		VAULT_RUNE = "Nice drawings.",
+		VAULT_STATUE =
+		{
+			LORE1 = "He's not okay.",
+			LORE2 = "Oh no...",
+			LORE3 = "They look mean!",
+		},
 
         ARCHIVE_RESONATOR = {
             GENERIC = "It's taking us on a treasure hunt!",
@@ -4782,6 +4829,7 @@ return{
 
         MOONSTORM_STATIC = "That looks kinda dangerous...",
         MOONSTORM_STATIC_ITEM = "It's like a big lightning bug stuck in a jar.",
+        MOONSTORM_STATIC_ROAMER = "We can catch it!",
         MOONSTORM_SPARK = "It makes all our spider hairs stand on end!",
 
         BIRD_MUTANT = "We think there might be something wrong with that bird...",
@@ -5095,6 +5143,7 @@ return{
 
         PLAYBILL_THE_DOLL = "What a funny play!",
         PLAYBILL_THE_VEIL = "It's not scary. We won't cover our eyes.",
+        PLAYBILL_THE_VAULT = "It's so heavy!",
         STATUEHARP_HEDGESPAWNER = "This place is making our spider-hairs tingle...",
         HEDGEHOUND = "Did we say something wrong?!",
         HEDGEHOUND_BUSH = "Look at all those pretty red roses.",
@@ -5445,8 +5494,11 @@ return{
 
         FENCE_JUNK = "It's not the nicest-looking fence.",
         JUNK_PILE = "There might be something fun to play with in there!",
-        JUNK_PILE_BIG = "We don't want to get squashed!",
-
+        JUNK_PILE_BIG = {
+            BLUEPRINT = "Ooh! We see a prize at the top!",
+            GENERIC = "We don't want to get squashed!",
+        },
+        
         ARMOR_LUNARPLANT_HUSK = "We aren't allowed to play with that. It's just for Wormwood.",
 
         -- Meta 4 / Ocean QoL
@@ -5648,6 +5700,139 @@ return{
         DECK_OF_CARDS = "We know many games!",
         PLAYING_CARD = "Is this the one we lost?",
         BALATRO_MACHINE = "Prizes!",
+
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "Nobody home.",
+			FILLED = "We got one!",
+		},
+		WAGBOSS_ROBOT_SECRET = "We love surprises!",
+        WAGBOSS_ROBOT = "Does it give rides?",
+        WAGBOSS_ROBOT_POSSESSED = "We just wanted to play!",
+		WAGBOSS_ROBOT_LEG = "Luckily we have more than three legs!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "It seems crankier than before!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "So bright!",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "Three-legged space spider?",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "Nasty little robots.",
+            INACTIVE = "Can we play with it?",
+            DAMAGED = "We can fix it, or take its insides!",
+            FRIENDLY = "We love how it spins and spins and spins.",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "No fair! We can't fly!",
+            INACTIVE = "Can we play with it?",
+            DAMAGED = "We can't fix it, but we can take its insides.",
+        },
+		WAGDRONE_PARTS = "Can we use that to fix a broken one?",
+		WAGDRONE_BEACON = "It makes a make-believe wall!",
+
+        WAGPUNK_WORKSTATION = "Can we build something fun?",
+        WAGPUNK_LEVER = "It's our turn to pull it!",
+        WAGPUNK_FLOOR_KIT = "We'll have more room to play.",
+        WAGPUNK_CAGEWALL = "Now we can't cross the line?",
+
+		WAGSTAFF_ITEM_1 = "We can touch the glove!",
+		WAGSTAFF_ITEM_2 = "It's real? We don't understand.",
+
+        HERMITCRAB_RELOCATION_KIT = "We get to help Ms. Pearl find a new home!",
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "What does he have for us?",
+            GENERIC = "It looks weird.",
+        },
+
+        GESTALT_GUARD_EVOLVED = "Why are they mad at us?",
+        FLOTATIONCUSHION = "Promise we won't splash...",
+        LUNAR_SEED = "So pretty! Can we keep it?",
+
+        -- rifts5.1
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE = "Maybe it won't be so cranky this time.",
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE_KIT = "A fun and dangerous toy to build!",
+        WAGBOSS_ROBOT_CREATION_PARTS = "More parts!",
+        MOONSTORM_STATIC_CATCHER = "Let's catch something!",
+        COOLANT = "We like bubbles.",
+
+        FENCE_ELECTRIC = {
+            LINKED = "We're not afraid of zaps.",      --NOTE: the fence post is fully linked to two other posts
+            GENERIC = "It's not doing anything!",           --NOTE: no links or electricity, just boring ol fence post
+        },
+        FENCE_ELECTRIC_ITEM = "Where should we put it?",
+
+        MUTATEDBIRD = "Hello, weird bird!",
+
+        BIRDCORPSE =
+        {
+            GENERIC  = "Poke it!", --witnessing the corpse
+            BURNING  = "We love that smell!", --when its burning
+            REVIVING = "What's happening to it?", --when its mutating and being revived
+        },
+
+        BUZZARDCORPSE = {
+            GENERIC  = "Poke it!", --witnessing the corpse
+            BURNING  = "We love that smell!", --when its burning
+            REVIVING = "What's happening to it?", --when its mutating and being revived
+        },
+
+        MUTATEDBUZZARD = {
+            GENERIC = "What do you want?", -- Generic string
+            EATING_CORPSE = "Kinda makes us hungry.", -- Eating from a fresh corpse (might be from the players kill or another creatures kill)
+        },
+
+        -- Rifts 6
+
+        SHADOWTHRALL_CENTIPEDE = {
+            HEAD = "It's staring at us!", --The head segment
+            BODY = "It has more legs than us!", --The body segment
+            FLIPPED = "Aww, poor guy.", --When it's flipped over (either head or body segment)
+        },
+
+        TREE_ROCK =
+		{
+			BURNING = "Get out of the way!", --It's vines are burning, it will collapse
+			CHOPPED = "We'll mine it!", --It's 'chopped', so the rock fell
+			GENERIC = "When the bough breaks...", --Rock is still on tree
+		},
+
+        -- NOTE: Unsure about HOT and COLD, just do GENERIC, GAS, MIASMA for now!
+        CAVE_VENT_ROCK =
+        {
+            GENERIC = "What's in there?", -- Not ventilating anything
+            HOT     = "It's too hot!", -- Ventiliating hot air, making the area warm
+            GAS     = "We don't like that smell.", -- Ventiliating Toadstools gas fumes and spores
+            MIASMA  = "It makes us feel sick.", -- Ventiliating the shadow rift miasma
+        },
+        CAVE_FERN_WITHERED = "Aww, it's dead.",
+        FLOWER_CAVE_WITHERED = "It's not glowing much.",
+
+		ABYSSPILLAR_MINION =
+		{
+			GENERIC = "We're glad it's just a statue!", --off, looks like decor/statue
+			ACTIVATED = "Hey! No fair!", --turned on and hopping over puzzle pillars
+		},
+		ABYSSPILLAR_TRIAL = "We'll pull it!",
+
+        VAULT_TELEPORTER =
+        {
+            GENERIC = "We like this game.",
+            BROKEN = "Aw, it's broken!",
+            UNPOWERED = "Why won't it turn on?",
+        },
+		VAULT_ORB = "Ooh, a ball!",
+        VAULT_LOBBY_EXIT = "We're first!",
+		VAULT_CHANDELIER_BROKEN = "We'll catch the next one!",
+
+		ANCIENT_HUSK = "Were they mad at each other?",
+		MASK_ANCIENT_HANDMAIDHAT = "If we put it on, will we look tough too?",
+		MASK_ANCIENT_ARCHITECTHAT = "Do we have a smart face too?",
+		MASK_ANCIENT_MASONHAT = "It must have been worn by someone big and strong.",
+
+        TREE_ROCK_SEED = "What a cute little seed!",
+        TREE_ROCK_SAPLING = "They grow up so fast!",
     },
 
     DESCRIBE_GENERIC = "Can we play with it?",

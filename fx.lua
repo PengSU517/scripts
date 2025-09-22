@@ -677,6 +677,14 @@ local fx =
         fn = FinalOffset1,
     },
     {
+        name = "shock_arc_fx",
+        bank = "shock_fx",
+        build = "shock_fx",
+        anim = "arc",
+        eightfaced = true,
+        fn = FinalOffset1,
+    },
+    {
         name = "weregoose_shock_fx",
         bank = "shock_fx",
         build = "shock_fx",
@@ -1858,6 +1866,30 @@ local fx =
             inst.AnimState:SetOceanBlendParams(TUNING.OCEAN_SHADER.EFFECT_TINT_AMOUNT)
         end,
     },
+	{
+		name = "ocean_splash_swim1",
+		bank = "splash_weregoose_fx",
+		build = "splash_water_drop",
+		anim = "no_splash",
+		sound = "turnoftides/common/together/water/splash/bird",
+		fn = function(inst)
+			inst.AnimState:SetLayer(LAYER_WORLD_BACKGROUND)
+			inst.AnimState:SetDeltaTimeMultiplier(0.7)
+			inst.SoundEmitter:OverrideVolumeMultiplier(0.6)
+		end,
+	},
+	{
+		name = "ocean_splash_swim2",
+		bank = "splash_weregoose_fx",
+		build = "splash_water_drop",
+		anim = "no_splash2",
+		sound = "turnoftides/common/together/water/splash/bird",
+		fn = function(inst)
+			inst.AnimState:SetLayer(LAYER_WORLD_BACKGROUND)
+			inst.AnimState:SetDeltaTimeMultiplier(0.7)
+			inst.SoundEmitter:OverrideVolumeMultiplier(0.6)
+		end,
+	},
     {
         name = "washashore_puddle_fx",
         bank = "water_puddle",
@@ -3718,7 +3750,78 @@ local fx =
         bank = "abigail_shield",
         build = "abigail_shield",
         anim = "player_shield",
-    },  
+    },
+	{
+		name = "wagdrone_rolling_collide_small_fx",
+		bank = "hits_sparks",
+		build = "lavaarena_hit_sparks_fx",
+		anim = "hit_1",
+		sound = "rifts5/wagdrone_rolling/collide",
+		fn = function(inst)
+			inst.AnimState:Hide("glow")
+		end,
+	},
+	{
+		name = "wagdrone_rolling_collide_med_fx",
+		bank = "hits_sparks",
+		build = "lavaarena_hit_sparks_fx",
+		anim = "hit_2",
+		sound = "rifts5/wagdrone_rolling/collide",
+		fn = function(inst)
+			inst.AnimState:Hide("glow")
+		end,
+	},
+    {
+        name = "hermitcrab_fx_small",
+        bank = "hermitcrab_fx",
+        build = "hermitcrab_fx",
+        anim = "hermitcrab_fx_small",
+        sound = "rifts5/hermit_island/whirlpool_up_s",
+        fn = FinalOffset3,
+    },
+    {
+        name = "hermitcrab_fx_med",
+        bank = "hermitcrab_fx",
+        build = "hermitcrab_fx",
+        anim = "hermitcrab_fx_med",
+        sound = "rifts5/hermit_island/whirlpool_up_m",
+        fn = FinalOffset3,
+    },
+    {
+        name = "hermitcrab_fx_tall",
+        bank = "hermitcrab_fx",
+        build = "hermitcrab_fx",
+        anim = "hermitcrab_fx_tall",
+        sound = "rifts5/hermit_island/whirlpool_up_l",
+        fn = FinalOffset3,
+    },
+	{
+		name = "missile_explosion_fx",
+		bank = "missile_fx",
+		build = "missile_fx",
+		anim = "impact",
+		sound = "rifts5/wagstaff_boss/missile_explode",
+	},
+    {
+        name = "tree_rock_chop",
+        bank = "tree_rock_fx",
+        build = "tree_rock_fx",
+        anim = "chop",
+        --sound = "dontstarve_DLC001/fall/leaf_rustle",
+    },
+    {
+        name = "tree_rock_fall",
+        bank = "tree_rock_fx",
+        build = "tree_rock_fx",
+        anim = "fall",
+        --sound = "dontstarve_DLC001/fall/leaf_rustle",
+    },
+	{
+		name = "vault_portal_fx",
+		bank = "vault_portal_fx",
+		build = "vault_portal_fx",
+		anim = "activate",
+	},
 }
 
 for cratersteamindex = 1, 4 do

@@ -126,6 +126,9 @@ return{
             INUSE = "Hmph. You're adding too much salt.",
             TOOFAR = "I must get closer.",
         },
+        DEPLOY = {
+            HERMITCRAB_RELOCATE = "Ugh, empty! I'll do it later.",
+        },
         DIRECTCOURIER_MAP =
         {
 --fallback to speech_wilson.lua             NOTARGET = "only_used_by_walter",
@@ -271,6 +274,7 @@ return{
         PICK =
         {
             NOTHING_INSIDE = "Empty. I knew it.",
+			STUCK = "Ugh! Stuck.",
         },
         PICKUP =
         {
@@ -306,6 +310,7 @@ return{
             NOWATERNEARBY = "I can't just conjure up fish without water.",
             TOOMANYBIRDS = "There are plenty of birds here already.",
             WAYTOOMANYBIRDS = "I must wait before I summon the birds again.",
+            BIRDSBLOCKED = "He even stops the birds from coming and going?",
             NOFIRES =       "For once, nothing is on fire.",
             NOSILVICULTURE = "Making invisible trees grow? Now that'd be a trick.",
             NOHORTICULTURE = "There's nothing worth growing here.",
@@ -314,6 +319,8 @@ return{
             TOOMANYBEES = "There's such a thing as too many bees, pal.",
             NOMOONINCAVES = "Its power can't reach the \"moon\" from here.",
             ALREADYFULLMOON = "For once, magic is not needed.",
+            -- rifts5.1
+            DEADBIRDS = "It's bad luck now... for the birds.",
         },
 		REMOTE_TELEPORT =
 		{
@@ -419,6 +426,8 @@ return{
             BEEF_BELL_HAS_BEEF_ALREADY = "One smelly beast following me around is more than enough.",
 
 			NOT_MINE = "Someone's rubbish.",
+
+			CANNOT_FIX_DRONE = "There's no fixing it.",
         },
 		USEKLAUSSACKKEY =
         {
@@ -439,6 +448,8 @@ return{
         {
             DOESNTWORK = "Where is that incompetent judge?",
             ALREADYACTIVE = "There must be a competition going on elsewhere...",
+            NORESPONSE = "Where did he wander off to now?",
+            RIGHTTHERE = "How rude!",
         },
         YOTB_UNLOCKSKIN =
         {
@@ -468,6 +479,14 @@ return{
 		{
 --fallback to speech_wilson.lua 			NOSLINGSHOT = "only_used_by_walter",
 		},
+		POUNCECAPTURE =
+		{
+			MISSED = "Quit moving!",
+		},
+        DIVEGRAB =
+        {
+            MISSED = "Quit moving!",
+        },
     },
 
 	ANNOUNCE_CANNOT_BUILD =
@@ -1132,7 +1151,7 @@ return{
 	ANNOUNCE_SNOWBALL_TOO_BIG = "Useless! It won't get any bigger.",
 	ANNOUNCE_SNOWBALL_NO_SNOW = "There's no snow here.",
 
-    --rifts 5
+    -- Meta 5
     ANNOUNCE_WENDY_BABYSITTER_SET = "only_used_by_wendy", 
     ANNOUNCE_WENDY_BABYSITTER_STOP = "only_used_by_wendy",
 
@@ -1145,6 +1164,22 @@ return{
     ANNOUNCE_ELIXIR_PLAYER_SPEED = "Respect my brawn!",
 
     ANNOUNCE_ELIXIR_TOO_SUPER = "That's too stiff a drink.",
+
+    -- Rift 5
+
+    ANNOUNCE_LUNARGUARDIAN_INCOMING = "Again? What now?",
+    ANNOUNCE_FLOATER_HELD = "There are unspeakable horrors below.",
+    ANNOUNCE_FLOATER_LETGO = "Ah!",
+
+    -- rifts5.1
+    ANNOUNCE_LUNARHAIL_BIRD_SOUNDS = "What is that racket?",
+    ANNOUNCE_LUNARHAIL_BIRD_CORPSES = "That's not a good sign.",
+    ANNOUNCE_FLOAT_SWIM_TIRED = "I can't!",
+    ANOUNCE_MUTATED_BIRD_ATTACK = "Blasted birds!",
+
+    -- Rift 6
+    ANNOUNCE_WEAPON_TOOWEAK = "Pathetic! I need something stronger!",
+    ANNOUNCE_VAULT_TELEPORTER_DOES_NOTHING = "It's always something with that moon magic.",
 
 	BATTLECRY =
 	{
@@ -1729,6 +1764,8 @@ return{
 		TURF_FUNGUS="Turf.",
 		TURF_FUNGUS_MOON = "Turf.",
 		TURF_ARCHIVE = "A stone floor.",
+        TURF_VAULT = "A stone floor.",
+        TURF_VENT = "Turf.",
 		TURF_SINKHOLE="Turf.",
 		TURF_UNDERROCK="Turf.",
 		TURF_MUD="Turf.",
@@ -2077,6 +2114,8 @@ return{
         CHESSPIECE_SHARKBOI = "Bottom feeding lone shark.",
         CHESSPIECE_WORMBOSS = "I can still smell it's breath.",
         CHESSPIECE_YOTS = "Let's leave this underground.",
+        CHESSPIECE_WAGBOSS_ROBOT = "I loathe it.",
+        CHESSPIECE_WAGBOSS_LUNAR = "It was a culmination of terrible decisions.",
 
         CHESSJUNK1 = "There's a reason I never finished that.",
         CHESSJUNK2 = "That one was a jerk.",
@@ -3298,6 +3337,7 @@ return{
         WINTER_ORNAMENTBOSS = "What a thing to risk one's life for.",
 		WINTER_ORNAMENTFORGE = "A volatile decoration.",
 		WINTER_ORNAMENTGORGE = "There's something familiar about this...",
+        WINTER_ORNAMENTPEARL = "That old crab does have some skill.",
 
         WINTER_FOOD1 = "Stop looking at me, cookie fiend.", --gingerbread cookie
         WINTER_FOOD2 = "We're celebrating freezing to death, I see.", --sugar cookie
@@ -4394,6 +4434,13 @@ return{
             LINE_4 = "\"To change?\" No. It's a name...",
             LINE_5 = "\"Alter\"?",
         },
+		VAULT_RUNE = "I don't recognize these runes.",
+		VAULT_STATUE =
+		{
+			LORE1 = "I have complicated feelings about this.",
+			LORE2 = "This was before my time.",
+			LORE3 = "Ooh. So menacing.",
+		},
 
         ARCHIVE_RESONATOR = {
             GENERIC = "It's leading us to something...",
@@ -4782,6 +4829,7 @@ return{
 
         MOONSTORM_STATIC = "What is he meddling with?",
         MOONSTORM_STATIC_ITEM = "There's power trapped inside.",
+        MOONSTORM_STATIC_ROAMER = "Hmm, not your typical magic.",
         MOONSTORM_SPARK = "They give off a rather unsettling sensation.",
 
         BIRD_MUTANT = "That creature has seen better days.",
@@ -5095,6 +5143,7 @@ return{
 
         PLAYBILL_THE_DOLL = "I think she's enjoying this a bit too much.",
         PLAYBILL_THE_VEIL = "It's a unique take, I'll admit.",
+        PLAYBILL_THE_VAULT = "It's quite dated.",
         STATUEHARP_HEDGESPAWNER = "This place is really going to seed.",
         HEDGEHOUND = "The critics here will really eat you alive.",
         HEDGEHOUND_BUSH = "Nice try.",
@@ -5445,8 +5494,11 @@ return{
 
         FENCE_JUNK = "Hmph. It'll certainly repel anyone with taste.",
         JUNK_PILE = "Have I really been reduced to sifting through the trash?",
-        JUNK_PILE_BIG = "One false move could send the whole pile tumbling down.",
-
+        JUNK_PILE_BIG = {
+            BLUEPRINT = "What's that? Worth the hassle?",
+            GENERIC = "One false move could send the whole pile tumbling down.",
+        },
+        
         ARMOR_LUNARPLANT_HUSK = "Of course the plant saves the best stuff for himself.",
 
         -- Meta 4 / Ocean QoL
@@ -5648,6 +5700,139 @@ return{
         DECK_OF_CARDS = "If only I stuck with these.",
         PLAYING_CARD = "It is none other than the four of clubs!",
         BALATRO_MACHINE = "The game is rigged! But I'll play again to be sure.",
+
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "Ugh. Empty.",
+			FILLED = "Not so tough now, are you?",
+		},
+		WAGBOSS_ROBOT_SECRET = "Nothing but trouble under there if you ask me.",
+        WAGBOSS_ROBOT = "I don't trust it.",
+        WAGBOSS_ROBOT_POSSESSED = "I told you so!",
+		WAGBOSS_ROBOT_LEG = "It's surprisingly intact. Still broke off though.",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "It looks nastier than before.",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "This had better be the one he wants.",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "Such grotesquerie.",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "Truly loathsome!",
+            INACTIVE = "More wired junk.",
+            DAMAGED = "Apparently it may be repaired, or salvaged for parts.",
+            FRIENDLY = "I don't like it.",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "Ugh, go away!",
+            INACTIVE = "More wired junk.",
+            DAMAGED = "Nothing but spare parts here.",
+        },
+		WAGDRONE_PARTS = "A trophy for besting a machine.",
+		WAGDRONE_BEACON = "An invisible wall? There must be a magical explanation for this.",
+
+        WAGPUNK_WORKSTATION = "What infernal devices are conjured here?",
+        WAGPUNK_LEVER = "No good will come of this!",
+        WAGPUNK_FLOOR_KIT = "Just how much more space does he need?",
+        WAGPUNK_CAGEWALL = "The blasted tinkerer wants to trap us like rats.",
+
+		WAGSTAFF_ITEM_1 = "So the glove is no longer an illusion.",
+		WAGSTAFF_ITEM_2 = "His clipboard is here. Odd.",
+
+        HERMITCRAB_RELOCATION_KIT = "Picky crab wants the perfect spot.",
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "I thought I smelled something in the air. What are you peddling today?",
+            GENERIC = "It stinks more than usual.",
+        },
+
+        GESTALT_GUARD_EVOLVED = "Oh, bygones be bygones and such.",
+        FLOTATIONCUSHION = "Where does it say, \"women and children first\"?",
+        LUNAR_SEED = "I told you it was no match for my abilities.",
+
+        -- rifts5.1
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE = "Don't say I didn't warn you.",
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE_KIT = "Do we never learn?",
+        WAGBOSS_ROBOT_CREATION_PARTS = "These were built to cause harm.",
+        MOONSTORM_STATIC_CATCHER = "Just my luck. It's empty.",
+        COOLANT = "Yucky.",
+
+        FENCE_ELECTRIC = {
+            LINKED = "I don't trust the power source.",      --NOTE: the fence post is fully linked to two other posts
+            GENERIC = "Perhaps its best left alone.",           --NOTE: no links or electricity, just boring ol fence post
+        },
+        FENCE_ELECTRIC_ITEM = "I don't like it.",
+
+        MUTATEDBIRD = "Quite the freak of nature, aren't you?",
+
+        BIRDCORPSE =
+        {
+            GENERIC  = "Yuck.", --witnessing the corpse
+            BURNING  = "Good riddance.", --when its burning
+            REVIVING = "Absolutely grotesque.", --when its mutating and being revived
+        },
+
+        BUZZARDCORPSE = {
+            GENERIC  = "Yuck.", --witnessing the corpse
+            BURNING  = "Good riddance.", --when its burning
+            REVIVING = "Absolutely grotesque.", --when its mutating and being revived
+        },
+
+        MUTATEDBUZZARD = {
+            GENERIC = "It looks hungry.", -- Generic string
+            EATING_CORPSE = "Chew with your beak closed!", -- Eating from a fresh corpse (might be from the players kill or another creatures kill)
+        },
+
+        -- Rifts 6
+
+        SHADOWTHRALL_CENTIPEDE = {
+            HEAD = "Yes, I see you.", --The head segment
+            BODY = "It doesn't intimidate me.", --The body segment
+            FLIPPED = "That was too easy.", --When it's flipped over (either head or body segment)
+        },
+
+        TREE_ROCK =
+		{
+			BURNING = "Ugh, it's so hot.", --It's vines are burning, it will collapse
+			CHOPPED = "Someone should mine it now.", --It's 'chopped', so the rock fell
+			GENERIC = "What's that rock doing up there?", --Rock is still on tree
+		},
+
+        -- NOTE: Unsure about HOT and COLD, just do GENERIC, GAS, MIASMA for now!
+        CAVE_VENT_ROCK =
+        {
+            GENERIC = "I don't like the looks of it.", -- Not ventilating anything
+            HOT     = "Ugh, really? I'm already uncomfortable.", -- Ventiliating hot air, making the area warm
+            GAS     = "Blegh! That stinks!", -- Ventiliating Toadstools gas fumes and spores
+            MIASMA  = "No, thank you.", -- Ventiliating the shadow rift miasma
+        },
+        CAVE_FERN_WITHERED = "Ah well.",
+        FLOWER_CAVE_WITHERED = "Just great.",
+
+		ABYSSPILLAR_MINION =
+		{
+			GENERIC = "It's ugly.", --off, looks like decor/statue
+			ACTIVATED = "Bug off! Ugh, I sound like Wilson.", --turned on and hopping over puzzle pillars
+		},
+		ABYSSPILLAR_TRIAL = "Let's get on with it then.",
+
+        VAULT_TELEPORTER =
+        {
+            GENERIC = "I suppose it's a type of magic.",
+            BROKEN = "Obviously broken.",
+            UNPOWERED = "Figures.",
+        },
+		VAULT_ORB = "It's part of a thing.",
+        VAULT_LOBBY_EXIT = "If I must.",
+		VAULT_CHANDELIER_BROKEN = "This place is falling apart.",
+
+		ANCIENT_HUSK = "Like I said, they were a nasty lot.",
+		MASK_ANCIENT_HANDMAIDHAT = "Rather intense.",
+		MASK_ANCIENT_ARCHITECTHAT = "Reminds me of Wilson. Ha!",
+		MASK_ANCIENT_MASONHAT = "The mask of a laborer, no doubt.",
+
+        TREE_ROCK_SEED = "Do I have to dig in the dirt? With my hands?",
+        TREE_ROCK_SAPLING = "These things take forever.",
     },
 
     DESCRIBE_GENERIC = "You tell me.",

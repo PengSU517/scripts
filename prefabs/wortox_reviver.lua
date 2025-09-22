@@ -113,6 +113,12 @@ local function SpellFn(inst, target, pos, caster)
     else
         -- Go to owner.
         local owner_pos = owner:GetPosition()
+        if not IsTeleportingPermittedFromPointToPoint(caster_pos.x, caster_pos.y, caster_pos.z, owner_pos.x, owner_pos.y, owner_pos.z) then
+            -- No escaping from here.
+            caster:PushEvent("wortox_reviver_failteleport")
+            return
+        end
+
         local offset
         for radius = 6, 1, -1 do
             offset = FindWalkableOffset(owner_pos, math.random() * TWOPI, radius, 8, true, true, NoHoles, false, true)

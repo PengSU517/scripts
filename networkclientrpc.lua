@@ -162,6 +162,17 @@ local RPC_HANDLERS =
         end
     end,
 
+	CharacterCommandWheelButton = function(player, target)
+		if not checkentity(target) then
+			printinvalid("CharacterCommandWheelButton", player)
+			return
+		end
+		local playercontroller = player.components.playercontroller
+		if playercontroller then
+			playercontroller:OnRemoteCharacterCommandWheelButton(target)
+		end
+	end,
+
     ControllerActionButton = function(player, action, target, isreleased, noforce, mod_name)
         if not (checknumber(action) and
                 checkentity(target) and
@@ -1324,6 +1335,24 @@ end
 local WorldSettings_Overrides = require("worldsettings_overrides")
 local SHARD_RPC_HANDLERS =
 {
+    ShardTransactionSteps = function(shardid, shardpayload_string)
+        shardid = tostring(shardid) -- shardid is converted to an integer and must be back to string.
+        local shardtransactionsteps = TheWorld and TheWorld.components.shardtransactionsteps or nil
+        if shardtransactionsteps then
+            local success, shardpayload = RunInSandboxSafe(shardpayload_string)
+            if success and (shardid == shardpayload.originshardid or shardid == shardpayload.receivershardid) then
+                shardtransactionsteps:OnShardTransactionSteps(shardpayload)
+            end
+        end
+    end,
+    PruneShardTransactionSteps = function(shardid, newfinalizedid)
+        shardid = tostring(shardid) -- shardid is converted to an integer and must be back to string.
+        local shardtransactionsteps = TheWorld and TheWorld.components.shardtransactionsteps or nil
+        if shardtransactionsteps then
+            shardtransactionsteps:OnPruneShardTransactionSteps(shardid, newfinalizedid)
+        end
+    end,
+
     ReskinWorldMigrator = function(shardid, migrator, skin_theme, skin_id, sessionid)
         for i,v in ipairs(ShardPortals) do
             if v.components.worldmigrator.id == migrator then
@@ -1359,6 +1388,11 @@ local SHARD_RPC_HANDLERS =
 
     ResyncWorldSettings = function(shardid)
         Shard_SyncWorldSettings(shardid, true)
+    end,
+
+    SyncWorldStateTag = function(shardid, namespace, tag, enabled)
+        local worldstatetagobject = GetWorldStateTagObjectFromNamespace(namespace)
+        worldstatetagobject.SetTagEnabled(tag, enabled)
     end,
 
     SyncBossDefeated = function(shardid, bossprefab) -- NOTES(JBK): This should not be called often enough to warrant a lookup table for bossprefab as an enum.

@@ -148,10 +148,7 @@ end
 
 local function ShouldKeepTarget(inst, target)
 	return inst:IsActiveMode()
-		and target
-        and target:IsValid()
-        and target.components.health ~= nil
-        and not target.components.health:IsDead()
+		and inst.components.combat:CanTarget(target)
 		and inst:IsNear(target, TUNING.WINONA_CATAPULT_MAX_RANGE + TUNING.WINONA_CATAPULT_KEEP_TARGET_BUFFER + target:GetPhysicsRadius(0))
 end
 
@@ -790,9 +787,6 @@ local function SetActiveMode(inst, active)
 		inst:ListenForEvent("newcombattarget", OnNewCombatTarget)
 		inst:ListenForEvent("droppedtarget", OnDroppedTarget)
 		inst:SetBrain(brain)
-		if not inst:IsAsleep() then
-			inst:RestartBrain()
-		end
 		inst.components.powerload:SetLoad(TUNING.WINONA_CATAPULT_POWER_LOAD_IDLE, true)
 		SetLedStatusOn(inst)
 		if not loading then
@@ -1035,6 +1029,7 @@ local function fn()
 	inst:AddTag("engineeringbatterypowered")
     inst:AddTag("catapult")
     inst:AddTag("structure")
+	inst:AddTag("electricdamageimmune")
 
     inst.AnimState:SetBank("winona_catapult")
     inst.AnimState:SetBuild("winona_catapult")

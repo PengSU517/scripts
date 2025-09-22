@@ -261,6 +261,15 @@ function InventoryItem:SetDeployMode(deploymode)
     self.classified.deploymode:set(deploymode)
 end
 
+function InventoryItem:GetDeployMode()
+    if self.inst.components.deployable then
+        return self.inst.components.deployable:GetDeployMode()
+    elseif self.classified then
+        return self.classified.deploymode:value()
+    end
+    return DEPLOYMODE.NONE
+end
+
 function InventoryItem:IsDeployable(deployer)
     if self.inst.components.deployable ~= nil then
         return self.inst.components.deployable:IsDeployable(deployer)
@@ -270,11 +279,17 @@ function InventoryItem:IsDeployable(deployer)
     local restrictedtag = self.classified.deployrestrictedtag:value()
 	if restrictedtag and restrictedtag ~= 0 and not (deployer and deployer:HasTag(restrictedtag)) then
 		return false
-	end
-	local rider = deployer and deployer.replica.rider or nil
-	if rider and rider:IsRiding() then
-		--can only deploy tossables while mounted
-		return self.inst:HasTag("projectile")
+	elseif deployer then
+		local rider = deployer.replica.rider
+		if rider and rider:IsRiding() then
+			--can only deploy tossables while mounted
+			return self.inst:HasTag("complexprojectile")
+		end
+		local inventory = deployer.replica.inventory
+		if inventory and inventory:IsFloaterHeld() then
+			--can only deploy boats while floating
+			return self.inst:HasTag("boatbuilder")
+		end
 	end
 	return true
 end
@@ -412,6 +427,16 @@ function InventoryItem:GetMoisture()
         return self.inst.components.inventoryitemmoisture.moisture
     elseif self.classified ~= nil then
         return self.classified.moisture:value()
+    else
+        return 0
+    end
+end
+
+function InventoryItem:GetMoisturePercent()
+    if self.inst.components.inventoryitemmoisture ~= nil then
+        return self.inst.components.inventoryitemmoisture.moisture / TUNING.MAX_WETNESS
+    elseif self.classified ~= nil then
+        return self.classified.moisture:value() / TUNING.MAX_WETNESS
     else
         return 0
     end

@@ -226,13 +226,21 @@ local function CopyTechTrees(src, dest)
 	end
 end
 
+local function SortByRecName(a, b)
+    if a.recname == b.recname then
+        return a.amount < b.amount
+    end
+    return a.recname < b.recname -- NOTES(JBK): This is not important to be the same on client and server but stable for server for netvar ordering.
+end
 local PROTOTYPER_TAGS = { "prototyper" }
 function Builder:EvaluateTechTrees()
+	local enabled = self.inst.player_classified == nil or self.inst.player_classified.iscraftingenabled:value()
     local pos = self.inst:GetPosition()
 
     local ents
 	if self.override_current_prototyper then
-		if self.override_current_prototyper:IsValid() 
+		if enabled
+			and self.override_current_prototyper:IsValid()
 			and self.override_current_prototyper:HasTags(PROTOTYPER_TAGS) 
 			and not self.override_current_prototyper:HasOneOfTags(self.exclude_tags)
 			and (self.override_current_prototyper.components.prototyper.restrictedtag == nil or self.inst:HasTag(self.override_current_prototyper.components.prototyper.restrictedtag))
@@ -245,7 +253,7 @@ function Builder:EvaluateTechTrees()
 		end
 	end
 	
-	if ents == nil then
+	if enabled and ents == nil then
 		ents = TheSim:FindEntities(pos.x, pos.y, pos.z, TUNING.RESEARCH_MACHINE_DIST, PROTOTYPER_TAGS, self.exclude_tags)
 	end
 
@@ -256,31 +264,33 @@ function Builder:EvaluateTechTrees()
     self.station_recipes = {}
 
     local prototyper_active = false
-    for i, v in ipairs(ents) do
-        if v.components.prototyper ~= nil and (v.components.prototyper.restrictedtag == nil or self.inst:HasTag(v.components.prototyper.restrictedtag)) then
-            if not prototyper_active then
-                --activate the first machine in the list. This will be the one you're closest to.
-                v.components.prototyper:TurnOn(self.inst)
+	if ents then
+		for i, v in ipairs(ents) do
+			if v.components.prototyper and (v.components.prototyper.restrictedtag == nil or self.inst:HasTag(v.components.prototyper.restrictedtag)) then
+				if not prototyper_active then
+					--activate the first machine in the list. This will be the one you're closest to.
+					v.components.prototyper:TurnOn(self.inst)
 
-				--prototyper:GetTrees() returns a deepcopy, which we no longer want
-				CopyTechTrees(v.components.prototyper.trees, self.accessible_tech_trees)
+					--prototyper:GetTrees() returns a deepcopy, which we no longer want
+					CopyTechTrees(v.components.prototyper.trees, self.accessible_tech_trees)
 
-                if v.components.craftingstation ~= nil then
-                    local recs = v.components.craftingstation:GetRecipes(self.inst)
-                    for _, recname in ipairs(recs) do
-						local recipe = GetValidRecipe(recname)
-                        if recipe ~= nil and recipe.nounlock then
-                            --only nounlock recipes can be unlocked via crafting station
-                            self.station_recipes[recname] = true
+					if v.components.craftingstation then
+						local recs = v.components.craftingstation:GetRecipes(self.inst)
+						for _, recname in ipairs(recs) do
+							local recipe = GetValidRecipe(recname)
+							if recipe and recipe.nounlock then
+								--only nounlock recipes can be unlocked via crafting station
+								self.station_recipes[recname] = v.components.craftingstation:GetRecipeCraftingLimit(recipe.name) or true
+							end
 						end
-                    end
-				end
+					end
 
-                prototyper_active = true
-                self.current_prototyper = v
-            else
-                --you've already activated a machine. Turn all the other machines off.
-                v.components.prototyper:TurnOff(self.inst)
+					prototyper_active = true
+					self.current_prototyper = v
+				else
+					--you've already activated a machine. Turn all the other machines off.
+					v.components.prototyper:TurnOff(self.inst)
+				end
             end
         end
     end
@@ -322,20 +332,50 @@ function Builder:EvaluateTechTrees()
 
     local trees_changed = false
 
-    for recname, _ in pairs(self.station_recipes) do
+    local craftinglimitdata
+    local lostcraftinglimitdata
+    for recname, amount in pairs(self.station_recipes) do
         if old_station_recipes[recname] then
+            if old_station_recipes[recname] ~= amount then
+                trees_changed = true
+            end
             old_station_recipes[recname] = nil
         else
             self.inst.replica.builder:AddRecipe(recname)
             trees_changed = true
         end
+        if amount ~= true then -- We have a max number allowed, add it.
+            if craftinglimitdata == nil then
+                craftinglimitdata = {}
+            end
+            table.insert(craftinglimitdata, {recname = recname, amount = amount,})
+        end
     end
 
     if next(old_station_recipes) ~= nil then
-        for recname, _ in pairs(old_station_recipes) do
+        for recname, amount in pairs(old_station_recipes) do
             self.inst.replica.builder:RemoveRecipe(recname)
+            if amount ~= true then
+                lostcraftinglimitdata = true
+            end
         end
 		trees_changed = true
+    end
+
+    if craftinglimitdata then
+        table.sort(craftinglimitdata, SortByRecName)
+        for i = 1, CRAFTINGSTATION_LIMITED_RECIPES_COUNT do
+            local data = craftinglimitdata[i]
+            if data then
+                self.inst.replica.builder:SetRecipeCraftingLimit(i, data.recname, data.amount)
+            else
+                self.inst.replica.builder:SetRecipeCraftingLimit(i, nil, nil)
+            end
+        end
+    elseif lostcraftinglimitdata then
+        for i = 1, CRAFTINGSTATION_LIMITED_RECIPES_COUNT do
+            self.inst.replica.builder:SetRecipeCraftingLimit(i, nil, nil)
+        end
     end
 
     if not trees_changed then
@@ -371,7 +411,9 @@ function Builder:EvaluateTechTrees()
 end
 
 function Builder:UsePrototyper(prototyper)
-	if prototyper ~= nil then
+	if self.inst.player_classified and not self.inst.player_classified.iscraftingenabled:value() then
+		return false
+	elseif prototyper then
 		if not prototyper:HasTags(PROTOTYPER_TAGS) 
 			or prototyper:HasOneOfTags(self.exclude_tags)
 			or (prototyper.components.prototyper ~= nil and prototyper.components.prototyper.restrictedtag ~= nil and not self.inst:HasTag(prototyper.components.prototyper.restrictedtag))
@@ -468,6 +510,18 @@ function Builder:CheckIngredientsForMimic(ingredients)
     end
 
     return false
+end
+
+-- TODO If we ever add more discount equippables, make this a LOT better!
+function Builder:CheckDiscountEquipsForMimic()
+    if self.inst.components.inventory then
+        for slot, item in pairs(self.inst.components.inventory.equipslots) do
+            if item and item.prefab == "greenamulet" and item.components.itemmimic then
+                item.components.itemmimic:TurnEvil(self.inst)
+                return true
+            end
+        end
+    end
 end
 
 function Builder:RemoveIngredients(ingredients, recname, discounted)
@@ -634,12 +688,12 @@ function Builder:DoBuild(recname, pt, rotation, skin)
 
         self.inst:PushEvent("refreshcrafting")
 
-		if recipe.manufactured then
-			local materials, discounted = self:GetIngredients(recname)
-            if self:CheckIngredientsForMimic(materials) then
-                return false, "ITEMMIMIC"
-            end
+        local materials, discounted = self:GetIngredients(recname)
+        if self:CheckIngredientsForMimic(materials) or (discounted and self:CheckDiscountEquipsForMimic()) then
+            return false, "ITEMMIMIC"
+        end
 
+		if recipe.manufactured then
 			self:RemoveIngredients(materials, recname, discounted)
 			   -- its up to the prototyper to implement onactivate and handle spawning the prefab
 		   return true
@@ -651,11 +705,6 @@ function Builder:DoBuild(recname, pt, rotation, skin)
 
             if prod.components.inventoryitem ~= nil then
                 if self.inst.components.inventory ~= nil then
-					local materials, discounted = self:GetIngredients(recname)
-                    if self:CheckIngredientsForMimic(materials) then
-                        return false, "ITEMMIMIC"
-                    end
-
 					local wetlevel = self:GetIngredientWetness(materials)
 					if wetlevel > 0 and prod.components.inventoryitem ~= nil then
 						prod.components.inventoryitem:InheritMoisture(wetlevel, self.inst:GetIsWet())
@@ -727,11 +776,6 @@ function Builder:DoBuild(recname, pt, rotation, skin)
                 end
             else
 				if not is_buffered_build then -- items that have intermediate build items (like statues)
-					local materials, discounted = self:GetIngredients(recname)
-                    if self:CheckIngredientsForMimic(materials) then
-                        return false, "ITEMMIMIC"
-                    end
-
 					self:RemoveIngredients(materials, recname, discounted)
 				end
 
@@ -1036,6 +1080,14 @@ function Builder:BufferBuild(recname)
 		local canlearn = self:CanLearn(recname)
 		local usingtempbonus = not knows_no_temp and not canproto_no_temp
 
+        local materials, discounted = self:GetIngredients(recname)
+        if self:CheckIngredientsForMimic(materials) or (discounted and self:CheckDiscountEquipsForMimic()) then
+            if self.inst.components.talker then
+                self.inst.components.talker:Say(GetActionFailString(self.inst, "GENERIC", "ITEMMIMIC"))
+            end
+            return
+        end
+
         if self:KnowsRecipe(recipe) then
 			if usingtempbonus then
 				self:ConsumeTempTechBonuses()
@@ -1068,11 +1120,6 @@ function Builder:BufferBuild(recname)
 		else
 			return
 		end
-
-        local materials, discounted = self:GetIngredients(recname)
-        if self:CheckIngredientsForMimic(materials) then
-            return
-        end
 
         self:RemoveIngredients(materials, recname, discounted)
         self.buffered_builds[recname] = true

@@ -325,6 +325,11 @@ fns.OnStopChannelCastingItem = function(inst)
 	inst.components.locomotor:StopStrafing()
 end
 
+fns.IsTeetering = function(inst)
+	local platform = inst:GetCurrentPlatform()
+	return platform ~= nil and platform:HasTag("teeteringplatform")
+end
+
 local function ShouldAcceptItem(inst, item)
     if inst:HasTag("playerghost") then
         return item:HasTag("reviver") and inst:IsOnPassablePoint()
@@ -587,6 +592,13 @@ fns.OnRiftMoonTile = function(inst, on_rift_moon)
 	inst.components.sanity:EnableLunacy(on_rift_moon, "rift_moon")
 end
 
+fns.OnFullMoonEnlightenment = function(inst, isfullmoon)
+    local is_post_rift_lunacy = isfullmoon
+        and TheWorld.components.riftspawner ~= nil
+        and TheWorld.components.riftspawner:GetLunarRiftsEnabled()
+    inst.components.sanity:EnableLunacy(is_post_rift_lunacy, "rifts_opened")
+end
+
 --------------------------------------------------------------------------
 --Equipment Breaking Events
 --------------------------------------------------------------------------
@@ -683,6 +695,7 @@ local function RegisterMasterEventListeners(inst)
 	inst:ListenForEvent("on_LUNAR_MARSH_tile", fns.OnRiftMoonTile)
 	inst:WatchWorldState("isnight", fns.OnAlterNight)
 	inst:WatchWorldState("isalterawake", fns.OnAlterNight)
+    inst:WatchWorldState("isfullmoon", fns.OnFullMoonEnlightenment)
 
     -- Merm murder event
     inst:ListenForEvent("murdered", ex_fns.OnMurderCheckForFishRepel)
@@ -705,6 +718,9 @@ local function AddActivePlayerComponents(inst)
     inst:AddComponent("playerhearing")
 	inst:AddComponent("raindomewatcher")
 	inst:AddComponent("strafer")
+	if TheWorld:HasTag("cave") then
+		inst:AddComponent("vaultmusiclistener")
+	end
 end
 
 local function RemoveActivePlayerComponents(inst)
@@ -712,6 +728,7 @@ local function RemoveActivePlayerComponents(inst)
     inst:RemoveComponent("playerhearing")
 	inst:RemoveComponent("raindomewatcher")
 	inst:RemoveComponent("strafer")
+	inst:RemoveComponent("vaultmusiclistener")
 end
 
 local function ActivateHUD(inst)
@@ -993,7 +1010,7 @@ local function OnSetOwner(inst)
             inst:AddComponent("playercontroller")
             inst:AddComponent("playervoter")
             inst:AddComponent("playermetrics")
-            inst.components.playeractionpicker:PushActionFilter(PlayerActionFilter, -99)
+			inst.components.playeractionpicker:PushActionFilter(PlayerActionFilter, ACTION_FILTER_PRIORITIES.default)
             inst._serverpauseddirtyfn = function() ex_fns.OnWorldPaused(inst) end
             inst:ListenForEvent("serverpauseddirty", inst._serverpauseddirtyfn, TheWorld)
             ex_fns.OnWorldPaused(inst)
@@ -1283,18 +1300,30 @@ local function OnLoad(inst, data)
     inst:DoTaskInTime(0, function()
         --V2C: HACK! enabled false instead of nil means it was overriden by weregoose on load.
         --     Please refactor drownable and this block to use POST LOAD timing instead.
+		local item = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+		local playerfloater = item and item.components.playerfloater
         if inst.components.drownable ~= nil and inst.components.drownable.enabled ~= false then
             local my_x, my_y, my_z = inst.Transform:GetWorldPosition()
 
             if not TheWorld.Map:IsPassableAtPoint(my_x, my_y, my_z) then
-            for k,v in pairs(Ents) do
-                    if v:IsValid() and v:HasTag("multiplayer_portal") then
-                        inst.Transform:SetPosition(v.Transform:GetWorldPosition())
-                        inst:SnapCamera()
-                    end
-                end
+				if playerfloater then
+					playerfloater = nil --clear this so it doens't get reset below
+					inst.sg:GoToState("float")
+				else
+					for k, v in pairs(Ents) do
+						if v:HasTag("multiplayer_portal") then
+							inst.Transform:SetPosition(v.Transform:GetWorldPosition())
+							inst:SnapCamera()
+							break
+						end
+					end
+				end
             end
         end
+		--Reset playerfloater if we didn't make it into "float" state
+		if playerfloater then
+			playerfloater:Reset(inst)
+		end
     end)
 end
 
@@ -1476,6 +1505,12 @@ fns.ShowActions = function(inst, show)
     if TheWorld.ismastersim then
         inst.player_classified:ShowActions(show)
     end
+end
+
+fns.ShowCrafting = function(inst, show)
+	if TheWorld.ismastersim then
+		inst.player_classified:ShowCrafting(show)
+	end
 end
 
 fns.ShowHUD = function(inst, show)
@@ -1887,6 +1922,7 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
         Asset("ANIM", "anim/player_boat_channel.zip"),
         Asset("ANIM", "anim/player_bush_hat.zip"),
         Asset("ANIM", "anim/player_attacks.zip"),
+        Asset("ANIM", "anim/player_attacks_recoil.zip"),
         --Asset("ANIM", "anim/player_idles.zip"),--Moved to global.lua for use in Item Collection
         Asset("ANIM", "anim/player_rebirth.zip"),
         Asset("ANIM", "anim/player_jump.zip"),
@@ -1912,6 +1948,9 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
 		Asset("ANIM", "anim/player_sit_sleepy.zip"),
 		Asset("ANIM", "anim/player_sit_toast.zip"),
 		Asset("ANIM", "anim/player_sit_wave.zip"),
+		--
+		Asset("ANIM", "anim/player_float.zip"),
+		Asset("ANIM", "anim/player_teetering.zip"),
 		--
 
         Asset("ANIM", "anim/player_slurtle_armor.zip"),
@@ -1962,9 +2001,11 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
         Asset("ANIM", "anim/player_emotes.zip"), -- item emotes
         Asset("ANIM", "anim/player_emote_extra.zip"), -- item emotes
         Asset("ANIM", "anim/player_emotes_dance2.zip"), -- item emotes
+        Asset("ANIM", "anim/player_emotes_hat_tip.zip"), -- item emotes
         Asset("ANIM", "anim/player_mount_emotes_extra.zip"), -- item emotes
 
         Asset("ANIM", "anim/player_mount_emotes_dance2.zip"), -- item emotes
+        Asset("ANIM", "anim/player_mount_emotes_hat_tip.zip"), -- item emotes
         Asset("ANIM", "anim/player_mount_pet.zip"),
         Asset("ANIM", "anim/player_hatdance.zip"),
         Asset("ANIM", "anim/player_bow.zip"),
@@ -2028,19 +2069,24 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
 
         Asset("ANIM", "anim/player_acting.zip"),
 		Asset("ANIM", "anim/player_closeinspect.zip"),
-
         Asset("ANIM", "anim/player_attack_pillows.zip"),
-
         Asset("ANIM", "anim/player_shadow_thrall_parasite.zip"),
+		Asset("ANIM", "anim/player_pouncecapture.zip"),
+		Asset("ANIM", "anim/player_divegrab.zip"),
 
         Asset("ANIM", "anim/wortox_teleport_reviver.zip"),
-
         Asset("ANIM", "anim/player_grave_spawn.zip"),
 
         Asset("INV_IMAGE", "skull_"..name),
 
         Asset("SCRIPT", "scripts/prefabs/player_common_extensions.lua"),
         Asset("SCRIPT", "scripts/prefabs/skilltree_defs.lua"),
+
+        Asset("ANIM", "anim/chalice_swap.zip"),
+
+        Asset("ANIM", "anim/player_ancient_handmaid.zip"),
+        Asset("ANIM", "anim/player_ancient_architect.zip"),
+        Asset("ANIM", "anim/player_ancient_mason.zip"),
     }
 
     local prefabs =
@@ -2063,6 +2109,7 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
         "tears",
         "shock_fx",
         "splash",
+		"splash_sink",
         "globalmapiconnamed",
         "lavaarena_player_revive_from_corpse_fx",
         "superjump_fx",
@@ -2072,14 +2119,15 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
 		"impact",
         "ghostvision_buff",
         "elixir_player_forcefield",
-        
+		"player_float_hop_water_fx",
+		"ocean_splash_swim1",
+		"ocean_splash_swim2",
+
         -- Player specific classified prefabs
         "player_classified",
         "inventory_classified",
         "wonkey",
         "spellbookcooldown",
-
-
     }
 
     if starting_inventory ~= nil or customprefabs ~= nil then
@@ -2133,8 +2181,10 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
         inst.IsCarefulWalking = IsCarefulWalking -- Didn't want to make carefulwalking a networked component
 		inst.IsChannelCasting = fns.IsChannelCasting -- Didn't want to make channelcaster a networked component
 		inst.IsChannelCastingItem = fns.IsChannelCastingItem -- Didn't want to make channelcaster a networked component
+		inst.IsTeetering = fns.IsTeetering
         inst.EnableMovementPrediction = EnableMovementPrediction
         inst.EnableBoatCamera = fns.EnableBoatCamera
+		inst.EnableTargetLocking = ex_fns.EnableTargetLocking
         inst.ShakeCamera = fns.ShakeCamera
         inst.SetGhostMode = SetGhostMode
         inst.IsActionsVisible = IsActionsVisible
@@ -2142,6 +2192,7 @@ local function MakePlayerCharacter(name, customprefabs, customassets, common_pos
         inst.CanSeePointOnMiniMap = ex_fns.CanSeePointOnMiniMap
         inst.GetSeeableTilePercent = ex_fns.GetSeeableTilePercent
         inst.MakeGenericCommander = ex_fns.MakeGenericCommander
+		inst.CommandWheelAllowsGameplay = ex_fns.CommandWheelAllowsGameplay
 	end
 
     local max_range = TUNING.MAX_INDICATOR_RANGE * 1.5
@@ -2287,6 +2338,7 @@ end
         inst.AnimState:OverrideSymbol("fx_liquid", "wilson_fx", "fx_liquid")
         inst.AnimState:OverrideSymbol("shadow_hands", "shadow_hands", "shadow_hands")
         inst.AnimState:OverrideSymbol("snap_fx", "player_actions_fishing_ocean_new", "snap_fx")
+        inst.AnimState:OverrideSymbol("chalice_swap_comp", "chalice_swap", "chalice_swap_comp")
 
         --Additional effects symbols for hit_darkness animation
         inst.AnimState:AddOverrideBuild("player_hit_darkness")
@@ -2749,6 +2801,7 @@ end
         --HUD interface
         inst.IsHUDVisible = fns.IsHUDVisible
         inst.ShowActions = fns.ShowActions
+		inst.ShowCrafting = fns.ShowCrafting
         inst.ShowHUD = fns.ShowHUD
         inst.ShowPopUp = fns.ShowPopUp
         inst.ResetMinimapOffset = fns.ResetMinimapOffset
@@ -2805,6 +2858,7 @@ end
         inst.IsActing = ex_fns.IsActing
 
 		fns.OnAlterNight(inst)
+        fns.OnFullMoonEnlightenment(inst)
 
         --V2C: used by multiplayer_portal_moon
         inst.SaveForReroll = SaveForReroll

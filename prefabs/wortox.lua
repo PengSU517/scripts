@@ -491,16 +491,21 @@ end
 
 --------------------------------------------------------------------------
 
-local function CanBlinkTo(pt)
-    return TheWorld.Map:IsPassableAtPoint(pt:Get()) and not TheWorld.Map:IsGroundTargetBlocked(pt) -- NOTES(JBK): Keep in sync with blinkstaff. [BATELE]
+local function IsNotBlocked(pt)
+    return TheWorld.Map:IsPassableAtPoint(pt:Get()) and not TheWorld.Map:IsGroundTargetBlocked(pt)
+end
+local function CanBlinkTo(inst, pt)
+    local x, y, z = inst.Transform:GetWorldPosition()
+    return IsNotBlocked(pt) and IsTeleportingPermittedFromPointToPoint(x, y, z, pt.x, pt.y, pt.z) -- NOTES(JBK): Keep in sync with blinkstaff. [BATELE]
 end
 
-local function CanBlinkFromWithMap(pt)
-    return true -- NOTES(JBK): Change this if there is a reason to anchor Wortox when trying to use the map to teleport.
+local function CanBlinkFromWithMap(inst, pt)
+    local x, y, z = inst.Transform:GetWorldPosition()
+    return IsTeleportingPermittedFromPointToPoint(x, y, z, pt.x, pt.y, pt.z)
 end
 
 local function ReticuleTargetFn(inst)
-    return ControllerReticle_Blink_GetPosition(inst, inst.CanBlinkTo)
+    return ControllerReticle_Blink_GetPosition(inst, IsNotBlocked)
 end
 
 local function CanSoulhop(inst, souls)
@@ -517,9 +522,9 @@ local function GetPointSpecialActions(inst, pos, useitem, right)
     if right and useitem == nil then
         local canblink
         if inst.checkingmapactions then
-            canblink = inst.CanBlinkFromWithMap(inst:GetPosition())
+            canblink = inst:CanBlinkFromWithMap(inst.checkingmapactions_pos or inst:GetPosition())
         else
-            canblink = inst.CanBlinkTo(pos)
+            canblink = inst:CanBlinkTo(pos)
         end
         if canblink and inst.CanSoulhop and inst:CanSoulhop() then
             return { ACTIONS.BLINK }
@@ -702,6 +707,9 @@ local function common_postinit(inst)
     inst:AddComponent("reticule")
     inst.components.reticule.targetfn = ReticuleTargetFn
     inst.components.reticule.ease = true
+	inst.components.reticule.twinstickcheckscheme = true
+	inst.components.reticule.twinstickmode = 1
+	inst.components.reticule.twinstickrange = 15
 
     inst.HostileTest = CLIENT_Wortox_HostileTest
     if not TheWorld.ismastersim then

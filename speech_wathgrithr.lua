@@ -126,6 +126,9 @@ return{
             INUSE = "I shall wait whilst my allies plan their feast.",
             TOOFAR = "I must close the gap between us!",
         },
+        DEPLOY = {
+            HERMITCRAB_RELOCATE = "'Tis dry. I shall see to it later.",
+        },
         DIRECTCOURIER_MAP =
         {
 --fallback to speech_wilson.lua             NOTARGET = "only_used_by_walter",
@@ -271,6 +274,7 @@ return{
         PICK =
         {
             NOTHING_INSIDE = "Blast! Empty.",
+			STUCK = "Curses! Stuck!",
         },
         PICKUP =
         {
@@ -306,6 +310,7 @@ return{
 --fallback to speech_wilson.lua             NOWATERNEARBY = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             WAYTOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
+--fallback to speech_wilson.lua             BIRDSBLOCKED = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOFIRES =       "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOSILVICULTURE = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOHORTICULTURE = "only_used_by_waxwell_and_wicker",
@@ -314,6 +319,8 @@ return{
 --fallback to speech_wilson.lua             TOOMANYBEES = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             NOMOONINCAVES = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua             ALREADYFULLMOON = "only_used_by_waxwell_and_wicker",
+--fallback to speech_wilson.lua             -- rifts5.1
+--fallback to speech_wilson.lua             DEADBIRDS = "only_used_by_waxwell_and_wicker",
 --fallback to speech_wilson.lua         },
 		REMOTE_TELEPORT =
 		{
@@ -419,6 +426,8 @@ return{
             BEEF_BELL_HAS_BEEF_ALREADY = "I've already chosen my beast.",
 
 			NOT_MINE = "'Tis not mine.'",
+
+			CANNOT_FIX_DRONE = "'Tis dead.",
         },
 		USEKLAUSSACKKEY =
         {
@@ -439,6 +448,8 @@ return{
         {
             DOESNTWORK = "Where is he hiding?",
             ALREADYACTIVE = "Mayhaps there is another competition elsewhere.",
+            NORESPONSE = "He doth wander 'cross the lands.",
+            RIGHTTHERE = "He is full set upon his duties.",
         },
         YOTB_UNLOCKSKIN =
         {
@@ -468,6 +479,14 @@ return{
 		{
 --fallback to speech_wilson.lua 			NOSLINGSHOT = "only_used_by_walter",
 		},
+		POUNCECAPTURE =
+		{
+			MISSED = "Curses!",
+		},
+        DIVEGRAB =
+        {
+            MISSED = "Curses!",
+        },
     },
 
 	ANNOUNCE_CANNOT_BUILD =
@@ -1132,7 +1151,7 @@ return{
 	ANNOUNCE_SNOWBALL_TOO_BIG = "'Tis futile to roll it further.",
 	ANNOUNCE_SNOWBALL_NO_SNOW = "A fruitless endeavor.",
 
-    --rifts 5
+    -- Meta 5
     ANNOUNCE_WENDY_BABYSITTER_SET = "only_used_by_wendy", 
     ANNOUNCE_WENDY_BABYSITTER_STOP = "only_used_by_wendy",
 
@@ -1145,6 +1164,22 @@ return{
     ANNOUNCE_ELIXIR_PLAYER_SPEED = "I am the battalion.",
 
     ANNOUNCE_ELIXIR_TOO_SUPER = "'Tis excess!",
+
+    -- Rift 5
+
+    ANNOUNCE_LUNARGUARDIAN_INCOMING = "Thou return'st!",
+    ANNOUNCE_FLOATER_HELD = "Aye, I deny thee, Njord!",
+    ANNOUNCE_FLOATER_LETGO = "Curse thee, Njord!",
+
+    -- rifts5.1
+    ANNOUNCE_LUNARHAIL_BIRD_SOUNDS = "Slaughter aloft!",
+    ANNOUNCE_LUNARHAIL_BIRD_CORPSES = "The sky doth weep with woe and death!",
+    ANNOUNCE_FLOAT_SWIM_TIRED = "A brief respite to gather mine strength!",
+    ANOUNCE_MUTATED_BIRD_ATTACK = "Hellish wings draweth nigh!",
+
+    -- Rift 6
+    ANNOUNCE_WEAPON_TOOWEAK = "This foe demands something mightier!",
+    ANNOUNCE_VAULT_TELEPORTER_DOES_NOTHING = "Curses! Why can I not simply march there?",
 
 	BATTLECRY =
 	{
@@ -1729,6 +1764,8 @@ return{
 		TURF_FUNGUS="A piece of the battlefield.",
 		TURF_FUNGUS_MOON = "A piece of the battlefield.",
 		TURF_ARCHIVE = "A piece of the battlefield.",
+        TURF_VAULT = "A piece of the battlefield.",
+        TURF_VENT = "A piece of the battlefield.",
 		TURF_SINKHOLE="A piece of the battlefield.",
 		TURF_UNDERROCK="A piece of the battlefield.",
 		TURF_MUD="A piece of the battlefield.",
@@ -2077,6 +2114,8 @@ return{
         CHESSPIECE_SHARKBOI = "Until we meet again, bait-breathed warrior.",
         CHESSPIECE_WORMBOSS = "I shall never forget this hungry cave serpent.",
         CHESSPIECE_YOTS = "I do relish thy slaying, worm.",
+        CHESSPIECE_WAGBOSS_ROBOT = "The iron golem was indeed misguided.",
+        CHESSPIECE_WAGBOSS_LUNAR = "This tribute to the unhallowed giant is an abomination unto itself.",
 
         CHESSJUNK1 = "It's only a pile of fallen warriors.",
         CHESSJUNK2 = "More fallen mechanical warriors.",
@@ -3298,6 +3337,7 @@ return{
         WINTER_ORNAMENTBOSS = "Tis not a celebration without a good battle!",
 		WINTER_ORNAMENTFORGE = "Hath been forged in fires.",
 		WINTER_ORNAMENTGORGE = "It feeds the festive spirit.",
+        WINTER_ORNAMENTPEARL = "Normally I careth not for baubels. But these doth stir my heart most sweetly.",
 
         WINTER_FOOD1 = "How dost I free you from the bread, man of ginger??", --gingerbread cookie
         WINTER_FOOD2 = "Like a snowflake, it is a gift from the heavens!", --sugar cookie
@@ -4394,6 +4434,13 @@ return{
             LINE_4 = "Perhaps they speak of ancient battles.",
             LINE_5 = "These runes are foreign to me.",
         },
+		VAULT_RUNE = "I know not these runes.",
+		VAULT_STATUE =
+		{
+			LORE1 = "It doth seem Lord Insect hath struck a fell bargain.",
+			LORE2 = "What vile force could claim so many souls?",
+			LORE3 = "I doth dare these stone warriors to rouse from slumber and cross blades with me!",
+		},
 
         ARCHIVE_RESONATOR = {
             GENERIC = "It calls down a sign from Mani himself!",
@@ -4782,6 +4829,7 @@ return{
 
         MOONSTORM_STATIC = "Tis a strange kind of power.",
         MOONSTORM_STATIC_ITEM = "A strange power rests inside.",
+        MOONSTORM_STATIC_ROAMER = "The power roams free.",
         MOONSTORM_SPARK = "It sends a curious tickle through my bones.",
 
         BIRD_MUTANT = "The beasts are changed by the storm!",
@@ -5095,6 +5143,7 @@ return{
 
         PLAYBILL_THE_DOLL = "I am not familiar with the playwright.",
         PLAYBILL_THE_VEIL = "Hmm. 'Tis avant-garde.",
+        PLAYBILL_THE_VAULT = "A timeless tale.",
         STATUEHARP_HEDGESPAWNER = "'Tis surrounded by a thorny thicket.",
         HEDGEHOUND = "Deceiver! Thou art a prickly pox upon my stage!",
         HEDGEHOUND_BUSH = "A thorny bramble.",
@@ -5445,8 +5494,11 @@ return{
 
         FENCE_JUNK = "A sturdy barrier.",
         JUNK_PILE = "Mayhaps a treasure lies inside?",
-        JUNK_PILE_BIG = "T'would be a disgrace to be slain by a falling pile of refuse...",
-
+        JUNK_PILE_BIG = {
+            BLUEPRINT = "Is the peak's prize worthy of the danger it demands?",
+            GENERIC = "T'would be a disgrace to be slain by a falling pile of refuse...",
+        },
+        
         ARMOR_LUNARPLANT_HUSK = "This will make my plant ally more deadly in battle.",
 
         -- Meta 4 / Ocean QoL
@@ -5628,7 +5680,7 @@ return{
 		SLINGSHOT_HANDLE_VOIDCLOTH = "The young scout doth come into his own.",
 
 		WOBY_TREAT = "Woby doth deserve all manner of fine victuals and sweetmeats.",
-		BANDAGE_BUTTERFLYWINGS = "If I had a bandage for every mere flesh wound…",
+		BANDAGE_BUTTERFLYWINGS = "If I had a bandage for every mere flesh wound...",
 		PORTABLEFIREPIT_ITEM = "Prometheus himself would burn with envy!",
         SLINGSHOTAMMO_CONTAINER = "Though I prefer a blade, the lad slings with honor.",
 
@@ -5648,6 +5700,139 @@ return{
         DECK_OF_CARDS = "Dost these cards bear a fell curse?",
         PLAYING_CARD = "A wayward card.",
         BALATRO_MACHINE = "So be it! Yet one more round, thou knavish deceiver!",
+
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "An empty vessel.",
+			FILLED = "'Tis spirited.",
+		},
+		WAGBOSS_ROBOT_SECRET = "What doth he veil from us?",
+        WAGBOSS_ROBOT = "'Tis an iron golem.",
+        WAGBOSS_ROBOT_POSSESSED = "The forged beast is cursed!",
+		WAGBOSS_ROBOT_LEG = "We have severed the iron golem's limbs and yet it still stands.",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "Be thy strength fit for the vengeance thou seek'st?",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "It striketh mine eyes with unparalleled radiance.",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "Unhallowed giant! Odin would pierce his lone eye at the sight of thee!",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "I shall sunder thee, O metal menace!",
+            INACTIVE = "It slumbers.",
+            DAMAGED = "Shall it be resurrected, or its steel organs claimed to renew another?",
+            FRIENDLY = "'Tis friend, no longer foe.",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "Cursed iron harpies!",
+            INACTIVE = "It slumbers.",
+            DAMAGED = "'Tis dead but its parts may bring new life to another.",
+        },
+		WAGDRONE_PARTS = "Clockwork from a cursed contrivance.",
+		WAGDRONE_BEACON = "It doth form a wall unseen? Witchcraft!",
+
+        WAGPUNK_WORKSTATION = "What maketh the gear-wright now?",
+        WAGPUNK_LEVER = "A warrior trusts not cursed toggles.",
+        WAGPUNK_FLOOR_KIT = "Njord will not be pleased.",
+        WAGPUNK_CAGEWALL = "Let no soul flee the arena!",
+
+		WAGSTAFF_ITEM_1 = "He hath left his gauntlet in our realm.",
+		WAGSTAFF_ITEM_2 = "These runes hath taken physical form.",
+
+        HERMITCRAB_RELOCATION_KIT = "The crab shall dwell where I see fit.",
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "The pelt-bearer cometh to ply his wares.",
+            GENERIC = "Wretched beast. Shall I grant it peace?",
+        },
+
+        GESTALT_GUARD_EVOLVED = "Revenge is thine inheritance.",
+        FLOTATIONCUSHION = "Not this day, Njord!",
+        LUNAR_SEED = "Sprung from the shining coronal of a mighty deity.",
+
+        -- rifts5.1
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE = "'Tis not battle ready yet.",
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE_KIT = "The seed of an iron golem.",
+        WAGBOSS_ROBOT_CREATION_PARTS = "Bestow upon it its rightful arms!",
+        MOONSTORM_STATIC_CATCHER = "'Tis empty.",
+        COOLANT = "Cursed blood of the Jotnar!",
+
+        FENCE_ELECTRIC = {
+            LINKED = "It conjures a defensive permimeter worthy of Thor!",      --NOTE: the fence post is fully linked to two other posts
+            GENERIC = "Alone, it falters. Among its kin, it thrives.",           --NOTE: no links or electricity, just boring ol fence post
+        },
+        FENCE_ELECTRIC_ITEM = "Let us establish a bastion fit for the thunder god!",
+
+        MUTATEDBIRD = "'Tis cursed!",
+
+        BIRDCORPSE =
+        {
+            GENERIC  = "A bad omen.", --witnessing the corpse
+            BURNING  = "It shall not rise from these ashes.", --when its burning
+            REVIVING = "Unnatural metamorphosis!", --when its mutating and being revived
+        },
+
+        BUZZARDCORPSE = {
+            GENERIC  = "A bad omen.", --witnessing the corpse
+            BURNING  = "It shall not rise from these ashes.", --when its burning
+            REVIVING = "Unnatural metamorphosis!", --when its mutating and being revived
+        },
+
+        MUTATEDBUZZARD = {
+            GENERIC = "Thou art blasphemy made flesh!", -- Generic string
+            EATING_CORPSE = "Curses! The dead devoureth the dead!", -- Eating from a fresh corpse (might be from the players kill or another creatures kill)
+        },
+
+        -- Rifts 6
+
+        SHADOWTHRALL_CENTIPEDE = {
+            HEAD = "A twain-headed beast!", --The head segment
+            BODY = "The beast be clad in formidable armor.", --The body segment
+            FLIPPED = "Overthrown, yet the beast's fury remaineth!", --When it's flipped over (either head or body segment)
+        },
+
+        TREE_ROCK =
+		{
+			BURNING = "The flames doth devour the noble sapling! Aye, its final saga draws to a close.", --It's vines are burning, it will collapse
+			CHOPPED = "Now, the spoils like ripe for the taking.", --It's 'chopped', so the rock fell
+			GENERIC = "This stout sapling be a mighty champion indeed, bearin' aloft a boulder fit to crush lesser foes!", --Rock is still on tree
+		},
+
+        -- NOTE: Unsure about HOT and COLD, just do GENERIC, GAS, MIASMA for now!
+        CAVE_VENT_ROCK =
+        {
+            GENERIC = "What cometh may bring naught but ruin.", -- Not ventilating anything
+            HOT     = "There is no furnace nor frost that shall halt my spear!", -- Ventiliating hot air, making the area warm
+            GAS     = "'Tis a fetor that doth offend thy very senses!", -- Ventiliating Toadstools gas fumes and spores
+            MIASMA  = "Cursed fog of pestilence!", -- Ventiliating the shadow rift miasma
+        },
+        CAVE_FERN_WITHERED = "'Tis dead.",
+        FLOWER_CAVE_WITHERED = "So fleeting is this mortal saga!",
+
+		ABYSSPILLAR_MINION =
+		{
+			GENERIC = "The insect immortalized, yet unmoving.", --off, looks like decor/statue
+			ACTIVATED = "Vile insect, thou darest to mimic my step?", --turned on and hopping over puzzle pillars
+		},
+		ABYSSPILLAR_TRIAL = "Why doth we linger? The fray awaits!",
+
+        VAULT_TELEPORTER =
+        {
+            GENERIC = "Aye! At times, some witchcraft is the only course.",
+            BROKEN = "Curses! 'Tis stricken!",
+            UNPOWERED = "This infernal contraption hath no spark!",
+        },
+		VAULT_ORB = "What purpose hath this blasted bauble?",
+        VAULT_LOBBY_EXIT = "I hath no fear in hurling myself headlong into the abyss.",
+		VAULT_CHANDELIER_BROKEN = "Who hath cast thee down from the heavens, little star?",
+
+		ANCIENT_HUSK = "What treachery hath transpired here?",
+		MASK_ANCIENT_HANDMAIDHAT = "This mask did belong to one of valorous spirit!",
+		MASK_ANCIENT_ARCHITECTHAT = "A countenance of clever thought.",
+		MASK_ANCIENT_MASONHAT = "The bearer of this mask hath endured the ceaseless barrage of toil!",
+
+        TREE_ROCK_SEED = "'Tis said this humble seed holds mighty potential.",
+        TREE_ROCK_SAPLING = "A greenling that may be of some worth, or so the tale goes.",
     },
 
     DESCRIBE_GENERIC = "It is an artifact of this realm.",

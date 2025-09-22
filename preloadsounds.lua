@@ -181,8 +181,8 @@ local MainSounds =
     "wickerbottom_rework.fev",
     "wickerbottom_rework.fsb",
 
-    --"skin_sfx.fev",
-    --"skin_sfx.fsb",
+    "skin_sfx.fev",
+    "skin_sfx.fsb",
 
     "stageplay_set.fev",
     "stageplay_set.fsb",
@@ -237,6 +237,15 @@ local MainSounds =
 
     "balatro.fev",
     "balatro.fsb",     
+
+    "rifts5.fev",
+    "rifts5.fsb",
+
+    "lunarhail_event.fev",
+    "lunarhail_event.fsb",
+
+    "rifts6.fev",
+    "rifts6.fsb",
 }
 
 function PreloadSoundList(list)

@@ -108,10 +108,11 @@ local SPECIAL_EVENT_DEPS =
         {
             assets =
             {
-                Asset("PKGREF", "anim/dst_menu_carnival.zip"),
+				Asset("ANIM", "anim/dst_menu_rift5.zip"),
+				Asset("PKGREF", "anim/dst_menu_carnival.zip"),
                 Asset("PKGREF", "anim/dst_menu_webber_carnival.zip"),
-                Asset("ANIM", "anim/dst_menu_winona_wurt_carnival_foreground.zip"),
-                Asset("ANIM", "anim/dst_menu_winona_wurt.zip"),
+				Asset("PKGREF", "anim/dst_menu_winona_wurt_carnival_foreground.zip"),
+				Asset("PKGREF", "anim/dst_menu_winona_wurt.zip"),
             },
         },
         backend =
@@ -249,7 +250,9 @@ local SPECIAL_EVENT_DEPS =
         {
             assets =
             {
-                Asset("ANIM", "anim/dst_menu_meta5.zip"),
+                Asset("ANIM", "anim/dst_menu_rift6.zip"),
+				Asset("PKGREF", "anim/dst_menu_rift5.zip"),
+				Asset("PKGREF", "anim/dst_menu_meta5.zip"),
                 Asset("PKGREF", "anim/dst_menu_halloween3.zip"),
 				Asset("PKGREF", "anim/dst_menu_rift4.zip"),
                 Asset("PKGREF", "anim/dst_menu_winona_wurt.zip"),

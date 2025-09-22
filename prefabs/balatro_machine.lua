@@ -521,7 +521,7 @@ local function EndInteraction(inst, doer)
     inst:RemoveEventCallback("ms_closepopup", inst.onclosepopup, doer)
     inst:RemoveEventCallback("ms_popupmessage", inst.onpopupmessage, doer)
 
-    doer.sg:HandleEvent("ms_endplayingbalatro")
+    doer:PushEventImmediate("ms_endplayingbalatro")
 
     inst._currentgame = {}
 end
@@ -574,6 +574,8 @@ local function OnPopupMessage(inst, doer, data)
 
         inst._currentgame.joker:OnCardsDiscarded(discarddata)
 
+        -- NOTES(DiogoW): inst._currentgame.joker.cards is the same table as inst._currentgame.selectedcards
+
         if byte ~= 0 then -- Not a skip.
             inst._currentgame._lastselectedcards = shallowcopy(inst._currentgame.selectedcards)
 
@@ -583,7 +585,7 @@ local function OnPopupMessage(inst, doer, data)
                 end
             end
 
-            inst._currentgame.joker:OnNewCards(inst._currentgame._lastselectedcards)
+            inst._currentgame.joker:OnNewCards(inst._currentgame._lastselectedcards, discarddata)
 
             local data = {}
 

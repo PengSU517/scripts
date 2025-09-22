@@ -57,6 +57,10 @@ local Combat = Class(function(self, inst)
 	--self.lastattacktype = nil
 	--self.laststimuli = nil
 
+    --self.tough = false
+	--self.workmultiplierfn = nil
+	--self.shouldrecoilfn = nil
+
 	self.externaldamagemultipliers = SourceModifierList(self.inst) -- damage dealt to others multiplier
 
 	self.externaldamagetakenmultipliers = SourceModifierList(self.inst) -- my damage taken multiplier (post armour reduction)
@@ -309,7 +313,7 @@ function Combat:OnUpdate(dt)
 			if not self.target:IsValid() or self.target:IsInLimbo() then
 				drop = true
 			else
-				local iframeskeepaggro_combat = self.target.sg and self.target.sg:HasStateTag("iframeskeepaggro") and self.inst.replica.combat or nil
+				local iframeskeepaggro_combat = self.target.sg and self.target.sg:HasStateTag("iframeskeepaggro") and self.inst.replica.combat or nil --V2C: intentionally using replica on server
 				if iframeskeepaggro_combat then
 					iframeskeepaggro_combat.temp_iframes_keep_aggro = true
 				end
@@ -416,7 +420,7 @@ function Combat:ShouldAggro(target, ignore_forbidden)
 		end
 		if target.components.health ~= nil and (target.components.health.minhealth or 0) > 0 and not target:HasTag("hostile") then
 			target = target.components.follower ~= nil and target.components.follower:GetLeader() or target
-			if not target:HasTag("player") then
+			if not target.isplayer then
 				--npc should not aggro on things that can't be killed (unless hostile!)
 				return false
 			end
@@ -448,8 +452,8 @@ end
 function Combat:SetTarget(target)
     if target ~= self.target and
         (target == nil or (self:IsValidTarget(target) and self:ShouldAggro(target))) and
-        not (target and target.sg and target.sg:HasStateTag("hiding") and target:HasTag("player"))
-        then
+		not (target and target.isplayer and target.sg and target.sg:HasStateTag("hiding"))
+	then
         self:DropTarget(target ~= nil)
         self:EngageTarget(target)
     end
@@ -572,6 +576,13 @@ function Combat:GetAttacked(attacker, damage, weapon, stimuli, spdamage)
 	end
 	self.laststimuli = stimuli
 
+    local recoil
+    recoil, damage = self:ShouldRecoil(attacker, weapon, damage)
+
+    if recoil then
+        blocked = true
+    end
+
     if self.inst.components.health ~= nil and damage ~= nil and damageredirecttarget == nil then
         if self.inst.components.attackdodger ~= nil and self.inst.components.attackdodger:CanDodge(attacker) then
             self.inst.components.attackdodger:Dodge(attacker)
@@ -633,7 +644,10 @@ function Combat:GetAttacked(attacker, damage, weapon, stimuli, spdamage)
 
     local redirect_combat = damageredirecttarget ~= nil and damageredirecttarget.components.combat or nil
     if redirect_combat ~= nil then
+        -- Small hack for centipede
+        redirect_combat.redirected_from = self.inst
 		redirect_combat:GetAttacked(attacker, damage, weapon, stimuli, spdamage)
+        redirect_combat.redirected_from = nil
     end
 
     if self.inst.SoundEmitter ~= nil and not self.inst:IsInLimbo() then
@@ -664,7 +678,8 @@ function Combat:GetAttacked(attacker, damage, weapon, stimuli, spdamage)
             end
         end
     else
-        self.inst:PushEvent("blocked", { attacker = attacker })
+        -- We blocked it, but we might still want to know how much they rattled us in damage value!
+        self.inst:PushEvent("blocked", { attacker = attacker, damage = damage, spdamage = spdamage, original_damage = original_damage })
     end
 
 	if self.target == nil or self.target == attacker then
@@ -711,6 +726,7 @@ function Combat:GetImpactSound(target, weapon)
                 (target:HasTag("grass") and "straw_wall_") or
                 (target:HasTag("stone") and "stone_wall_") or
                 (target:HasTag("marble") and "marble_wall_") or
+                (target:HasTag("fence_electric") and "metal_armour_") or
                 "wood_wall_"
             )..weaponmod
 
@@ -724,23 +740,25 @@ function Combat:GetImpactSound(target, weapon)
 
     else
         local tgttype =
-            ((target:HasTag("hive") or target:HasTag("eyeturret") or target:HasTag("houndmound")) and "hive_") or
+			(target:HasAnyTag("hive", "eyeturret", "houndmound") and "hive_") or
             (target:HasTag("ghost") and "ghost_") or
-            ((target:HasTag("insect") or target:HasTag("spider")) and "insect_") or
-            ((target:HasTag("chess") or target:HasTag("mech")) and "mech_") or
+			(target:HasAnyTag("insect", "spider") and "insect_") or
+			(target:HasAnyTag("chess", "mech") and "mech_") or
+			--V2C: "mech" higher priority over "brightmare(boss)"
+			(target:HasAnyTag("brightmare", "brightmareboss") and "ghost_") or
             (target:HasTag("mound") and "mound_") or
-            ((target:HasTag("shadow") or target:HasTag("shadowminion") or target:HasTag("shadowchesspiece")) and "shadow_") or
-            ((target:HasTag("tree") or target:HasTag("wooden")) and "tree_") or
+			(target:HasAnyTag("shadow", "shadowminion", "shadowchesspiece") and "shadow_") or
+			(target:HasAnyTag("tree", "wooden") and "tree_") or
             (target:HasTag("veggie") and "vegetable_") or
             (target:HasTag("shell") and "shell_") or
-            ((target:HasTag("rocky") or target:HasTag("fossil")) and "stone_") or
+			(target:HasAnyTag("rocky", "fossil") and "stone_") or
             nil
         return
             hitsound..(
                 tgttype or "flesh_"
             )..(
-                ((target:HasTag("smallcreature") or target:HasTag("small")) and "sml_") or
-                ((target:HasTag("largecreature") or target:HasTag("epic") or target:HasTag("large")) and not (target:HasTag("shadowchesspiece") or target:HasTag("fossil")) and "lrg_") or
+				(target:HasAnyTag("smallcreature", "small") and "sml_") or
+				(target:HasAnyTag("largecreature", "epic", "large") and not target:HasAnyTag("shadowchesspiece", "fossil", "brightmareboss") and "lrg_") or
                 (tgttype == nil and target:GetIsWet() and "wet_") or
                 "med_"
             )..weaponmod
@@ -784,10 +802,7 @@ function Combat:CanAttack(target)
         and not (   -- gjans: Some specific logic so the birchnutter doesn't attack it's spawn with it's AOE
                     -- This could possibly be made more generic so that "things" don't attack other things in their "group" or something
                     self.inst:HasTag("birchnutroot") and
-                    (   target:HasTag("birchnutroot") or
-                        target:HasTag("birchnut") or
-                        target:HasTag("birchnutdrake")
-                    )
+					target:HasAnyTag("birchnutroot", "birchnut", "birchnutdrake")
                 )
 end
 
@@ -796,10 +811,10 @@ function Combat:LocomotorCanAttack(reached_dest, target)
         return false, true, false
     end
 
-    local attackrange = self:CalcAttackRangeSq(target)
+	local attackrangesq = self:CalcAttackRangeSq(target)
 
     reached_dest = reached_dest or
-        (self.ignorehitrange or distsq(target:GetPosition(), self.inst:GetPosition()) <= attackrange)
+		(self.ignorehitrange or distsq(target:GetPosition(), self.inst:GetPosition()) <= attackrangesq)
 
     local valid = self.canattack
         and (   self.inst.sg == nil or
@@ -809,15 +824,12 @@ function Combat:LocomotorCanAttack(reached_dest, target)
         and not (   -- gjans: Some specific logic so the birchnutter doesn't attack it's spawn with it's AOE
                     -- This could possibly be made more generic so that "things" don't attack other things in their "group" or something
                     self.inst:HasTag("birchnutroot") and
-                    (   target:HasTag("birchnutroot") or
-                        target:HasTag("birchnut") or
-                        target:HasTag("birchnutdrake")
-                    )
+					target:HasAnyTag("birchnutroot", "birchnut", "birchnutdrake")
                 )
 
-    if attackrange > 2 * 2 and self.inst:HasTag("player") then
+	if attackrangesq > 4 and self.inst.isplayer then
         local weapon = self:GetWeapon()
-        local is_ranged_weapon = weapon ~= nil and (weapon:HasTag("projectile") or weapon:HasTag("rangedweapon"))
+		local is_ranged_weapon = weapon ~= nil and weapon:HasAnyTag("projectile", "rangedweapon")
 
         if not is_ranged_weapon then
             local currentpos = self.inst:GetPosition()
@@ -883,8 +895,8 @@ function Combat:CalcDamage(target, weapon, multiplier)
     local externaldamagemultipliers = self.externaldamagemultipliers
 	local damagetypemult = 1
     local bonus = self.damagebonus --not affected by multipliers
-    local playermultiplier = target ~= nil and (target:HasTag("player") or target:HasTag("player_damagescale"))
-    local pvpmultiplier = playermultiplier and self.inst:HasTag("player") and self.pvp_damagemod or 1
+	local playermultiplier = target ~= nil and (target.isplayer or target:HasTag("player_damagescale"))
+	local pvpmultiplier = playermultiplier and self.inst.isplayer and self.pvp_damagemod or 1
 	local mount = nil
 	local spdamage
 
@@ -1128,6 +1140,16 @@ function Combat:DoAttack(targ, weapon, projectile, stimuli, instancemult, instra
         return
     end
 
+    if targ.components.combat then
+        local recoil, damage = targ.components.combat:ShouldRecoil(self.inst, weapon)
+	    if recoil and self.inst.sg ~= nil and self.inst.sg.statemem.recoilstate ~= nil then
+            self.inst:PushEventImmediate("recoil_off", { target = targ } )
+	    	if damage == 0 or damage == nil then
+	    		self.inst:PushEvent("weapontooweak")
+	    	end
+	    end
+    end
+
     self.inst:PushEvent("onattackother", { target = targ, weapon = weapon, projectile = projectile, stimuli = stimuli })
 
     if weapon ~= nil and projectile == nil then
@@ -1166,16 +1188,12 @@ function Combat:DoAttack(targ, weapon, projectile, stimuli, instancemult, instra
                 stimuli == "electric" or
                 (_weapon_cmp ~= nil and _weapon_cmp.stimuli == "electric")
             )
-            and not
-            (
-                targ:HasTag("electricdamageimmune") or
-                (targ.components.inventory ~= nil and targ.components.inventory:IsInsulated())
-            )
+            and not IsEntityElectricImmune(targ)
         then
             local electric_damage_mult = _weapon_cmp ~= nil and _weapon_cmp.electric_damage_mult or TUNING.ELECTRIC_DAMAGE_MULT
             local electric_wet_damage_mult = _weapon_cmp ~= nil and _weapon_cmp.electric_wet_damage_mult or TUNING.ELECTRIC_WET_DAMAGE_MULT
 
-            mult = electric_damage_mult + electric_wet_damage_mult * (targ.components.moisture ~= nil and targ.components.moisture:GetMoisturePercent() or (targ:GetIsWet() and 1 or 0))
+            mult = electric_damage_mult + electric_wet_damage_mult * targ:GetWetMultiplier()
         end
 
 		local dmg, spdmg = self:CalcDamage(targ, weapon, mult)
@@ -1208,6 +1226,35 @@ function Combat:DoAttack(targ, weapon, projectile, stimuli, instancemult, instra
             end
         end
     end
+end
+
+function Combat:SetRequiresToughCombat(tough)
+	self.tough = tough
+end
+
+function Combat:SetShouldRecoilFn(fn)
+	self.shouldrecoilfn = fn
+end
+
+function Combat:ShouldRecoil(attacker, weapon, damage)
+	if self.shouldrecoilfn ~= nil then
+		local recoil, remaining_damage = self.shouldrecoilfn(self.inst, attacker, weapon, damage)
+		if recoil ~= nil then
+			if recoil then
+				return true, remaining_damage or nil
+			end
+			return false, remaining_damage or damage
+		end
+	end
+
+	if self.tough and
+		not (attacker ~= nil and attacker:HasTag("toughfighter")) and --TODO reuse toughworker?
+		not (weapon ~= nil and weapon.components.weapon ~= nil and weapon.components.weapon:CanDoToughFight())
+		then
+		return true, nil
+	end
+
+	return false, damage
 end
 
 --#V2C: what's this? not used?

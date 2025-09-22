@@ -364,6 +364,7 @@ function Tune(overrides)
         FARM_HOE_DAMAGE = wilson_attack*.5,
         BUGNET_DAMAGE = wilson_attack*.125,
         THULECITEBUGNET_DAMAGE = wilson_attack*.125,
+		GESTALT_CAGE_DAMAGE = wilson_attack * 0.5,
         WHIP_DAMAGE = wilson_attack*.8,
         BULLKELP_ROOT_DAMAGE = wilson_attack*.8,
         FISHINGROD_DAMAGE = wilson_attack*.125,
@@ -644,6 +645,7 @@ function Tune(overrides)
         SLURPER_ATTACK_PERIOD = 5,
 
         LIGHTNING_DAMAGE = 10,
+        LIGHTNING_STRIKE_RADIUS = 3,
 		PLAYER_LIGHTNING_TARGET_CHANCE = 0.3,
 		WX78_LIGHTNING_TARGET_CHANCE = 1.0,
 		WES_LIGHTNING_TARGET_CHANCE = 0.6,
@@ -1394,6 +1396,14 @@ function Tune(overrides)
 
             RABBITKINGSHOP = TechTree.Create({
                 RABBITKINGSHOP = 2,
+            }),
+
+            WANDERINGTRADERSHOP = TechTree.Create({
+                WANDERINGTRADERSHOP = 2,
+            }),
+
+            WAGPUNK_WORKSTATION = TechTree.Create({
+                WAGPUNK_WORKSTATION = 1,
             }),
 
             TURFCRAFTING = TechTree.Create({
@@ -2302,6 +2312,7 @@ function Tune(overrides)
         GUNPOWDER_RANGE = 3,
         GUNPOWDER_DAMAGE = 200,
         BIRD_RAIN_FACTOR = .25,
+        BIRD_POST_HAIL_FACTOR = 6,
 
         EXPLOSIVE_MAX_RESIST_DAMAGE = 8000,
         EXPLOSIVE_RESIST_DECAY_TIME = 8,
@@ -3127,6 +3138,8 @@ function Tune(overrides)
         MUSHROOM_REGROWTH_TIME = total_day_time * 20,
         MUSHROOM_REGROWTH_TIME_MULT = 1,
         MUSHROOM_REGROWTH_TIME_FAST_MULT = 2,
+        MANDRAKE_PLANTED_REGROWTH_TIME = day_time * 20,
+        MANDRAKE_PLANTED_REGROWTH_TIME_MULT = 1,
 
         EVERGREEN_REGROWTH = {
             OFFSPRING_TIME = total_day_time * 5,
@@ -3584,6 +3597,7 @@ function Tune(overrides)
         YOTG_PERD_SPAWNCHANCE = .3,
         MAX_WALKABLE_PLATFORM_RADIUS = 4,
         PLATFORM_HOP_DELAY_TICKS = 8,
+		PLATFORM_FLOATING_HOP_DELAY_TICKS = 4,
         GOOD_LEAKSPAWN_PLATFORM_RADIUS = 9, -- (MAX_WALKABLE_PLATFORM_RADIUS * 0.75) ^2
         ROWING_RADIUS = 0.6,
         ROWING_RADIUS_ITERATIONS = 4,
@@ -3772,6 +3786,7 @@ function Tune(overrides)
 			EFFECTIVENESS = 2.5,
 			CONSUMPTION = 1.25,
 			DAMAGE = wilson_attack,
+            DAMAGE_VS_SHADOW_BONUS = 1.25,
 			ATTACKWEAR = 2,
 			SHADOW_WEAR = 0.5,
 		},
@@ -3780,6 +3795,7 @@ function Tune(overrides)
 		{
 			USES = 75,
 			DAMAGE = wilson_attack * 2,
+            DAMAGE_VS_SHADOW_BONUS = 1.25,
 			SHADOW_WEAR = 0.5,
 		},
 
@@ -4242,7 +4258,7 @@ function Tune(overrides)
 		{
 			DEFAULT =
 			{
-				HEALTH_PENALTY = 0.25,
+				HEALTH = 25,
 				HUNGER = 25,
 				SANITY = 25,
 				WETNESS = 100,
@@ -4250,7 +4266,7 @@ function Tune(overrides)
 
 			WX78 =
 			{
-				HEALTH_PENALTY = 0.4,
+				HEALTH_PENALTY = 0.1,
 				HUNGER = 25,
 				SANITY = 50,
 				WETNESS = 100,
@@ -4258,7 +4274,7 @@ function Tune(overrides)
 
 			WOODIE =
 			{
-				HEALTH_PENALTY = 0.25,
+				HEALTH = 25,
 				HUNGER = 50,
 				SANITY = 25,
 				WETNESS = 100,
@@ -4272,15 +4288,15 @@ function Tune(overrides)
 
             WURT =
             {
-                HEALTH_PENALTY = 0,
-                HUNGER = 0,
-                SANITY = 0,
+                --HEALTH = 0,
+                --HUNGER = 0,
+                --SANITY = 0,
                 WETNESS = 50,
             },
 
             WALTER =
             {
-                HEALTH_PENALTY = 0.1,
+				HEALTH = 12,
                 HUNGER = 25,
                 SANITY = 12,
                 WETNESS = 100,
@@ -4301,6 +4317,11 @@ function Tune(overrides)
 		},
 
         DEFAULT_LOCOMOTOR_HOP_DISTANCE = 6.0,
+
+		--these are for players only; see WILSON_HOP_DISTANCE etc. for other player hop tuning values
+		FLOATING_HOP_DISTANCE_PLATFORM = 2,
+		FLOATING_HOP_DISTANCE_LAND = 3,
+		PILLAR_HOP_DISTANCE = 4,
 
         CARRAT =
         {
@@ -4450,6 +4471,8 @@ function Tune(overrides)
             garlic_seeds = "seeds_cooked",
             pepper_seeds = "seeds_cooked",
             pondfish = "fishmeat_small_cooked",
+            --
+            tree_rock_seed = "ash", --Because rock tree loot is protected from burning.
         },
 
         --wortox
@@ -4787,7 +4810,8 @@ function Tune(overrides)
 		SLINGSHOT_AMMO_MOVESPEED_MAX_STACKS = 3,
 		SLINGSHOT_AMMO_FREEZE_COLDNESS = 2,
 		SLINGSHOT_AMMO_SHADOWTENTACLE_CHANCE = 0.5,
-        SLINGSHOT_AMMO_SCRAPFEATHER_WET_DAMAGE_MULT = 0.75, -- It's actually 1.75.
+		SLINGSHOT_AMMO_SCRAPFEATHER_DRY_DAMAGE_MULT = 1.2,
+		SLINGSHOT_AMMO_SCRAPFEATHER_WET_DAMAGE_MULT = 0.7, -- It's actually 1.25 + 0.65 = 1.9
         SLINGSHOT_AMMO_GUNPOWDER_DUST_TIMEOUT = 5,
         SLINGSHOT_AMMO_GUNPOWDER_DUST_TRIGGER_CHANCE_RATE = 0.05,
         SLINGSHOT_AMMO_GUNPOWDER_DUST_DAMAGE_MULTIPLIER = 2,
@@ -4799,7 +4823,7 @@ function Tune(overrides)
 		SLINGSHOT_AMMO_DAMAGE_SLOW = wilson_attack * 0.5,		-- 17
 		SLINGSHOT_AMMO_DAMAGE_TRINKET_1 = wilson_attack * 1.75,	-- 59.5
 		SLINGSHOT_AMMO_DAMAGE_MOONGLASS = wilson_attack * 1.5,	-- 51
-		SLINGSHOT_AMMO_DAMAGE_SCRAPFEATHER = wilson_attack * 1.25,	-- 42.5
+		SLINGSHOT_AMMO_DAMAGE_SCRAPFEATHER = wilson_attack * 1.15,	-- 39.1
 		SLINGSHOT_AMMO_DAMAGE_STINGER = wilson_attack * 0.75,	-- 25.5
         SLINGSHOT_AMMO_DAMAGE_GUNPOWDER = wilson_attack * 1.75,	-- 59.5
         
@@ -5530,6 +5554,8 @@ function Tune(overrides)
         SLEEPRESISTBUFF_TIME = total_day_time,
         SLEEPRESISTBUFF_VALUE = 10,
 
+        SLEEPIMMUNEBUFF_TIME = seg_time,
+
         MOON_MUSHROOM_SLEEPTIME = 3,
 
         MOLEBAT_TARGET_DIST = 5,
@@ -6130,6 +6156,9 @@ function Tune(overrides)
         ALTERGUARDIAN_PROJECTILE_SPEED = 20,
 
 		ALTERGUARDIANHAT_GESTALT_DAMAGE = wilson_attack * 1.25,
+        ALTERGUARDIANHAT_SEEDCOUNT_FOR_FULL_PLANAR_CONVERSION = 3,
+        ALTERGUARDIANHAT_MAX_PLANAR_CONVERSION = 0.25,
+        ALTERGUARDIANHAT_SEEDCOUNT_EXTRA_DAMAGE_MAX = wilson_attack * 0.25,
 
         WAGSTAFF_NPC_EXPIRE_TIME = seg_time * 4,
         WAGSTAFF_NPC_HUNTS = 4,
@@ -6150,6 +6179,7 @@ function Tune(overrides)
         MUTANT_BIRD_SPIT_RANGE = 10,
 
         MOONSTORM_SPARK_HEALTH = 100,
+		MOONSTORM_SPARK_DAMAGE = 10 / 1.5, --accounting for electric dmg mult
 
         MOONSTORM_GOGGLES_PERISHTIME = total_day_time*1,
 
@@ -7501,16 +7531,17 @@ function Tune(overrides)
         MIASMA_SPACING = 1, -- In tiles.
         MIASMA_SPREAD_INTERVAL_SECONDS = 5,
         MIASMA_DIMINISH_INTERVAL_SECONDS = 1,
-        MIASMA_MAX_CLOUDS = 50,
+        MIASMA_MAX_CLOUDS = 500,
         MIASMA_ODDS_CREATE = 0.8,
         MIASMA_ODDS_SPREAD = 0.5,
         MIASMA_MIN_DISTSQ_FROM_RIFT = 1 * 1 * 4, -- 4 is TILE_SCALE.
         MIASMA_MAX_DISTSQ_FROM_RIFT = 12 * 12 * 4, -- 4 is TILE_SCALE.
+        MIASMA_MAX_DIST_FROM_VENTER = 3 * 4, -- 4 is TILE_SCALE.
 
         MIASMA_DEBUFF_TICK_RATE = 2,
         MIASMA_DEBUFF_TICK_VALUE = -2,
 
-        ACIDRAIN_ENALBED = true, -- Managed by world settings.
+        ACIDRAIN_ENABLED = true, -- Managed by world settings.
         -- Damage over times.
         ACIDRAIN_DAMAGE_TIME = 1.5, -- How quickly the game polls to deal acidrain damage.
         ACIDRAIN_DAMAGE_PER_SECOND = 2.0,
@@ -7662,7 +7693,28 @@ function Tune(overrides)
         LUNARHAIL_DEBRIS_KEEP_CHANCE = 0.25,
 
         LUNARHAIL_EVENT_COOLDOWN = 10 * total_day_time,
-        LUNARHAIL_EVENT_TIME = 3 * seg_time,
+        LUNARHAIL_EVENT_TIME = 3 * seg_time, --10
+        LUNARHAIL_BIRD_EVENT = 0.5, --Happens halfway through Lunar Hail
+        LUNARHAIL_BIRD_EVENT_VARIANCE = 0.1, --40-60% give or take
+        LUNARHAIL_BIRD_EVENT_RETRY = 0.03, --We failed, try again quick!!!
+
+        LUNARHAIL_BUILDUP_TICK_TIME = 2.5, -- Seconds.
+        LUNARHAIL_BUILDUP_RATE = 1 / seg_time, -- Percent per second.
+
+        LUNARHAIL_BUILDUP_DECAY_TICK_TIME = 4.5, -- Seconds.
+        LUNARHAIL_BUILDUP_DECAY_RATE = 1 / total_day_time, -- Percent per second.
+
+        LUNARHAIL_BUILDUP_MOONGLASS_REWARDS_DESTRUCTION_MULT = 0.5,
+
+        LUNARHAIL_BUILDUP_TOTAL_WORK_AMOUNT_SMALL = 2,
+        LUNARHAIL_BUILDUP_MOONGLASS_AMOUNT_SMALL = 1,
+        LUNARHAIL_BUILDUP_TOTAL_WORK_AMOUNT_MEDIUM = 3,
+        LUNARHAIL_BUILDUP_MOONGLASS_AMOUNT_MEDIUM = 2,
+        LUNARHAIL_BUILDUP_TOTAL_WORK_AMOUNT_LARGE = 4,
+        LUNARHAIL_BUILDUP_MOONGLASS_AMOUNT_LARGE = 3,
+
+        LUNARHAIL_BUILDUP_MOONGLASS_REWARDS_CHARGED_CHANCE_MAX = 0.4,
+        LUNARHAIL_BUILDUP_MOONGLASS_REWARDS_CHARGED_CHANCE_MIN = 0.2,
 
 		MUTATED_DEERCLOPS_HEALTH = 6000,
 		MUTATED_DEERCLOPS_DAMAGE = 150,
@@ -8291,6 +8343,11 @@ function Tune(overrides)
 
         SHADOWTHRALL_PARASITE_TIMEOUT = total_day_time*5,
 
+        SHADOWTHRALL_PARASITE_WAVE_MIN = 6,
+        SHADOWTHRALL_PARASITE_WAVE_VAR = 6, --6 + 6 = 12
+
+        SHADOWTHRALL_PARASITE_WAVE_ENABLED = true,
+
 		-- Winter's Feast 2024
 		SNOWMAN_MAX_DECOR = { 5, 15, 20 },
 
@@ -8378,6 +8435,299 @@ function Tune(overrides)
         -- Playing Cards
         PLAYINGCARDS_NUM_SUITS = 4,
         PLAYINGCARDS_NUM_PIPS = 13,
+
+        -- Rifts 5
+		DROWNING_SHALLOW_SCALE = 1 / 3, --drowning penalty scale
+		DROWNING_FLOAT_SCALE = 0.2, --(if floating, it's only wetness penalty)
+        DROWNING_ITEMDROP_SHALLOWS = 7,
+        DROWNING_ITEMDROP_NORMAL = 5,
+		FLOATING_SWIM_SPEED = 0.6,
+		FLOATING_SWIM_TIME = { min = 2, max = 3 },
+		FLOATING_SWIM_HUNGER_RATE_MULT = 1.25,
+
+		ELECTROCUTE_DEFAULT_DURATION = 0.8,
+        ELECTROCUTE_SHORT_DURATION = 0.4,
+		ELECTROCUTE_DEFAULT_DELAY = { min = 2, max = 4 },
+		ELECTROCUTE_DEFAULT_INTERRUPT_CHANCE = 0.5,
+
+        ELECTROCUTE_FORK_RANGE = 3, --3,
+        ELECTROCUTE_FORK_TARGETS = 2,
+        ELECTROCUTE_FORK_DELAY = 11 * FRAMES,
+
+		WAGDRONE_ROLLING_RUNSPEED = 9,
+		WAGDRONE_ROLLING_HEALTH = 70 * 4,
+		WAGDRONE_ROLLING_REGEN_AMOUNT = 5,
+		WAGDRONE_ROLLING_REGEN_PERIOD = 1,
+		WAGDRONE_ROLLING_DAMAGE = 50,
+		WAGDRONE_ROLLING_HARDARMOR_BOUNCE_CHANCE = 0.5,
+		WAGDRONE_ROLLING_USES = 2000,
+		WAGDRONE_ROLLING_WORK_RADIUS = 20,
+		WAGDRONE_LASERWIRE_DAMAGE = 30,
+		WAGDRONE_LASERWIRE_INSULATED_DAMAGE_MULT = 0.5,
+
+		WAGDRONE_FLYING_RUNSPEED = 7,
+		WAGDRONE_FLYING_DAMAGE = 30,
+		WAGDRONE_FLYING_INSULATED_DAMAGE_MULT = 0.5,
+
+		WAGBOSS_ROBOT_HEALTH = 22500,
+		WAGBOSS_ROBOT_WALKSPEED = 2,
+		--WAGBOSS_ROBOT_HIT_RECOVERY = 1,
+		WAGBOSS_ROBOT_ATTACK_PERIOD = { 3.5, 3, 2.5, 2 }, --threat levels
+		WAGBOSS_ROBOT_ATTACK_RANGE = 3,
+		WAGBOSS_ROBOT_DAMAGE = 200,
+		WAGBOSS_ROBOT_PLANAR_DAMAGE = 30,
+		WAGBOSS_ROBOT_KICK_DAMAGE = 50,
+		WAGBOSS_ROBOT_KICK_PLANAR_DAMAGE = 10,
+		WAGBOSS_ROBOT_PLAYERDAMAGEPERCENT = 0.75,
+
+		WAGBOSS_MISSILE_DAMAGE = 75,
+		WAGBOSS_MISSILE_PLANAR_DAMAGE = 10,
+
+		WAGBOSS_BEAM_PLANAR_DAMAGE = 50, --initial hit
+		WAGBOSS_BEAM_LUNAR_BURN_DPS = 40, --DOT
+		WAGBOSS_BEAM_BRIGHTMARE_HEAL = 5, --Heal over time
+
+		WAGBOSS_ROBOT_TANTRUM_CD = 15,
+		WAGBOSS_ROBOT_LEAP_CD = { 7, 11 },
+		WAGBOSS_ROBOT_MISSILES_CD = { 16, 20 },
+		WAGBOSS_ROBOT_MISSILE_BARRAGE_PERIOD = { 1.5, 0.75, 0, 0 }, --threat levels
+		WAGBOSS_ROBOT_HACK_DRONES_CD = 60,
+		WAGBOSS_ROBOT_ORBITAL_STRIKE_CD = { 24, 30 },
+
+		WAGBOSS_ROBOT_AGGRO_DIST = 15,
+		WAGBOSS_ROBOT_KEEP_AGGRO_DIST = 12,
+		WAGBOSS_ROBOT_DEAGGRO_DIST = 24,
+
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_HEALTH = 16000,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_WALKSPEED = 2.9,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_ATTACK_PERIOD = { 3, 2.75 },
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_ATTACK_RANGE = 5,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_DAMAGE = 225,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_PLANAR_DAMAGE = 35,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_PLAYERDAMAGEPERCENT = 0.75,
+
+		ALTERGUARDIAN_LUNAR_FISSURE_LUNAR_BURN_DPS = 25, --DOT
+		ALTERGUARDIAN_LUNAR_SUPERNOVA_PLANAR_DAMAGE = 50, --initial hit
+		ALTERGUARDIAN_LUNAR_SUPERNOVA_LUNAR_BURN_DPS = 40, --DOT
+
+		ALTERGUARDIAN_PHASE4_SUPERNOVA_CD = 40,
+
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_AGGRO_DIST = 15,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_SHORT_AGGRO_DIST = 8,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_KEEP_AGGRO_DIST = 12,
+		ALTERGUARDIAN_PHASE4_LUNARRIFT_DEAGGRO_DIST = 24,
+
+        WAGPUNK_ARENA_WAGSTAFF_FADEIN_TIME = 1.0,
+        WAGPUNK_ARENA_WAGSTAFF_FADEOUT_TIME = 2.2,
+        WAGPUNK_ARENA_WAGSTAFF_TALK_TIME = 4.0,
+        WAGPUNK_ARENA_WAGSTAFF_NAG_COOLDOWN_TIME = 20,
+        WAGPUNK_ARENA_WAGBOSS_ROBOT_DESPAWN_GRACE_TIME = 5 * 60, -- If a player disconnects or a save is loaded.
+        WAGPUNK_ARENA_WAGBOSS_ROBOT_COOLDOWN_DEFEATED_TIME = total_day_time * 20, -- If the boss is defeated.
+        WAGPUNK_ARENA_COLLISION_NOBUILD_THICKNESS = 3, -- Units away from the barrier that things cannot build in and the band of destruction for breaking structures near the barrier.
+
+        GESTALT_CAGE_FILLED_PLACEMENT_RADIUS = 2,
+        WAGBOSS_ROBOT_CONSTRUCTIONSITE_KIT_PLACEMENT_RADIUS = 4,
+
+        AXISALIGNEDPLACEMENT_INTERVALS = 1, -- Units of division for 1 game unit.
+        AXISALIGNEDPLACEMENT_CIRCLESIZE = 4, -- Units for how big the circle radius ground decals are going to draw out to.
+        AXISALIGNEDPLACEMENT_HELPERS_TIMETOSHOW = 0.15,
+        AXISALIGNEDPLACEMENT_HELPERS_TIMETOHIDE = 0.2,
+        AXISALIGNEDPLACEMENT_HELPERS_UPDATEPERIOD = FRAMES,
+        AXISALIGNEDPLACEMENT_HELPERS_UPDATEAMOUNT = 15,
+
+        WANDERINGTRADER_ENABLED = true, -- Managed by world settings.
+        WANDERINGTRADER_SHOP_REFRESH_INTERVAL = total_day_time * 2,
+        WANDERINGTRADER_SHOP_RANDOM_UNCOMMON_ODDS = 0.5,
+        WANDERINGTRADER_SHOP_RANDOM_RARE_ODDS = 0.25,
+        WANDERINGTRADER_WANDERING_PERIOD = 14,
+        WANDERINGTRADER_WANDERING_PERIOD_VARIANCE = 4,
+        WANDERINGTRADER_VIRTUALWALKING_SPEEDMULT = 4,
+
+        GESTALT_EVOLVED_ATTACK_DAMAGE_GROGGINESS = 0.5,
+        GESTALT_EVOLVED_ATTACK_DAMAGE_KO_TIME = 1,
+        GESTALT_EVOLVED_REAL_DAMAGE = 165,
+        GESTALT_EVOLVED_RELOCATE_TIME_RAND = 0.5,
+        GESTALT_EVOLVED_RELOCATE_TIME_BASE = 0.5,
+		GESTALT_EVOLVED_HEALTH = 850,
+        GESTALT_EVOLVED_EXPLODE_CHANCE = 0.33,
+		GESTALT_EVOLVED_MAX_DISTSQ_RELOCATE = 30*30,
+        GESTALT_EVOLVED_PLANAR_DAMAGE = 15,
+		GESTALT_EVOLVED_SPAWN_COOLDOWN = 2 * seg_time,
+        GESTALT_EVOLVED_MAXSPAWN = 1,
+        GESTALT_EVOLVED_MAXSPAWN_INDUCED = 3,
+        GESTALT_EVOLVED_MAXPOOL = 15,
+        GESTALT_EVOLVED_ADDTOPOOLTIME = total_day_time,
+        GESTALT_TIMEOUT = 30,
+        GESTALT_POPULATION_CHECK_TIME = 5,
+
+        WAGBOSS_DEFEATED_GESTALT_SPAWN_FACTOR = 2,
+
+        ARMOR_LUNACYHAT = wilson_health * 9 * multiplayer_armor_durability_modifier,
+        ARMOR_LUNACYHAT_ABSORPTION = .7 * multiplayer_armor_absorption_modifier,
+
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_HEALTH = 8000,
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_PLANAR_DAMAGE = 30,
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_REVIVE_TIME = { 8, 10, 12, 14, 16 },
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_REVIVE_HP = 0.25,
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_REGEN_AMOUNT = 200,
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_REGEN_PERIOD = 2,
+
+        ELECTRIC_FENCE_DAMAGE = 0,
+        ELECTRIC_FENCE_MAX_LINKS = 2,
+        ELECTRIC_FENCE_MAX_DIST = 10,
+
+        ELECTRIC_FIELD_HEALTH = 50,
+        ELECTRIC_FIELD_HEALTHREGEN_AMOUNT = 1,
+        ELECTRIC_FIELD_HEALTHREGEN_PERIOD = 2,
+        ELECTRIC_FIELD_DAMAGE_TAKEN_BASE = 1, --(Omar): Base value, size of shocked mob does more 'damage' to the field, e.g. rabbit has .5 radius, 1*0.5 = .5 damage to field, or 1*1.5 for epic creatures
+
+        ELECTRIC_FIELD_RAINDECAY_AMOUNT = -0.5,
+        ELECTRIC_FIELD_RAINDECAY_PERIOD = 3,
+
+        ELECTRIC_FIELD_MOB_PANICTIME = 2,
+
+        RUMMAGE_COUNT_FOR_FENCE_BLUEPRINT = 10,
+
+        RIFT_BIRD_WALKSPEED = 4,
+        RIFT_BIRD_DAMAGE = 10,
+        RIFT_BIRD_PLANAR_DAMAGE = 10,
+        RIFT_BIRD_HEALTH = 25,
+        RIFT_BIRD_ATTACK_COOLDOWN = 6,
+        RIFT_BIRD_ATTACK_RANGE = 2,
+        RIFT_BIRD_EAT_COUNT_FOR_BRILLIANCE = 3,
+        RIFT_BIRD_BRILLIANCE_TIMER = total_day_time,
+
+        BIRD_CORPSE_MIN_SPAWN = 3,
+        BIRD_CORPSE_MAX_SPAWN = 5,
+        BIRD_CORPSE_MUTATE_MAX_COUNT = 2,
+        BIRD_CORPSE_FADE_MIN_TIME = 12,
+        BIRD_CORPSE_FADE_MAX_TIME = 20,
+
+        BIRD_CORPSE_GESTALT_MIN_TIME = 10,
+        BIRD_CORPSE_GESTALT_MAX_TIME = 12,
+
+        BIRD_CORPSE_SPAWN_MAX = 8,
+
+        RIFT_BIRD_FOOD_RANGE = 15,
+        RIFT_BIRD_BRILLIANCE_CHANCE = 0.33,
+
+        LUNARHAIL_LEVEL_FAIL_BIRD_BOOK = 85, -- A bit after the hail starts, birds of the world will fail.
+
+        ASCARABUS_HEALTH = 100,
+        ASCARABUS_WALKSPEED = 4,
+        ASCARABUS_RUNSPEED = 6,
+
+        MUTATEDBUZZARD_DAMAGE = 25,
+        MUTATEDBUZZARD_PLANAR_DAMAGE = 25,
+        MUTATEDBUZZARD_ATTACK_RANGE = 2,
+        MUTATEDBUZZARD_ATTACK_PERIOD = 2,
+        MUTATEDBUZZARD_WALK_SPEED = 4,
+        MUTATEDBUZZARD_RUN_SPEED = 8,
+        MUTATEDBUZZARD_HEALTH = 125 * 2, -- harder for multiplayer
+
+        BIRD_SPAWNER_POST_HAIL_TIME = 6 * total_day_time,
+
+        SHADOWTHRALL_CENTIPEDE = {
+            HEALTH = 2000,
+
+            DAMAGE = 150,
+            PLANAR_DAMAGE = 50,
+            PLAYERDAMAGEPERCENT = 0.5, --Does not apply to planar!
+
+            MOVESPEED = 5,
+            RUNSPEED = 10,
+            TURNSPEED = 1.5,
+            MAX_SEGMENTS = 20,
+
+            -- Brain stuff
+
+            FIND_MIASMA_DIST = 10,
+            WANDER_DIST = 6,
+
+            EAT_MIASMA_MAX = 5, -- 5 at a time before going on delay.
+            EAT_DELAY = seg_time * 2,
+
+            ANGLE_INTERACT_WIDTH = 180 / RADIANS, -- must be in radians
+        },
+
+        TREE_ROCK = {
+            MINE = 6,
+            MINE_MED = 4,
+            MINE_LOW = 2,
+
+            AOE_DAMAGE = 150,
+
+            ROCK1_AOE_RADIUS = 2,
+            ROCK2_AOE_RADIUS = 3.25,
+
+            ROCK1_AOE_DAMAGE = 200,
+            ROCK2_AOE_DAMAGE = 100,
+
+            BURN_TIME = 3,
+
+            PLAYERDAMAGEPERCENT = 1/4,
+
+            BOULDER_GEN_CHANCE = 1/3,
+
+            CHOP = 5,
+
+            GROW_TIME =
+            {
+                {base=1.5*day_time, random=0.5*day_time},   --short
+                {base=5*day_time, random=2*day_time},       --normal
+                {base=5*day_time, random=2*day_time},       --tall
+                {base=1*day_time, random=0.5*day_time}      --old
+            },
+
+            SAPLING_GROW_TIME = {base=4*day_time, random=1*day_time},
+        },
+
+        -- Rock trees only have desolation regrowth
+        TREE_ROCK_REGROWTH = {
+            OFFSPRING_TIME = total_day_time * 0.0001,
+            DESOLATION_RESPAWN_TIME = total_day_time * 50,
+            DEAD_DECAY_TIME = total_day_time * 30, --NOTE: no decay.
+        },
+
+        TREE_ROCK_REGROWTH_TIME_MULT = 1,
+
+        CAVE_VENTS = {
+            MINE = 6,
+            MINE_MED = 4,
+            MINE_LOW = 2,
+
+            SPEW_TIME = {
+                HOT = {
+                    BASE = seg_time * 3,
+                    VARIANCE = seg_time * 2,
+                },
+                MIASMA = {
+                    BASE = seg_time * 6,
+                    VARIANCE = seg_time * 3,
+                },
+                GAS = {
+                    BASE = seg_time * 5,
+                    VARIANCE = seg_time * 1,
+                },
+            },
+
+            HEAT =
+            {
+                HOT_ACTIVE = 120,
+                MIASMA_ACTIVE = 90,
+                INACTIVE = 10,
+                COLD_ACTIVE = -120,
+            },
+        },
+
+        OCEANWHIRLBIGPORTAL_FOCALRADIUS = 4,
+        OCEANWHIRLBIGPORTAL_RADIUS = 14,
+        OCEANWHIRLBIGPORTAL_PULLSTRENGTH = 10,
+        OCEANWHIRLBIGPORTAL_RADIALSTRENGTH = 20,
+        OCEANWHIRLBIGPORTAL_BOAT_PERCENT_DAMAGE_PER_TICK = 0.1,
+
+        FLOWER_CAVE_WITHERED_LIGHT_TIME = 20,
+        FLOWER_CAVE_WITHERED_RECHARGE_TIME = 200,
     }
 
     TUNING_MODIFIERS = {}

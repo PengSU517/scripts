@@ -208,6 +208,7 @@ local prefabs =
     "fire",
     "character_fire",
     "shatter",
+	"electrocute_fx",
     --
 
     "migration_portal",
@@ -561,6 +562,8 @@ function MakeWorld(name, customprefabs, customassets, common_postinit, master_po
             return inst
         end
 
+        inst:AddComponent("shardtransactionsteps")
+
         inst:AddComponent("klaussackloot")
 
         inst:AddComponent("undertile")
@@ -572,6 +575,7 @@ function MakeWorld(name, customprefabs, customassets, common_postinit, master_po
 
         inst:AddComponent("dockmanager")
         inst:AddComponent("vinebridgemanager")
+        inst:AddComponent("worldroutes")
 
         inst:AddComponent("playerspawner")
 
